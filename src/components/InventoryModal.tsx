@@ -420,15 +420,6 @@ export const InventoryModal: React.FC<InventoryModalProps> = ({
                 <RefreshCw className={`w-3.5 h-3.5 ${isRerollMode ? 'animate-spin' : ''}`} />
                 <span>{t('inv.reroll.btn', state.language)} ({rerollSelectedIds.length}/3)</span>
               </button>
-
-              {isRerollMode && rerollSelectedIds.length === 3 && (
-                <button
-                  onClick={handleExecuteReroll}
-                  className="px-3 py-1 bg-gradient-to-r from-[#00c8c8] to-[#005a82] text-white text-xs font-black uppercase tracking-widest rounded-xs hover:brightness-125 transition-all shadow-[0_0_12px_#00c8c8] animate-pulse cursor-pointer"
-                >
-                  {t('inv.reroll.forge', state.language)}
-                </button>
-              )}
             </div>
           </div>
 

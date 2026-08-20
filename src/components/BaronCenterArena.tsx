@@ -29,21 +29,35 @@ export const BaronCenterArena: React.FC = () => {
   const [slashPosition, setSlashPosition] = useState({ x: 35, y: 55 });
   const [arcadeLevelUp, setArcadeLevelUp] = useState<{ level: number } | null>(null);
   const prevLevelRef = useRef(state.level);
+  const levelUpTimerRef = useRef<NodeJS.Timeout | null>(null);
   const arenaRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     if (state.level > prevLevelRef.current && prevLevelRef.current > 0) {
+      if (levelUpTimerRef.current) clearTimeout(levelUpTimerRef.current);
       setArcadeLevelUp({ level: state.level });
-      const timer = setTimeout(() => {
+      levelUpTimerRef.current = setTimeout(() => {
         setArcadeLevelUp(null);
       }, 2600);
       prevLevelRef.current = state.level;
-      return () => clearTimeout(timer);
+      return () => {
+        if (levelUpTimerRef.current) clearTimeout(levelUpTimerRef.current);
+      };
     }
     prevLevelRef.current = state.level;
   }, [state.level]);
 
+  const dismissLevelUp = () => {
+    if (arcadeLevelUp) {
+      if (levelUpTimerRef.current) clearTimeout(levelUpTimerRef.current);
+      setArcadeLevelUp(null);
+    }
+  };
+
   const handleArenaClick = (e: React.MouseEvent<HTMLDivElement>) => {
+    if (arcadeLevelUp) {
+      dismissLevelUp();
+    }
     let clickX = e.clientX;
     let clickY = e.clientY;
 
@@ -319,7 +333,8 @@ export const BaronCenterArena: React.FC = () => {
               }}
               exit={{ scale: 1.15, opacity: 0, y: -45 }}
               transition={{ duration: 0.45, ease: 'backOut' }}
-              className="absolute inset-0 z-50 pointer-events-none flex flex-col items-center justify-center p-3"
+              onClick={dismissLevelUp}
+              className="absolute inset-0 z-50 cursor-pointer flex flex-col items-center justify-center p-3"
             >
               {/* Radiant Arcade Background Pulse */}
               <div className="absolute inset-0 bg-black/40 backdrop-blur-[1.5px] animate-pulse"></div>

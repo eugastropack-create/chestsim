@@ -17,7 +17,7 @@ interface AdSenseBannerProps {
 
 export const AdSenseBanner: React.FC<AdSenseBannerProps> = ({
   slotId = '1234567890',
-  clientId = (import.meta as any).env?.VITE_ADSENSE_CLIENT_ID || 'ca-pub-XXXXXXXXXXXXXXXX',
+  clientId = (import.meta as any).env?.VITE_ADSENSE_CLIENT_ID || 'ca-pub-5440958179084157',
   format = 'auto',
   responsive = true,
   className = '',
