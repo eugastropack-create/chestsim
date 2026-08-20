@@ -108,12 +108,16 @@ export const RightHextechPanel: React.FC<RightHextechPanelProps> = ({ onOpenCraf
         </div>
       </div>
 
-      {/* 3. Google AdSense Unit (Right Sidebar) */}
-      <AdSenseBanner
-        slotId="1234567890"
-        label={t('ads.sponsored', state.language)}
-        className="mt-auto"
-      />
+      {/* 3. Google AdSense Unit (Right Sidebar - Full Remaining Height) */}
+      <div className="flex-1 w-full h-full flex flex-col min-h-[220px]">
+        <AdSenseBanner
+          slotId="1234567890"
+          format="vertical"
+          fullHeight={true}
+          label={t('ads.sponsored', state.language)}
+          className="flex-1 h-full"
+        />
+      </div>
     </aside>
   );
 };

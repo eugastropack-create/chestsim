@@ -13,6 +13,8 @@ interface AdSenseBannerProps {
   responsive?: boolean;
   className?: string;
   label?: string;
+  minHeight?: string;
+  fullHeight?: boolean;
 }
 
 export const AdSenseBanner: React.FC<AdSenseBannerProps> = ({
@@ -22,6 +24,8 @@ export const AdSenseBanner: React.FC<AdSenseBannerProps> = ({
   responsive = true,
   className = '',
   label = 'Advertisement / Reklam',
+  minHeight = '120px',
+  fullHeight = false,
 }) => {
   const adRef = useRef<HTMLModElement>(null);
   const isLoaded = useRef(false);
@@ -52,10 +56,11 @@ export const AdSenseBanner: React.FC<AdSenseBannerProps> = ({
   const isPlaceholder = !clientId || clientId.includes('XXXX');
 
   return (
-    <div className={`w-full flex flex-col items-center select-none ${className}`}>
+    <div className={`w-full flex flex-col ${fullHeight ? 'flex-1 h-full' : ''} select-none ${className}`}>
       {/* Ad Label Header */}
-      <div className="w-full flex items-center justify-between px-1 mb-1">
-        <span className="text-[9px] uppercase tracking-widest text-[#5c5b57] font-semibold">
+      <div className="w-full flex items-center justify-between px-1 mb-1.5 shrink-0">
+        <span className="text-[9px] uppercase tracking-widest text-[#5c5b57] font-semibold flex items-center gap-1">
+          <span className="w-1.5 h-1.5 rounded-full bg-[#c8aa6e]/60"></span>
           {label}
         </span>
         <span className="text-[8px] uppercase tracking-widest text-[#385060]">
@@ -64,12 +69,17 @@ export const AdSenseBanner: React.FC<AdSenseBannerProps> = ({
       </div>
 
       {/* AdSense Container Box */}
-      <div className="w-full min-h-[90px] bg-[#020b14] border border-[#1e2328] rounded-sm overflow-hidden flex flex-col items-center justify-center relative p-1.5 shadow-inner">
+      <div
+        className={`w-full ${
+          fullHeight ? 'flex-1 h-full min-h-[300px]' : ''
+        } bg-[#020b14]/90 border border-[#1e2328] rounded-sm overflow-hidden flex flex-col items-center justify-center relative p-2 shadow-inner`}
+        style={{ minHeight: fullHeight ? undefined : minHeight }}
+      >
         {/* Actual Google AdSense Tag */}
         <ins
           ref={adRef}
           className="adsbygoogle w-full block"
-          style={{ display: 'block', minHeight: '80px' }}
+          style={{ display: 'block', width: '100%', height: fullHeight ? '100%' : 'auto', minHeight }}
           data-ad-client={clientId}
           data-ad-slot={slotId}
           data-ad-format={format}
@@ -78,16 +88,16 @@ export const AdSenseBanner: React.FC<AdSenseBannerProps> = ({
 
         {/* Display informative Hextech preview placeholder when publisher ID is not yet customized */}
         {isPlaceholder && (
-          <div className="flex flex-col items-center justify-center text-center py-2 px-2 border border-dashed border-[#005a82]/40 rounded-xs w-full bg-[#0a1e28]/40">
-            <div className="flex items-center gap-1.5 text-[#00c8c8] text-[10px] font-bold uppercase tracking-wider">
-              <span className="w-1.5 h-1.5 rounded-full bg-[#00c8c8] animate-pulse"></span>
-              Google AdSense Banner
+          <div className="flex flex-col items-center justify-center text-center py-6 px-3 border border-dashed border-[#005a82]/40 rounded-xs w-full h-full bg-[#0a1e28]/40">
+            <div className="flex items-center gap-1.5 text-[#00c8c8] text-[11px] font-bold uppercase tracking-wider">
+              <span className="w-2 h-2 rounded-full bg-[#00c8c8] animate-pulse"></span>
+              Google AdSense Reklam Alanı
             </div>
-            <p className="text-[8.5px] text-[#a09b8c] mt-0.5">
+            <p className="text-[9.5px] text-[#a09b8c] mt-1">
               Slot ID: {slotId} • Format: {format}
             </p>
-            <p className="text-[8px] text-[#5c5b57] mt-0.5">
-              Set <code className="text-[#c8aa6e]">VITE_ADSENSE_CLIENT_ID</code> in .env to go live
+            <p className="text-[8.5px] text-[#5c5b57] mt-1">
+              ca-pub-5440958179084157
             </p>
           </div>
         )}

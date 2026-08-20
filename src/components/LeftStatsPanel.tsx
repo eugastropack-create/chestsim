@@ -15,17 +15,21 @@ export const LeftStatsPanel: React.FC<LeftStatsPanelProps> = ({
   const isLightBlue = state.themeTone === 'light_blue';
 
   return (
-    <aside className={`w-full lg:w-72 border-t lg:border-t-0 lg:border-r flex flex-col p-4 gap-4 text-[#f0e6d2] select-none order-2 lg:order-none transition-colors duration-300 ${
+    <aside className={`w-full lg:w-72 border-t lg:border-t-0 lg:border-r flex flex-col p-4 text-[#f0e6d2] select-none order-2 lg:order-none transition-colors duration-300 ${
       isLightBlue
         ? 'bg-[#041527]/80 border-[#00c8c8]/20 backdrop-blur-sm'
         : 'bg-[#010a13] border-[#1e2328]'
     }`}>
-      {/* Google AdSense Unit (Left Sidebar) */}
-      <AdSenseBanner
-        slotId="9876543210"
-        label={t('ads.sponsored', state.language)}
-        className="mt-auto"
-      />
+      {/* Google AdSense Unit (Full Height Skyscraper / Vertical Ad Box) */}
+      <div className="flex-1 w-full h-full flex flex-col">
+        <AdSenseBanner
+          slotId="9876543210"
+          format="vertical"
+          fullHeight={true}
+          label={t('ads.sponsored', state.language)}
+          className="flex-1 h-full"
+        />
+      </div>
     </aside>
   );
 };

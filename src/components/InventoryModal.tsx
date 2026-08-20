@@ -257,22 +257,19 @@ export const InventoryModal: React.FC<InventoryModalProps> = ({
           {/* ========================================================================= */}
           {/* 1. TOP CLIENT BAR (LoL Client Header Replica) */}
           {/* ========================================================================= */}
-          <div className="h-14 bg-[#010a13] border-b border-[#1e2328] px-3 md:px-4 flex items-center justify-between shrink-0 relative z-30">
+          <div className="min-h-[50px] md:h-14 bg-[#010a13] border-b border-[#1e2328] px-2 sm:px-4 py-1.5 md:py-0 flex flex-wrap sm:flex-nowrap items-center justify-between gap-2 shrink-0 relative z-30">
             {/* Left: OYNA Button */}
-            <div className="flex items-center gap-4">
+            <div className="flex items-center gap-2 sm:gap-4">
               <button
                 onClick={() => onClose()}
-                className="relative px-6 py-1.5 bg-gradient-to-b from-[#1e5a78] via-[#0d344d] to-[#092233] border border-[#00c8c8] text-white font-black tracking-widest text-xs uppercase shadow-[inset_0_1px_0_rgba(255,255,255,0.4),0_0_12px_rgba(0,200,200,0.3)] hover:brightness-125 transition-all cursor-pointer rounded-xs flex items-center gap-2"
+                className="relative px-3 sm:px-6 py-1 sm:py-1.5 bg-gradient-to-b from-[#1e5a78] via-[#0d344d] to-[#092233] border border-[#00c8c8] text-white font-black tracking-wider text-[11px] sm:text-xs uppercase shadow-[inset_0_1px_0_rgba(255,255,255,0.4),0_0_12px_rgba(0,200,200,0.3)] hover:brightness-125 transition-all cursor-pointer rounded-xs flex items-center justify-center"
               >
-                <div className="w-3.5 h-3.5 rounded-full border border-[#c8aa6e] flex items-center justify-center bg-[#010a13]">
-                  <span className="text-[8px] text-[#c8aa6e] font-bold">L</span>
-                </div>
                 <span>{t('btn.play', state.language)}</span>
               </button>
             </div>
 
             {/* Center Tabs: Zanaatkârlık / Envanter / İhtişamlı Mağaza */}
-            <div className="flex items-center gap-6 md:gap-8 text-xs font-bold uppercase tracking-wider">
+            <div className="flex items-center gap-3 sm:gap-6 md:gap-8 text-[11px] sm:text-xs font-bold uppercase tracking-wider overflow-x-auto no-scrollbar py-1">
               {/* TAB 1: ZANAATKÂRLIK */}
               <button
                 onClick={() => {
@@ -280,7 +277,7 @@ export const InventoryModal: React.FC<InventoryModalProps> = ({
                   setActiveMainTab('CRAFTING');
                   setSelectedItem(null);
                 }}
-                className={`relative py-4 transition-colors cursor-pointer flex items-center gap-2 ${
+                className={`relative py-2 sm:py-4 transition-colors cursor-pointer flex items-center gap-1.5 shrink-0 ${
                   activeMainTab === 'CRAFTING' ? 'text-[#f0e6d2] font-black' : 'text-[#a09b8c] hover:text-[#f0e6d2]'
                 }`}
               >
@@ -292,7 +289,7 @@ export const InventoryModal: React.FC<InventoryModalProps> = ({
                   </span>
                 )}
                 {activeMainTab === 'CRAFTING' && (
-                  <div className="absolute bottom-0 w-full h-[2px] bg-[#00c8c8] shadow-[0_0_8px_#00c8c8]"></div>
+                  <div className="absolute bottom-0 left-0 right-0 h-[2px] bg-[#00c8c8] shadow-[0_0_8px_#00c8c8]"></div>
                 )}
               </button>
 
@@ -303,7 +300,7 @@ export const InventoryModal: React.FC<InventoryModalProps> = ({
                   setActiveMainTab('INVENTORY');
                   setSelectedItem(null);
                 }}
-                className={`relative py-4 transition-colors cursor-pointer flex items-center gap-2 ${
+                className={`relative py-2 sm:py-4 transition-colors cursor-pointer flex items-center gap-1.5 shrink-0 ${
                   activeMainTab === 'INVENTORY' ? 'text-[#f0e6d2] font-black' : 'text-[#a09b8c] hover:text-[#f0e6d2]'
                 }`}
               >
@@ -313,7 +310,7 @@ export const InventoryModal: React.FC<InventoryModalProps> = ({
                   {state.inventory.length}
                 </span>
                 {activeMainTab === 'INVENTORY' && (
-                  <div className="absolute bottom-0 w-full h-[2px] bg-[#c8aa6e] shadow-[0_0_8px_#c8aa6e]"></div>
+                  <div className="absolute bottom-0 left-0 right-0 h-[2px] bg-[#c8aa6e] shadow-[0_0_8px_#c8aa6e]"></div>
                 )}
               </button>
 
@@ -323,17 +320,17 @@ export const InventoryModal: React.FC<InventoryModalProps> = ({
                   onClose();
                   if (onOpenPrestigeShop) onOpenPrestigeShop();
                 }}
-                className="py-4 text-[#a09b8c] hover:text-[#d442f5] transition-colors cursor-pointer flex items-center gap-1.5"
+                className="py-2 sm:py-4 text-[#a09b8c] hover:text-[#d442f5] transition-colors cursor-pointer flex items-center gap-1.5 shrink-0"
               >
                 <Gem className="w-3.5 h-3.5 text-[#d442f5]" />
-                <span>{t('modal.prestige.title', state.language)}</span>
+                <span className="hidden xs:inline">{t('modal.prestige.title', state.language)}</span>
               </button>
             </div>
 
             {/* Right: Currencies & Close */}
-            <div className="flex items-center gap-3 md:gap-4">
+            <div className="flex items-center gap-2 sm:gap-4 shrink-0">
               {/* Currency Display matching LoL Client screenshot */}
-              <div className="bg-[#030d17]/90 border border-[#1e2328] rounded-sm px-3 py-1 flex items-center">
+              <div className="hidden md:flex bg-[#030d17]/90 border border-[#1e2328] rounded-sm px-3 py-1 items-center">
                 <HextechCurrenciesBar
                   orangeEssence={state.orangeEssence}
                   gemstones={state.gemstones}
@@ -342,10 +339,23 @@ export const InventoryModal: React.FC<InventoryModalProps> = ({
                 />
               </div>
 
+              {/* Mobile Quick OE & Mythic counter */}
+              <div className="flex md:hidden items-center gap-1.5 bg-[#030d17]/90 border border-[#1e2328] rounded-sm px-2 py-0.5 text-[10px] font-mono">
+                <span className="flex items-center gap-1 text-[#ff8400] font-bold">
+                  <OrangeEssenceIcon className="w-3 h-3" />
+                  {state.orangeEssence}
+                </span>
+                <span className="text-[#3c3b37]">|</span>
+                <span className="flex items-center gap-1 text-[#c084fc] font-bold">
+                  <MythicEssenceIcon className="w-3 h-3" />
+                  {state.gemstones}
+                </span>
+              </div>
+
               {/* Close Button */}
               <button
                 onClick={onClose}
-                className="p-1.5 text-[#a09b8c] hover:text-white hover:bg-[#1e2328] rounded-xs transition-colors cursor-pointer ml-1"
+                className="p-1.5 text-[#a09b8c] hover:text-white hover:bg-[#1e2328] rounded-xs transition-colors cursor-pointer"
                 title="Kapat"
               >
                 <X className="w-5 h-5" />
@@ -356,22 +366,22 @@ export const InventoryModal: React.FC<InventoryModalProps> = ({
           {/* ========================================================================= */}
           {/* 2. SUB-HEADER TOOLBAR (Search, Sorting & Actions) */}
           {/* ========================================================================= */}
-          <div className="h-12 bg-[#020b14] border-b border-[#1e2328] px-4 flex items-center justify-between shrink-0">
-            <div className="flex items-center gap-3">
+          <div className="min-h-12 bg-[#020b14] border-b border-[#1e2328] px-3 sm:px-4 py-2 flex flex-wrap items-center justify-between gap-2 shrink-0">
+            <div className="flex items-center gap-2 sm:gap-3 flex-1 min-w-[200px]">
               {/* Search Bar */}
-              <div className="relative">
+              <div className="relative flex-1 sm:flex-none">
                 <Search className="w-3.5 h-3.5 absolute left-2.5 top-1/2 -translate-y-1/2 text-[#a09b8c]" />
                 <input
                   type="text"
                   placeholder={activeMainTab === 'CRAFTING' ? t('inv.search.shards', state.language) : t('inv.search.inv', state.language)}
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
-                  className="w-40 sm:w-56 pl-8 pr-3 py-1 bg-[#010a13] border border-[#785a28] focus:border-[#c8aa6e] rounded-xs text-xs text-[#f0e6d2] placeholder-[#5c5b57] focus:outline-none transition-colors"
+                  className="w-full sm:w-48 md:w-56 pl-8 pr-3 py-1 bg-[#010a13] border border-[#785a28] focus:border-[#c8aa6e] rounded-xs text-[11px] sm:text-xs text-[#f0e6d2] placeholder-[#5c5b57] focus:outline-none transition-colors"
                 />
               </div>
 
               {/* Champion Filter Dropdown */}
-              <div className="relative hidden sm:block">
+              <div className="relative hidden md:block">
                 <select
                   value={selectedChampionFilter}
                   onChange={(e) => setSelectedChampionFilter(e.target.value)}
@@ -389,35 +399,35 @@ export const InventoryModal: React.FC<InventoryModalProps> = ({
               </div>
 
               {/* Sort Dropdown */}
-              <div className="relative">
+              <div className="relative shrink-0">
                 <select
                   value={sortOrder}
                   onChange={(e) => setSortOrder(e.target.value as any)}
                   aria-label="Sıralama Seçeneği"
-                  className="appearance-none bg-[#010a13] border border-[#785a28] hover:border-[#c8aa6e] text-[#f0e6d2] text-xs py-1 pl-2.5 pr-7 rounded-xs focus:outline-none cursor-pointer"
+                  className="appearance-none bg-[#010a13] border border-[#785a28] hover:border-[#c8aa6e] text-[#f0e6d2] text-[11px] sm:text-xs py-1 pl-2 pr-6 rounded-xs focus:outline-none cursor-pointer"
                 >
                   <option value="newest">{t('inv.sort.newest', state.language)}</option>
                   <option value="rarity">{t('inv.sort.rarity', state.language)}</option>
                   <option value="alpha">{t('inv.sort.alpha', state.language)}</option>
                 </select>
-                <ChevronDown className="w-3 h-3 text-[#a09b8c] absolute right-2 top-1/2 -translate-y-1/2 pointer-events-none" />
+                <ChevronDown className="w-3 h-3 text-[#a09b8c] absolute right-1.5 top-1/2 -translate-y-1/2 pointer-events-none" />
               </div>
             </div>
 
             {/* Re-roll 3-for-1 toggle button (for Crafting or Inventory) */}
-            <div className="flex items-center gap-2">
+            <div className="flex items-center gap-2 shrink-0">
               <button
                 onClick={() => {
                   setIsRerollMode(!isRerollMode);
                   setRerollSelectedIds([]);
                 }}
-                className={`px-3 py-1 text-xs font-bold uppercase tracking-wider rounded-xs border transition-all cursor-pointer flex items-center gap-1.5 ${
+                className={`px-2.5 sm:px-3 py-1 text-[10px] sm:text-xs font-bold uppercase tracking-wider rounded-xs border transition-all cursor-pointer flex items-center gap-1.5 ${
                   isRerollMode
                     ? 'bg-[#c89b3c] text-[#010a13] border-[#f0e6d2]'
                     : 'bg-[#010a13] text-[#c8aa6e] border-[#785a28] hover:border-[#c8aa6e]'
                 }`}
               >
-                <RefreshCw className={`w-3.5 h-3.5 ${isRerollMode ? 'animate-spin' : ''}`} />
+                <RefreshCw className={`w-3 h-3 sm:w-3.5 sm:h-3.5 ${isRerollMode ? 'animate-spin' : ''}`} />
                 <span>{t('inv.reroll.btn', state.language)} ({rerollSelectedIds.length}/3)</span>
               </button>
             </div>
@@ -974,7 +984,7 @@ export const InventoryModal: React.FC<InventoryModalProps> = ({
             )}
 
             {/* --------------------------------------------------------------------- */}
-            {/* RIGHT SIDE: CRAFTING FORGE / ITEM DETAILS INSPECTOR */}
+            {/* RIGHT SIDE: CRAFTING FORGE / ITEM DETAILS INSPECTOR (DESKTOP) */}
             {/* --------------------------------------------------------------------- */}
             <div className="hidden lg:flex w-80 xl:w-96 bg-[#020b14]/95 border-l border-[#1e2328] flex-col p-5 justify-between shrink-0 relative z-20">
               {selectedItem ? (
@@ -1151,6 +1161,174 @@ export const InventoryModal: React.FC<InventoryModalProps> = ({
               )}
             </div>
           </div>
+
+          {/* ========================================================================= */}
+          {/* MOBILE ITEM ACTION SHEET (Visible when an item is selected on mobile < lg) */}
+          {/* ========================================================================= */}
+          <AnimatePresence>
+            {selectedItem && (
+              <motion.div
+                initial={{ opacity: 0, y: 120 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: 120 }}
+                className="lg:hidden absolute bottom-0 inset-x-0 z-40 bg-[#010a13]/98 border-t-2 border-[#c8aa6e] shadow-[0_-10px_35px_rgba(0,0,0,0.9)] p-4 max-h-[85vh] overflow-y-auto backdrop-blur-lg rounded-t-lg"
+              >
+                {/* Drag handle & close header */}
+                <div className="flex items-center justify-between pb-3 border-b border-[#1e2328] mb-3">
+                  <div className="flex items-center gap-2">
+                    <span className="w-2 h-2 rounded-full bg-[#00c8c8] animate-pulse"></span>
+                    <span className="text-[11px] font-black uppercase tracking-widest text-[#c8aa6e] font-['Cinzel',serif]">
+                      {selectedItem.type === 'shard' ? t('inv.type.shard', state.language) : selectedItem.type === 'skin' ? t('inv.type.permanent', state.language) : t('inv.materials_title', state.language)}
+                    </span>
+                  </div>
+                  <button
+                    onClick={() => setSelectedItem(null)}
+                    className="p-1 text-[#a09b8c] hover:text-white bg-[#1e2328] rounded-full"
+                  >
+                    <X className="w-4 h-4" />
+                  </button>
+                </div>
+
+                {/* Mobile Preview Top */}
+                <div className="flex items-start gap-3 mb-4">
+                  <div className="w-24 aspect-[3/4] bg-[#020b14] border border-[#785a28] rounded-xs overflow-hidden shrink-0 shadow-lg relative">
+                    {(selectedItem.type === 'skin' || selectedItem.type === 'shard') && (
+                      <img
+                        src={selectedItem.data.splashUrl}
+                        alt={selectedItem.data.skinName}
+                        className="w-full h-full object-cover"
+                      />
+                    )}
+                    {selectedItem.type === 'material' && (
+                      <div className="w-full h-full flex items-center justify-center p-2 bg-[#0a1e2b]">
+                        {selectedItem.data.iconType === 'chest' && <HextechChestIcon className="w-12 h-12 text-[#e2e8f0]" />}
+                        {selectedItem.data.iconType === 'key' && <HextechKeyIcon className="w-12 h-12 text-[#00c8c8]" />}
+                        {selectedItem.data.iconType === 'orange_essence' && <OrangeEssenceIcon className="w-12 h-12" />}
+                        {selectedItem.data.iconType === 'gemstone' && <MythicEssenceIcon className="w-12 h-12" />}
+                      </div>
+                    )}
+                  </div>
+
+                  <div className="flex-1 min-w-0">
+                    {(selectedItem.type === 'skin' || selectedItem.type === 'shard') && (
+                      <>
+                        <span className="text-[10px] uppercase font-bold text-[#a09b8c] block">
+                          {selectedItem.data.championName}
+                        </span>
+                        <h4 className="text-sm font-black uppercase text-white font-['Cinzel',serif] leading-tight mt-0.5">
+                          {selectedItem.data.skinName}
+                        </h4>
+                        <div className="flex items-center gap-1.5 mt-2 flex-wrap">
+                          <span
+                            className={`px-1.5 py-0.2 rounded-xs text-[9px] font-black uppercase ${
+                              getRarityColor(selectedItem.data.rarity).badge
+                            }`}
+                          >
+                            {getRarityLabel(selectedItem.data.rarity, state.language)}
+                          </span>
+                        </div>
+                      </>
+                    )}
+
+                    {selectedItem.type === 'material' && (
+                      <>
+                        <h4 className="text-sm font-black uppercase text-[#c8aa6e] font-['Cinzel',serif]">
+                          {selectedItem.data.name}
+                        </h4>
+                        <p className="text-[11px] text-[#a09b8c] mt-1 line-clamp-2">
+                          {selectedItem.data.description}
+                        </p>
+                      </>
+                    )}
+                  </div>
+                </div>
+
+                {/* Mobile Action Buttons */}
+                <div className="space-y-2">
+                  {selectedItem.type === 'shard' && (
+                    <>
+                      <button
+                        onClick={() => {
+                          upgradeShard(selectedItem.data);
+                          setSelectedItem(null);
+                        }}
+                        className={`w-full py-3 border text-xs font-black uppercase tracking-wider rounded-xs transition-all flex items-center justify-center gap-2 cursor-pointer shadow-lg active:scale-95 ${
+                          state.orangeEssence >= selectedItem.data.upgradeCost
+                            ? 'bg-gradient-to-r from-[#ff7700] via-[#c89b3c] to-[#ff7700] border-[#ff7700] text-[#010a13] shadow-[0_0_15px_rgba(255,119,0,0.5)]'
+                            : 'bg-[#1e2328] border-[#785a28] text-[#a09b8c] opacity-70'
+                        }`}
+                      >
+                        <OrangeEssenceIcon className="w-4 h-4" />
+                        <span>{t('inv.action.permanent', state.language)?.replace('{cost}', String(selectedItem.data.upgradeCost))}</span>
+                      </button>
+
+                      <div className="grid grid-cols-2 gap-2">
+                        <button
+                          onClick={() => {
+                            disenchantShard(selectedItem.data);
+                            setSelectedItem(null);
+                          }}
+                          className="py-2.5 bg-[#1e2328] hover:bg-[#ff7700]/20 border border-[#ff7700]/60 text-[#ff7700] text-[11px] font-bold uppercase tracking-wider rounded-xs transition-colors flex items-center justify-center gap-1.5 cursor-pointer active:scale-95"
+                        >
+                          <Trash2 className="w-3.5 h-3.5" />
+                          <span>{t('inv.disenchant_btn', state.language)?.replace('{val}', String(selectedItem.data.disenchantValue))}</span>
+                          <OrangeEssenceIcon className="w-3 h-3" />
+                        </button>
+
+                        <button
+                          onClick={() => {
+                            setIsRerollMode(true);
+                            setRerollSelectedIds([selectedItem.data.id]);
+                            setSelectedItem(null);
+                            addToast({
+                              title: t('inv.action.reroll_mode', state.language) || 'Yeniden İşleme Modu',
+                              description: t('inv.action.reroll_desc', state.language) || 'Birleştirmek için 2 kristal daha seç.',
+                              type: 'info',
+                            });
+                          }}
+                          className="py-2.5 bg-[#010a13] hover:bg-[#00c8c8]/10 border border-[#00c8c8] text-[#00c8c8] text-[11px] font-bold uppercase tracking-wider rounded-xs transition-colors flex items-center justify-center gap-1.5 cursor-pointer active:scale-95"
+                        >
+                          <RefreshCw className="w-3.5 h-3.5" />
+                          <span>{t('inv.action.reroll_btn', state.language)}</span>
+                        </button>
+                      </div>
+                    </>
+                  )}
+
+                  {selectedItem.type === 'skin' && (
+                    <div className="w-full py-3 bg-[#010a13] border border-[#c8aa6e] text-[#c8aa6e] text-xs font-black uppercase tracking-widest rounded-xs flex items-center justify-center gap-2 shadow">
+                      <Check className="w-4 h-4 text-[#00c8c8]" />
+                      <span>{t('inv.action.already_owned', state.language)}</span>
+                    </div>
+                  )}
+
+                  {selectedItem.type === 'material' && selectedItem.data.iconType === 'chest' && (
+                    <button
+                      onClick={() => {
+                        openChest(1);
+                        setSelectedItem(null);
+                      }}
+                      className="w-full py-3 bg-gradient-to-r from-[#c89b3c] to-[#785a28] text-[#010a13] text-xs font-black uppercase tracking-widest rounded-xs transition-all shadow-[0_0_12px_rgba(200,155,60,0.5)] cursor-pointer active:scale-95"
+                    >
+                      {t('inv.action.open_chest', state.language)}
+                    </button>
+                  )}
+
+                  {selectedItem.type === 'material' && selectedItem.data.iconType === 'gemstone' && (
+                    <button
+                      onClick={() => {
+                        onClose();
+                        if (onOpenPrestigeShop) onOpenPrestigeShop();
+                      }}
+                      className="w-full py-3 bg-gradient-to-r from-[#d442f5] to-[#800080] text-white text-xs font-black uppercase tracking-widest rounded-xs transition-all shadow-[0_0_12px_#d442f5] cursor-pointer active:scale-95"
+                    >
+                      {t('inv.action.go_mythic', state.language)}
+                    </button>
+                  )}
+                </div>
+              </motion.div>
+            )}
+          </AnimatePresence>
 
           {/* ========================================================================= */}
           {/* 4. BOTTOM CLIENT STATUS BAR */}
