@@ -91,6 +91,7 @@ export interface FloatingText {
 }
 
 export interface GameState {
+  playerId?: string;
   hasAcceptedDisclaimer: boolean;
   username: string;
   avatarChampionId: string;

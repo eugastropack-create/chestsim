@@ -1,0 +1,22 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // Global aggregate statistics (total Baron clicks, total chests, total kills)
+    match /global_stats/{statId} {
+      allow read: if true;
+      allow write: if true;
+    }
+
+    // Global and player leaderboard
+    match /leaderboard/{userId} {
+      allow read: if true;
+      allow write: if true;
+    }
+
+    // Individual player statistics
+    match /player_stats/{playerId} {
+      allow read: if true;
+      allow write: if true;
+    }
+  }
+}

@@ -5,6 +5,7 @@ const STORAGE_KEY = 'lol_hextech_clicker_save_v1';
 const LEADERBOARD_KEY = 'lol_hextech_clicker_rivals_v1';
 
 export const INITIAL_GAME_STATE: GameState = {
+  playerId: 'player_' + Math.random().toString(36).substring(2, 10),
   hasAcceptedDisclaimer: false,
   username: '',
   avatarChampionId: 'MasterYi',
@@ -96,6 +97,9 @@ export function loadSavedGame(): GameState {
     }
     if (!parsed.shards) {
       parsed.shards = [];
+    }
+    if (!parsed.playerId) {
+      parsed.playerId = 'player_' + Math.random().toString(36).substring(2, 10);
     }
     
     return {

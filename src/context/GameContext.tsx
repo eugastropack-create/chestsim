@@ -5,6 +5,7 @@ import { GameState, SkinItem, PrestigeItem, RecentDrop, FloatingText, LootDrop }
 import { loadSavedGame, saveGameState, resetSavedGame } from '../services/storage';
 import { getRandomSkinFromPool, getUnownedSkinFromPool, BASE_SKINS_CATALOG, getRarityLabel, fetchAllSkins } from '../services/dataDragon';
 import { soundFx } from '../services/soundEffects';
+import { recordBaronClickToFirebase, subscribeToGlobalClicks, GlobalStats } from '../services/firebase';
 
 export interface ToastMessage {
   id: string;
@@ -17,6 +18,7 @@ export interface ToastMessage {
 
 interface GameContextType {
   state: GameState;
+  globalStats: GlobalStats;
   xpNeeded: number;
   xpProgressPercent: number;
   combo: number;
@@ -120,6 +122,11 @@ export const UPGRADE_DEFINITIONS = [
 
 export const GameProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const [state, setState] = useState<GameState>(() => loadSavedGame());
+  const [globalStats, setGlobalStats] = useState<GlobalStats>({
+    totalClicks: 12500,
+    totalKills: 320,
+    totalChestsOpened: 840,
+  });
   const [combo, setCombo] = useState<number>(0);
   const [floatingTexts, setFloatingTexts] = useState<FloatingText[]>([]);
   const [toasts, setToasts] = useState<ToastMessage[]>([]);
@@ -133,6 +140,16 @@ export const GameProvider: React.FC<{ children: React.ReactNode }> = ({ children
   const comboTimerRef = useRef<number | null>(null);
   const stateRef = useRef(state);
   stateRef.current = state;
+
+  // Real-time Firebase Firestore global stats subscription
+  useEffect(() => {
+    const unsubscribe = subscribeToGlobalClicks((stats) => {
+      setGlobalStats(stats);
+    });
+    return () => {
+      unsubscribe();
+    };
+  }, []);
 
   // Initialize dynamic skins catalog in background (deferred so initial UI loads instantly)
   useEffect(() => {
@@ -329,6 +346,17 @@ export const GameProvider: React.FC<{ children: React.ReactNode }> = ({ children
       totalDamageDealt: prev.totalDamageDealt + totalGainedXP,
     }));
 
+    // Record to Firebase Firestore (batched in background)
+    recordBaronClickToFirebase(1, {
+      userId: currentState.playerId || 'player_guest',
+      username: currentState.username || 'Summoner',
+      avatarChampionId: currentState.avatarChampionId || 'MasterYi',
+      level: currentState.level,
+      totalClicks: currentState.totalClicks + 1,
+      chestsOpened: currentState.totalChestsOpened,
+      prestigeCount: currentState.inventory?.filter(s => s.rarity === 'Prestige' || s.isPrestige)?.length || 0,
+    });
+
     addXP(totalGainedXP);
   }, [addXP, comboMultiplier]);
 
@@ -440,6 +468,17 @@ export const GameProvider: React.FC<{ children: React.ReactNode }> = ({ children
         recentDrops: [...newRecent, ...prev.recentDrops].slice(0, 20),
       };
     });
+
+    // Record chest opening event to Firebase
+    recordBaronClickToFirebase(0, {
+      userId: stateRef.current.playerId || 'player_guest',
+      username: stateRef.current.username || 'Summoner',
+      avatarChampionId: stateRef.current.avatarChampionId || 'MasterYi',
+      level: stateRef.current.level,
+      totalClicks: stateRef.current.totalClicks,
+      chestsOpened: stateRef.current.totalChestsOpened + count,
+      prestigeCount: stateRef.current.inventory?.filter(s => s.rarity === 'Prestige' || s.isPrestige)?.length || 0,
+    }, 0, count);
 
     setActiveChestModal({
       isOpen: true,
@@ -876,6 +915,7 @@ export const GameProvider: React.FC<{ children: React.ReactNode }> = ({ children
     <GameContext.Provider
       value={{
         state,
+        globalStats,
         xpNeeded,
         xpProgressPercent,
         combo,
