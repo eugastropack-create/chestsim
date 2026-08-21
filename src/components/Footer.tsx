@@ -21,7 +21,7 @@ export const Footer: React.FC = () => {
             <strong>Last Updated:</strong> 2026
           </p>
           <p>
-            At <strong>Kanonik</strong>, we prioritize your privacy. This website is a fan-made simulation and clicker game based on League of Legends assets.
+            At <strong>chestsimulator.com</strong>, we prioritize your privacy. This website is a fan-made simulation and clicker game based on League of Legends assets.
           </p>
           <div className="space-y-1.5 bg-[#010a13] p-3 border border-[#1e2328] rounded-xs text-[#f0e6d2]">
             <p className="font-semibold text-[#00c8c8]">1. Data Collection & Local Storage</p>
@@ -44,7 +44,7 @@ export const Footer: React.FC = () => {
       content: (
         <div className="space-y-3 text-xs leading-relaxed text-[#c8aa6e]/90">
           <p>
-            Welcome to <strong>Kanonik</strong>. By using this website, you acknowledge and agree to the following terms:
+            Welcome to <strong>chestsimulator.com</strong>. By using this website, you acknowledge and agree to the following terms:
           </p>
           <div className="space-y-1.5 bg-[#010a13] p-3 border border-[#1e2328] rounded-xs text-[#f0e6d2]">
             <p className="font-semibold text-[#00c8c8]">1. Simulation & Entertainment Only</p>
@@ -62,12 +62,12 @@ export const Footer: React.FC = () => {
       ),
     },
     about: {
-      title: 'About Kanonik',
+      title: 'About chestsimulator.com',
       icon: Info,
       content: (
         <div className="space-y-3 text-xs leading-relaxed text-[#c8aa6e]/90">
           <p>
-            <strong>Kanonik</strong> is a dedicated fan-made League of Legends interactive simulator and clicker experience.
+            <strong>chestsimulator.com</strong> is a dedicated fan-made League of Legends interactive simulator and clicker experience.
           </p>
           <div className="bg-[#010a13] p-3 border border-[#1e2328] rounded-xs text-[#f0e6d2] space-y-2">
             <p className="text-[11px] text-[#a09b8c]">
@@ -81,12 +81,12 @@ export const Footer: React.FC = () => {
       ),
     },
     advertise: {
-      title: 'Advertise with Kanonik',
+      title: 'Advertise with chestsimulator.com',
       icon: Megaphone,
       content: (
         <div className="space-y-3 text-xs leading-relaxed text-[#c8aa6e]/90">
           <p>
-            Interested in collaborating or promoting your gaming content, tournament, or community with <strong>Kanonik</strong>?
+            Interested in collaborating or promoting your gaming content, tournament, or community with <strong>chestsimulator.com</strong>?
           </p>
           <div className="bg-[#010a13] p-3 border border-[#1e2328] rounded-xs text-[#f0e6d2] space-y-2">
             <p className="text-[11px] text-[#a09b8c]">
@@ -94,7 +94,7 @@ export const Footer: React.FC = () => {
             </p>
             <div className="p-2 bg-[#031526] border border-[#005a82]/40 rounded-xs text-[11px] text-[#f0e6d2] flex flex-col gap-1">
               <span className="text-[10px] uppercase tracking-wider text-[#c8aa6e] font-bold">Contact & Partnerships:</span>
-              <span className="text-[#00c8c8] font-mono select-all">contact@kanonik.gg</span>
+              <span className="text-[#00c8c8] font-mono select-all">contact@chestsimulator.com</span>
             </div>
           </div>
         </div>
@@ -151,18 +151,18 @@ export const Footer: React.FC = () => {
               onClick={() => setActiveModal('advertise')}
               className="hover:text-[#f0e6d2] transition-colors cursor-pointer"
             >
-              Advertise with Kanonik
+              Advertise with chestsimulator.com
             </button>
           </nav>
 
           {/* Legal Jibber Jabber Disclaimer */}
           <p className="text-[11px] sm:text-xs text-[#a09b8c] max-w-2xl leading-relaxed font-normal">
-            Kanonik was created under Riot Games&apos;s &quot;Legal Jibber Jabber&quot; policy using assets owned by Riot Games. Riot Games does not endorse or sponsor this project.
+            chestsimulator.com was created under Riot Games&apos;s &quot;Legal Jibber Jabber&quot; policy using assets owned by Riot Games. Riot Games does not endorse or sponsor this project.
           </p>
 
           {/* Copyright */}
           <p className="text-[11px] text-[#785a28] font-medium tracking-wide">
-            © 2026 Kanonik, All rights reserved.
+            © 2026 chestsimulator.com, All rights reserved.
           </p>
         </div>
       </footer>

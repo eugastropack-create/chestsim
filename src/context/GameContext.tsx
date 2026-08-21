@@ -134,27 +134,45 @@ export const GameProvider: React.FC<{ children: React.ReactNode }> = ({ children
   const stateRef = useRef(state);
   stateRef.current = state;
 
-  // Initialize dynamic skins catalog and translate existing items on language change
+  // Initialize dynamic skins catalog in background (deferred so initial UI loads instantly)
   useEffect(() => {
-    fetchAllSkins(state.language).then((skins) => {
-      if (!skins || skins.length === 0) return;
+    let isCancelled = false;
 
-      setState(prev => {
-        const updateSkinTranslation = (item: SkinItem) => {
-          const match = skins.find(s => s.championId === item.championId && s.num === item.num);
-          if (match) {
-            return { ...item, skinName: match.skinName, championName: match.championName };
-          }
-          return item;
-        };
+    const loadSkins = () => {
+      fetchAllSkins(state.language).then((skins) => {
+        if (isCancelled || !skins || skins.length === 0) return;
 
-        return {
-          ...prev,
-          shards: prev.shards ? prev.shards.map(updateSkinTranslation) : [],
-          inventory: prev.inventory ? prev.inventory.map(updateSkinTranslation) : [],
-        };
+        setState(prev => {
+          const updateSkinTranslation = (item: SkinItem) => {
+            const match = skins.find(s => s.championId === item.championId && s.num === item.num);
+            if (match) {
+              return { ...item, skinName: match.skinName, championName: match.championName };
+            }
+            return item;
+          };
+
+          return {
+            ...prev,
+            shards: prev.shards ? prev.shards.map(updateSkinTranslation) : [],
+            inventory: prev.inventory ? prev.inventory.map(updateSkinTranslation) : [],
+          };
+        });
       });
-    });
+    };
+
+    // Use requestIdleCallback if available, or a short timeout, so initial UI renders with 0 lag
+    const timer = setTimeout(() => {
+      if (typeof window !== 'undefined' && 'requestIdleCallback' in window) {
+        (window as any).requestIdleCallback(() => loadSkins(), { timeout: 3000 });
+      } else {
+        loadSkins();
+      }
+    }, 1500);
+
+    return () => {
+      isCancelled = true;
+      clearTimeout(timer);
+    };
   }, [state.language]);
 
   // Sync sound settings with SoundEngine

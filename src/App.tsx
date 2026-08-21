@@ -1,17 +1,19 @@
-import React, { useState } from 'react';
+import React, { useState, Suspense, lazy } from 'react';
 import { GameProvider, useGame } from './context/GameContext';
 import { DisclaimerModal } from './components/DisclaimerModal';
 import { Navbar } from './components/Navbar';
 import { LeftStatsPanel } from './components/LeftStatsPanel';
 import { BaronCenterArena } from './components/BaronCenterArena';
 import { RightHextechPanel } from './components/RightHextechPanel';
-import { ChestOpenModal } from './components/ChestOpenModal';
-import { InventoryModal } from './components/InventoryModal';
-import { PrestigeShopModal } from './components/PrestigeShopModal';
-import { LeaderboardModal } from './components/LeaderboardModal';
-import { SkinUnlockModal } from './components/SkinUnlockModal';
 import { ToastContainer } from './components/ToastContainer';
 import { Footer } from './components/Footer';
+
+// Code-split heavy modals with React.lazy so mobile devices load the game arena instantly
+const ChestOpenModal = lazy(() => import('./components/ChestOpenModal').then(m => ({ default: m.ChestOpenModal })));
+const InventoryModal = lazy(() => import('./components/InventoryModal').then(m => ({ default: m.InventoryModal })));
+const PrestigeShopModal = lazy(() => import('./components/PrestigeShopModal').then(m => ({ default: m.PrestigeShopModal })));
+const LeaderboardModal = lazy(() => import('./components/LeaderboardModal').then(m => ({ default: m.LeaderboardModal })));
+const SkinUnlockModal = lazy(() => import('./components/SkinUnlockModal').then(m => ({ default: m.SkinUnlockModal })));
 
 export function GameApp() {
   const { state, unlockedSkinModal, confirmAddUnlockedSkin, closeUnlockedSkinModal } = useGame();
@@ -66,23 +68,33 @@ export function GameApp() {
         <RightHextechPanel onOpenCrafting={() => handleOpenInventory('CRAFTING')} />
       </div>
 
-      {/* 4. Modals & Overlays */}
-      <ChestOpenModal />
-      <InventoryModal
-        isOpen={isInventoryOpen}
-        onClose={() => setIsInventoryOpen(false)}
-        onOpenPrestigeShop={() => setIsPrestigeShopOpen(true)}
-        initialTab={inventoryTab}
-      />
-      <PrestigeShopModal isOpen={isPrestigeShopOpen} onClose={() => setIsPrestigeShopOpen(false)} />
-      <LeaderboardModal isOpen={isLeaderboardOpen} onClose={() => setIsLeaderboardOpen(false)} />
-      
-      {/* 5. Permanent Skin Unlock Celebration Reveal Modal */}
-      <SkinUnlockModal
-        unlockedSkin={unlockedSkinModal}
-        onConfirm={confirmAddUnlockedSkin}
-        onClose={closeUnlockedSkinModal}
-      />
+      {/* 4. Modals & Overlays (Code-split with Suspense) */}
+      <Suspense fallback={null}>
+        <ChestOpenModal />
+        {isInventoryOpen && (
+          <InventoryModal
+            isOpen={isInventoryOpen}
+            onClose={() => setIsInventoryOpen(false)}
+            onOpenPrestigeShop={() => setIsPrestigeShopOpen(true)}
+            initialTab={inventoryTab}
+          />
+        )}
+        {isPrestigeShopOpen && (
+          <PrestigeShopModal isOpen={isPrestigeShopOpen} onClose={() => setIsPrestigeShopOpen(false)} />
+        )}
+        {isLeaderboardOpen && (
+          <LeaderboardModal isOpen={isLeaderboardOpen} onClose={() => setIsLeaderboardOpen(false)} />
+        )}
+        
+        {/* 5. Permanent Skin Unlock Celebration Reveal Modal */}
+        {unlockedSkinModal && (
+          <SkinUnlockModal
+            unlockedSkin={unlockedSkinModal}
+            onConfirm={confirmAddUnlockedSkin}
+            onClose={closeUnlockedSkinModal}
+          />
+        )}
+      </Suspense>
 
       <ToastContainer />
 

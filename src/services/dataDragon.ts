@@ -7,13 +7,33 @@ export const DDRAGON_LOADING = 'https://ddragon.leagueoflegends.com/cdn/img/cham
 export const DDRAGON_ICONS = `${DDRAGON_CDN}/img/champion`;
 
 export let DYNAMIC_SKINS_CATALOG: Omit<SkinItem, 'id' | 'isOwned' | 'unlockedAt' | 'rarity' | 'rpValue' | 'disenchantValue'>[] = [];
+let isFetchingSkins = false;
 
 export async function fetchAllSkins(language: string = 'tr') {
   const locale = language === 'tr' ? 'tr_TR' : 'en_US';
+  const cacheKey = `hextech_skins_catalog_${DDRAGON_VERSION}_${locale}`;
   
   if (DYNAMIC_SKINS_CATALOG.length > 0 && (DYNAMIC_SKINS_CATALOG as any)._locale === locale) {
     return DYNAMIC_SKINS_CATALOG;
   }
+
+  // 1. Try instant restore from sessionStorage/localStorage for instant mobile startup
+  try {
+    const cached = typeof window !== 'undefined' ? sessionStorage.getItem(cacheKey) : null;
+    if (cached) {
+      const parsed = JSON.parse(cached);
+      if (Array.isArray(parsed) && parsed.length > 0) {
+        (parsed as any)._locale = locale;
+        DYNAMIC_SKINS_CATALOG = parsed;
+        return parsed;
+      }
+    }
+  } catch {
+    // Ignore storage parse errors
+  }
+
+  if (isFetchingSkins) return DYNAMIC_SKINS_CATALOG;
+  isFetchingSkins = true;
 
   try {
     const response = await fetch(`https://ddragon.leagueoflegends.com/cdn/${DDRAGON_VERSION}/data/${locale}/championFull.json`);
@@ -39,10 +59,22 @@ export async function fetchAllSkins(language: string = 'tr') {
     
     (allSkins as any)._locale = locale;
     DYNAMIC_SKINS_CATALOG = allSkins;
+
+    // Cache in session storage so repeat visits are instant
+    try {
+      if (typeof window !== 'undefined' && allSkins.length > 0) {
+        sessionStorage.setItem(cacheKey, JSON.stringify(allSkins));
+      }
+    } catch {
+      // Storage quota exceeded fallback
+    }
+
     return allSkins;
   } catch (err) {
-    console.error("Failed to fetch all skins", err);
+    console.warn("Using fallback skins catalog (network deferred):", err);
     return DYNAMIC_SKINS_CATALOG;
+  } finally {
+    isFetchingSkins = false;
   }
 }
 
