@@ -134,43 +134,22 @@ export const BaronCenterArena: React.FC = () => {
   }, [isAlphaReady, isAlphaActive, triggerAlphaStrike]);
 
   return (
-    <main className="flex-1 flex flex-col items-center justify-start gap-1 md:gap-2.5 min-w-0 max-w-3xl w-full select-none order-first lg:order-none">
-      {/* Real-time Global Live Ticker & Combo Bar */}
-      <div className="w-full flex items-center justify-between px-1 h-8">
-        {/* Left: Global Clicks Real-Time Badge */}
-        <div className="flex items-center gap-1.5 bg-[#010a13]/90 border border-[#00c8c8]/40 px-2.5 py-1 rounded-full text-[10px] sm:text-xs shadow-[0_0_10px_rgba(0,200,200,0.2)]">
-          <span className="relative flex h-2 w-2">
-            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-            <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
-          </span>
-          <span className="text-[#a09b8c] uppercase font-bold tracking-wider hidden xs:inline">
-            {state.language === 'tr' ? 'Küresel Tıklama:' : 'Global Clicks:'}
-          </span>
-          <span className="font-mono font-black text-[#00c8c8] drop-shadow-[0_0_6px_#00c8c8]">
-            {(globalStats?.totalClicks || 0).toLocaleString()}
-          </span>
-        </div>
-
-        {/* Center / Right: Combo Multiplier Tag */}
-        <div className="flex items-center">
-          <AnimatePresence>
-            {combo > 0 ? (
-              <motion.div
-                initial={{ scale: 0.8, opacity: 0 }}
-                animate={{ scale: 1, opacity: 1 }}
-                exit={{ scale: 0.8, opacity: 0 }}
-                className="inline-flex items-center gap-1.5 text-[11px] sm:text-xs font-black uppercase tracking-wider px-2.5 py-0.5 sm:py-1 rounded-full bg-[#0a1428] border border-[#c8aa6e] text-[#c8aa6e] shadow-[0_0_12px_rgba(200,170,110,0.4)]"
-              >
-                <Flame className="w-3.5 h-3.5 text-orange-400 animate-pulse" />
-                <span>{combo} Combo ({comboMultiplier}x XP)</span>
-              </motion.div>
-            ) : (
-              <div className="text-[10px] sm:text-xs text-[#a09b8c] font-mono bg-[#010a13]/70 border border-[#1e2328] px-2 py-0.5 rounded-full">
-                {state.language === 'tr' ? 'Sen:' : 'You:'} <span className="text-white font-bold">{state.totalClicks.toLocaleString()}</span>
-              </div>
-            )}
-          </AnimatePresence>
-        </div>
+    <main className="flex-1 flex flex-col items-center justify-start gap-1 md:gap-3 min-w-0 max-w-3xl w-full select-none order-first lg:order-none">
+      {/* Combo Multiplier Tag */}
+      <div className="h-8 flex items-center justify-center">
+        <AnimatePresence>
+          {combo > 0 && (
+            <motion.div
+              initial={{ scale: 0.8, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.8, opacity: 0 }}
+              className="inline-flex items-center gap-1.5 text-xs font-black uppercase tracking-wider px-3 py-1 rounded-full bg-[#0a1428] border border-[#00c8c8] text-[#00c8c8] shadow-[0_0_12px_rgba(0,200,200,0.5)]"
+            >
+              <Flame className="w-3.5 h-3.5 text-[#c89b3c]" />
+              <span>{combo} Combo! ({comboMultiplier}x XP)</span>
+            </motion.div>
+          )}
+        </AnimatePresence>
       </div>
 
       {/* 2D Side-View Battle Arena Stage (Baron on Left in River, Master Yi on Right on Platform) */}

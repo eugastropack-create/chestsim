@@ -26,7 +26,7 @@ export const Footer: React.FC = () => {
           <div className="space-y-1.5 bg-[#010a13] p-3 border border-[#1e2328] rounded-xs text-[#f0e6d2]">
             <p className="font-semibold text-[#00c8c8]">1. Data Collection & Local Storage</p>
             <p className="text-[11px] text-[#a09b8c]">
-              We do not collect or sell your personal identifiable information. Game progress, unlocked skins, Hextech chests, gold, and custom settings are stored locally on your device via browser LocalStorage.
+              We do not collect or sell your personal identifiable information. Game progress, unlocked skins, chests, gold, and custom settings are stored locally on your device via browser LocalStorage.
             </p>
           </div>
           <div className="space-y-1.5 bg-[#010a13] p-3 border border-[#1e2328] rounded-xs text-[#f0e6d2]">
@@ -71,7 +71,7 @@ export const Footer: React.FC = () => {
           </p>
           <div className="bg-[#010a13] p-3 border border-[#1e2328] rounded-xs text-[#f0e6d2] space-y-2">
             <p className="text-[11px] text-[#a09b8c]">
-              Designed for enthusiasts of Summoner&apos;s Rift, Hextech crafting, and champion progression. Featuring authentic Data Dragon asset integration, dynamic audio synthesis, and rich collectible prestige skins.
+              Designed for enthusiasts of Summoner&apos;s Rift, crafting, and champion progression. Featuring authentic Data Dragon asset integration, dynamic audio synthesis, and rich collectible prestige skins.
             </p>
             <div className="flex items-center gap-2 text-[10px] text-[#00c8c8] font-bold uppercase tracking-wider pt-1">
               <Check className="w-3.5 h-3.5" /> Built for the League of Legends Community

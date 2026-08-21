@@ -61,10 +61,10 @@ export const RightHextechPanel: React.FC<RightHextechPanelProps> = ({ onOpenCraf
           onClick={() => handleChestClick(1)}
           className="w-32 h-28 bg-gradient-to-b from-[#092233] to-[#010a13] p-2 rounded-sm border border-[#c8aa6e]/60 shadow-[0_0_20px_rgba(0,200,200,0.25)] cursor-pointer hover:border-[#f0e6d2] hover:shadow-[0_0_25px_rgba(200,170,110,0.4)] transition-all flex flex-col items-center justify-center group relative overflow-hidden"
         >
-          {/* 3D Hextech Chest Preview */}
+          {/* 3D Chest Preview */}
           <img
             src="https://raw.communitydragon.org/latest/plugins/rcp-fe-lol-loot/global/default/assets/loot_item_icons/chest.png"
-            alt="Hextech Chest"
+            alt="Chest"
             className="w-full h-full object-contain drop-shadow-[0_4px_10px_rgba(0,0,0,0.8)]"
             onError={(e) => {
               (e.currentTarget as HTMLImageElement).src = 'https://static.wikia.nocookie.net/leagueoflegends/images/6/60/Hextech_Crafting_Chest.png';

@@ -65,7 +65,7 @@ export function getLevelTier(level: number): LevelTierInfo {
   } else if (level < 75) {
     return {
       themeNumber: 3,
-      tierName: 'Piltover Hextech',
+      tierName: 'Piltover',
       region: 'Seviye 50-74',
       minLevel: 50,
       maxLevel: 74,

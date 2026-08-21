@@ -80,7 +80,7 @@ export const INITIAL_RIVALS: Omit<LeaderboardEntry, 'id'>[] = [
   { username: 'TheShy Top', avatarUrl: 'https://ddragon.leagueoflegends.com/cdn/14.20.1/img/champion/Aatrox.png', level: 380, totalClicks: 42100, chestsOpened: 240, prestigeCount: 3, rankTitle: 'Büyük Usta (Grandmaster)' },
   { username: 'Ruler ADC', avatarUrl: 'https://ddragon.leagueoflegends.com/cdn/14.20.1/img/champion/Kaisa.png', level: 210, totalClicks: 28400, chestsOpened: 180, prestigeCount: 2, rankTitle: 'Ustalık (Master)' },
   { username: 'Baron Smiter 99', avatarUrl: 'https://ddragon.leagueoflegends.com/cdn/14.20.1/img/champion/LeeSin.png', level: 120, totalClicks: 16500, chestsOpened: 95, prestigeCount: 1, rankTitle: 'Elmas (Diamond)' },
-  { username: 'Hextech Collector', avatarUrl: 'https://ddragon.leagueoflegends.com/cdn/14.20.1/img/champion/Ezreal.png', level: 65, totalClicks: 9200, chestsOpened: 48, prestigeCount: 1, rankTitle: 'Platin (Platinum)' },
+  { username: 'Skin Collector', avatarUrl: 'https://ddragon.leagueoflegends.com/cdn/14.20.1/img/champion/Ezreal.png', level: 65, totalClicks: 9200, chestsOpened: 48, prestigeCount: 1, rankTitle: 'Platin (Platinum)' },
   { username: 'Silver Surfer', avatarUrl: 'https://ddragon.leagueoflegends.com/cdn/14.20.1/img/champion/Jinx.png', level: 18, totalClicks: 2100, chestsOpened: 12, prestigeCount: 0, rankTitle: 'Gümüş (Silver)' },
 ];
 

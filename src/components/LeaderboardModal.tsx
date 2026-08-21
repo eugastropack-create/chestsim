@@ -93,12 +93,8 @@ export const LeaderboardModal: React.FC<LeaderboardModalProps> = ({ isOpen, onCl
               <div>
                 <div className="flex items-center gap-2">
                   <h2 className="font-bold text-base md:text-lg text-white uppercase tracking-wider font-['Cinzel',serif]">
-                    {t('modal.leaderboard.title', state.language)}
+                    chestsimulator
                   </h2>
-                  <span className="flex items-center gap-1 bg-emerald-950/80 border border-emerald-500/40 text-emerald-400 text-[10px] font-bold px-2 py-0.5 rounded-full shadow-[0_0_8px_rgba(16,185,129,0.3)]">
-                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-ping"></span>
-                    Firebase Canlı
-                  </span>
                 </div>
                 <p className="text-xs text-[#00c8c8] font-medium">
                   {t('modal.leaderboard.subtitle', state.language)}
@@ -250,17 +246,6 @@ export const LeaderboardModal: React.FC<LeaderboardModalProps> = ({ isOpen, onCl
                 </div>
               );
             })}
-          </div>
-
-          {/* Footer note with Firebase status */}
-          <div className="bg-[#020b14] border-t border-[#1e2328] px-4 py-2 flex items-center justify-between text-[11px] text-[#a09b8c]">
-            <div className="flex items-center gap-1.5">
-              <Activity className="w-3.5 h-3.5 text-emerald-400" />
-              <span>{state.language === 'tr' ? 'Firestore Tıklama Takip Sistemi Aktif' : 'Firestore Click Tracking Active'}</span>
-            </div>
-            <div className="text-[10px] text-[#00c8c8] font-mono">
-              DB: kemaltk
-            </div>
           </div>
         </motion.div>
       </div>
