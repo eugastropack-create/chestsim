@@ -2,7 +2,6 @@ import React, { useState, Suspense, lazy } from 'react';
 import { GameProvider, useGame } from './context/GameContext';
 import { DisclaimerModal } from './components/DisclaimerModal';
 import { Navbar } from './components/Navbar';
-import { LeftStatsPanel } from './components/LeftStatsPanel';
 import { BaronCenterArena } from './components/BaronCenterArena';
 import { RightHextechPanel } from './components/RightHextechPanel';
 import { ToastContainer } from './components/ToastContainer';
@@ -53,14 +52,8 @@ export function GameApp() {
         onOpenLeaderboard={() => setIsLeaderboardOpen(true)}
       />
 
-      {/* 3. Main 3-Column Game Area */}
+      {/* 3. Main Game Area */}
       <div className="flex-1 w-full mx-auto p-0 pb-4 md:p-4 max-w-7xl flex flex-col lg:flex-row items-stretch justify-center gap-0 md:gap-4">
-        {/* Left Panel: Statistics & Upgrades */}
-        <LeftStatsPanel
-          onOpenInventory={() => handleOpenInventory('INVENTORY')}
-          onOpenPrestigeShop={() => setIsPrestigeShopOpen(true)}
-        />
-
         {/* Center Panel: Baron Arena */}
         <BaronCenterArena />
 

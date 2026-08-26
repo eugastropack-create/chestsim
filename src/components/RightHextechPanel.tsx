@@ -2,16 +2,14 @@ import React, { useState } from 'react';
 import { motion } from 'motion/react';
 import { Sparkles, Zap } from 'lucide-react';
 import { useGame } from '../context/GameContext';
-import { getRarityLabel } from '../services/dataDragon';
-import { AdSenseBanner } from './AdSenseBanner';
-import { HextechKeyIcon, HextechChestIcon } from './HextechIcons';
+import { HextechKeyIcon } from './HextechIcons';
 import { t } from '../i18n/translations';
 
 interface RightHextechPanelProps {
   onOpenCrafting?: () => void;
 }
 
-export const RightHextechPanel: React.FC<RightHextechPanelProps> = ({ onOpenCrafting }) => {
+export const RightHextechPanel: React.FC<RightHextechPanelProps> = () => {
   const { state, openChest } = useGame();
   const [isOpeningAnim, setIsOpeningAnim] = useState(false);
 
@@ -35,7 +33,7 @@ export const RightHextechPanel: React.FC<RightHextechPanelProps> = ({ onOpenCraf
         ? 'bg-[#041527]/80 border-[#00c8c8]/20 backdrop-blur-sm'
         : 'bg-[#010a13] border-[#1e2328]'
     }`}>
-      {/* 1. Open Hextech Chest Box */}
+      {/* 1. Open Chest Box */}
       <div className={`border p-4 rounded-sm flex flex-col items-center transition-colors duration-300 ${
         isLightBlue
           ? 'bg-[#072138]/60 border-[#00c8c8]/30 shadow-[0_0_15px_rgba(0,200,200,0.1)]'
@@ -106,17 +104,6 @@ export const RightHextechPanel: React.FC<RightHextechPanelProps> = ({ onOpenCraf
             <span>{t('panel.chest_open_5', state.language)}</span>
           </button>
         </div>
-      </div>
-
-      {/* 3. Google AdSense Unit (Right Sidebar - Full Remaining Height) */}
-      <div className="flex-1 w-full h-full flex flex-col min-h-[220px]">
-        <AdSenseBanner
-          slotId="1234567890"
-          format="vertical"
-          fullHeight={true}
-          label={t('ads.sponsored', state.language)}
-          className="flex-1 h-full"
-        />
       </div>
     </aside>
   );
