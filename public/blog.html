@@ -1,0 +1,830 @@
+<!doctype html>
+<html lang="en" class="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
+    <title>Blog & Guides - LoL Hextech Simulator | ChestSimulator.com</title>
+    <meta name="description" content="League of Legends Hextech Crafting drop rates, chest opening odds, Baron Nashor clicker strategy, and Prestige skin guides." />
+    <meta name="keywords" content="lol blog, hextech crafting, lol chest drop rates, baron nashor clicker guide, master yi clicker, prestige skins odds" />
+    <meta name="author" content="ChestSimulator.com" />
+    <meta name="robots" content="index, follow" />
+
+    <!-- Favicon Links -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/png" sizes="192x192" href="/favicon.png" />
+    <link rel="apple-touch-icon" href="/favicon.svg" />
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        background-color: #010a13;
+        color: #f0e6d2;
+        font-family: 'Plus Jakarta Sans', sans-serif;
+        line-height: 1.6;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+      }
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+      /* Hide AdSense boxes */
+      .adsbygoogle, .adsense-box, [data-ad-slot], .ad-container, .sponsored-box, .google-adsense-banner, .sponsored-ad-unit {
+        display: none !important;
+      }
+
+      /* Header */
+      header {
+        position: sticky;
+        top: 0;
+        z-index: 50;
+        background: #010a13;
+        border-bottom: 1px solid #1e2328;
+      }
+      .gold-bar {
+        width: 100%;
+        height: 2px;
+        background: linear-gradient(90deg, #c8aa6e, #f0e6d2, #c8aa6e);
+      }
+      .nav-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 1.25rem;
+        height: 62px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+      .logo-area {
+        display: flex;
+        align-items: center;
+        gap: 0.65rem;
+      }
+      .logo-icon {
+        width: 28px;
+        height: 28px;
+        transition: transform 0.2s ease;
+      }
+      .logo-area:hover .logo-icon {
+        transform: scale(1.1);
+      }
+      .logo-title {
+        font-family: 'Cinzel', serif;
+        font-weight: 800;
+        font-size: 1.05rem;
+        color: #f0e6d2;
+        letter-spacing: 0.05em;
+      }
+      .logo-subtitle {
+        color: #00c8c8;
+        font-size: 0.65rem;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        display: block;
+      }
+      .nav-links {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+      }
+      .nav-item {
+        font-size: 0.8rem;
+        font-weight: 700;
+        color: #a09b8c;
+        transition: all 0.2s ease;
+        padding: 0.4rem 0.75rem;
+        border-radius: 2px;
+        border: 1px solid transparent;
+      }
+      .nav-item:hover {
+        color: #f0e6d2;
+        background: rgba(200, 170, 110, 0.1);
+        border-color: rgba(200, 170, 110, 0.3);
+      }
+      .nav-item.active {
+        color: #00c8c8;
+        background: rgba(0, 200, 200, 0.1);
+        border-color: rgba(0, 200, 200, 0.4);
+      }
+      .nav-item.cta {
+        color: #010a13;
+        background: linear-gradient(135deg, #c89b3c, #f0e6d2);
+        border-color: #c8aa6e;
+        font-weight: 800;
+        padding: 0.4rem 1rem;
+        box-shadow: 0 0 10px rgba(200, 170, 110, 0.3);
+      }
+      .nav-item.cta:hover {
+        filter: brightness(1.15);
+        box-shadow: 0 0 15px rgba(200, 170, 110, 0.6);
+        transform: translateY(-1px);
+      }
+
+      /* Language Toggle Button */
+      .lang-btn {
+        background: #031526;
+        border: 1px solid #1e2328;
+        color: #c8aa6e;
+        padding: 0.35rem 0.65rem;
+        font-size: 0.75rem;
+        font-weight: 700;
+        border-radius: 2px;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        gap: 0.35rem;
+        transition: all 0.2s ease;
+      }
+      .lang-btn:hover {
+        border-color: #00c8c8;
+        color: #00c8c8;
+      }
+
+      /* Hamburger button */
+      .hamburger-btn {
+        display: none;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 36px;
+        height: 36px;
+        background: #031526;
+        border: 1px solid #1e2328;
+        border-radius: 2px;
+        color: #c8aa6e;
+        cursor: pointer;
+        transition: all 0.2s ease;
+      }
+      .hamburger-btn:hover {
+        border-color: #00c8c8;
+        color: #00c8c8;
+      }
+      .mobile-menu-drawer {
+        display: none;
+        background: #010a13;
+        border-top: 1px solid #1e2328;
+        padding: 1rem 1.25rem 1.25rem 1.25rem;
+      }
+      .mobile-menu-drawer.open {
+        display: block;
+      }
+
+      @media (max-width: 768px) {
+        .nav-links { display: none; }
+        .hamburger-btn { display: flex; }
+      }
+
+      /* Main Content */
+      main {
+        flex: 1;
+        max-width: 1000px;
+        margin: 0 auto;
+        padding: 2.5rem 1.25rem;
+        width: 100%;
+      }
+      .header-section {
+        text-align: center;
+        margin-bottom: 2.5rem;
+      }
+      .header-badge {
+        display: inline-block;
+        background: rgba(0, 200, 200, 0.15);
+        color: #00c8c8;
+        border: 1px solid rgba(0, 200, 200, 0.4);
+        padding: 0.25rem 0.75rem;
+        font-size: 0.75rem;
+        font-weight: 800;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        margin-bottom: 0.75rem;
+        border-radius: 2px;
+      }
+      .page-title {
+        font-family: 'Cinzel', serif;
+        font-size: 2.2rem;
+        font-weight: 800;
+        color: #f0e6d2;
+        margin-bottom: 0.75rem;
+        text-shadow: 0 2px 10px rgba(0, 0, 0, 0.8);
+      }
+      .page-subtitle {
+        color: #a09b8c;
+        font-size: 0.95rem;
+        max-width: 650px;
+        margin: 0 auto;
+      }
+
+      /* Blog Articles */
+      .article-card {
+        background: #0a1428;
+        border: 1px solid #1e2328;
+        padding: 2.25rem;
+        border-radius: 4px;
+        margin-bottom: 2.5rem;
+        position: relative;
+        transition: border-color 0.3s ease, box-shadow 0.3s ease;
+      }
+      .article-card:hover {
+        border-color: #c8aa6e;
+        box-shadow: 0 0 25px rgba(200, 170, 110, 0.15);
+      }
+      .article-tag {
+        color: #c8aa6e;
+        font-size: 0.75rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        margin-bottom: 0.5rem;
+        display: block;
+      }
+      .article-title {
+        font-family: 'Cinzel', serif;
+        font-size: 1.6rem;
+        font-weight: 700;
+        color: #f0e6d2;
+        margin-bottom: 1rem;
+        line-height: 1.3;
+      }
+      .article-meta {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        color: #785a28;
+        font-size: 0.8rem;
+        margin-bottom: 1.25rem;
+        border-bottom: 1px solid #1e2328;
+        padding-bottom: 0.85rem;
+      }
+      .article-body {
+        font-size: 0.95rem;
+        line-height: 1.8;
+      }
+      .article-body p {
+        margin-bottom: 1.25rem;
+        color: #d8c29d;
+      }
+      .article-body h3 {
+        font-family: 'Cinzel', serif;
+        font-size: 1.15rem;
+        color: #00c8c8;
+        margin: 1.5rem 0 0.65rem 0;
+      }
+      .stat-table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 1.25rem 0;
+        background: #010a13;
+        border: 1px solid #1e2328;
+        border-radius: 2px;
+        overflow: hidden;
+      }
+      .stat-table th, .stat-table td {
+        padding: 0.75rem 1rem;
+        text-align: left;
+        font-size: 0.85rem;
+        border-bottom: 1px solid #1e2328;
+      }
+      .stat-table th {
+        background: #031526;
+        color: #c8aa6e;
+        font-weight: 700;
+        text-transform: uppercase;
+        font-size: 0.75rem;
+        letter-spacing: 0.05em;
+      }
+      .stat-table td {
+        color: #f0e6d2;
+      }
+      .highlight-box {
+        background: rgba(0, 200, 200, 0.05);
+        border-left: 3px solid #00c8c8;
+        padding: 1rem 1.25rem;
+        margin: 1.25rem 0;
+        color: #f0e6d2;
+        font-size: 0.875rem;
+      }
+
+      /* Play CTA Banner */
+      .play-cta-banner {
+        background: linear-gradient(135deg, rgba(3, 21, 38, 0.9), rgba(10, 20, 40, 0.95));
+        border: 1px solid #00c8c8;
+        box-shadow: 0 0 25px rgba(0, 200, 200, 0.15), inset 0 0 15px rgba(0, 200, 200, 0.05);
+        border-radius: 4px;
+        padding: 2rem;
+        text-align: center;
+        margin: 2.5rem 0 1rem 0;
+      }
+      .play-btn-large {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        background: linear-gradient(135deg, #c89b3c 0%, #f0e6d2 50%, #c8aa6e 100%);
+        color: #010a13;
+        font-family: 'Cinzel', serif;
+        font-weight: 800;
+        font-size: 1.05rem;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        padding: 0.85rem 2.25rem;
+        border-radius: 2px;
+        border: 1px solid #f0e6d2;
+        box-shadow: 0 0 20px rgba(200, 170, 110, 0.5);
+        transition: all 0.2s ease;
+        margin-top: 0.85rem;
+      }
+      .play-btn-large:hover {
+        filter: brightness(1.15);
+        transform: translateY(-2px) scale(1.02);
+        box-shadow: 0 0 30px rgba(200, 170, 110, 0.8);
+      }
+
+      /* Footer */
+      footer {
+        background: #010a13;
+        border-top: 1px solid #1e2328;
+        padding: 2rem 1.25rem;
+        text-align: center;
+        margin-top: auto;
+      }
+      .footer-links {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 1rem;
+        margin-bottom: 1rem;
+      }
+      .footer-link {
+        color: #c8aa6e;
+        font-size: 0.8rem;
+        font-weight: 600;
+        transition: color 0.2s;
+      }
+      .footer-link:hover {
+        color: #f0e6d2;
+      }
+      .disclaimer {
+        color: #785a28;
+        font-size: 0.75rem;
+        max-width: 680px;
+        margin: 0 auto 0.5rem auto;
+        line-height: 1.5;
+      }
+      .copyright {
+        color: #5c5b57;
+        font-size: 0.75rem;
+      }
+
+      @media (max-width: 640px) {
+        .page-title { font-size: 1.7rem; }
+        .article-card { padding: 1.25rem; }
+        .article-title { font-size: 1.35rem; }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Header -->
+    <header>
+      <div class="gold-bar"></div>
+      <div class="nav-container">
+        <!-- Logo -->
+        <a href="index.html" class="logo-area">
+          <img src="/favicon.svg" alt="LoL Hextech Logo" class="logo-icon" />
+          <div>
+            <span class="logo-title">ChestSimulator</span>
+            <span class="logo-subtitle">LoL Hextech Simulator</span>
+          </div>
+        </a>
+
+        <!-- Desktop Navigation Links (English / Turkish) -->
+        <nav class="nav-links">
+          <a href="index.html" class="nav-item" id="nav-home">Home</a>
+          <a href="blog.html" class="nav-item active" id="nav-blog">Blog & Guides</a>
+          <a href="about.html" class="nav-item" id="nav-about">About Us</a>
+          <a href="index.html" class="nav-item cta" id="nav-play">⚔️ PLAY NOW</a>
+          <!-- Language Toggle Button -->
+          <button type="button" class="lang-btn" onclick="toggleLanguage()" id="lang-btn">
+            🌐 <span id="lang-label">TR</span>
+          </button>
+        </nav>
+
+        <!-- Mobile Controls (Lang + Hamburger) -->
+        <div style="display: flex; align-items: center; gap: 0.5rem;" class="md:hidden">
+          <button type="button" class="lang-btn" onclick="toggleLanguage()" id="mobile-lang-btn" style="padding: 0.35rem 0.5rem;">
+            🌐 <span id="mobile-lang-label">TR</span>
+          </button>
+
+          <button
+            type="button"
+            id="blog-hamburger-btn"
+            class="hamburger-btn"
+            aria-label="Menu"
+            onclick="toggleBlogMenu()"
+          >
+            <svg id="blog-hamburger-icon" style="width: 20px; height: 20px;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+            <svg id="blog-close-icon" style="width: 20px; height: 20px; display: none;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          </button>
+        </div>
+      </div>
+
+      <!-- Mobile Dropdown Menu -->
+      <div id="blog-mobile-menu" class="mobile-menu-drawer">
+        <div style="display: flex; flex-direction: column; gap: 0.6rem;">
+          <a href="index.html" class="nav-item cta" id="m-nav-play" style="text-align: center; padding: 0.65rem 1rem; font-size: 0.9rem;">
+            ⚔️ PLAY NOW
+          </a>
+          <a href="index.html" class="nav-item" id="m-nav-home" style="display: flex; align-items: center; gap: 0.5rem;">
+            🏠 Home
+          </a>
+          <a href="blog.html" class="nav-item active" id="m-nav-blog" style="display: flex; align-items: center; gap: 0.5rem;">
+            📖 Blog & Guides
+          </a>
+          <a href="about.html" class="nav-item" id="m-nav-about" style="display: flex; align-items: center; gap: 0.5rem;">
+            ℹ️ About Us
+          </a>
+        </div>
+      </div>
+    </header>
+
+    <!-- Main Content Container (Dynamic EN / TR) -->
+    <main id="blog-content">
+      <!-- Header Section -->
+      <div class="header-section">
+        <span class="header-badge" id="badge-guides">Guides & Strategy</span>
+        <h1 class="page-title" id="main-title">LoL Hextech Blog & Guides</h1>
+        <p class="page-subtitle" id="main-subtitle">
+          In-depth guides on League of Legends Hextech crafting drop rates, Baron Nashor DPS clicker strategies, and skin loot probability analytics.
+        </p>
+      </div>
+
+      <!-- Article 1: Hextech Crafting & Skin Drop Rates -->
+      <article class="article-card">
+        <span class="article-tag" id="art1-tag">Crafting & Probabilities</span>
+        <h2 class="article-title" id="art1-title">Hextech Crafting & Skin Drop Rates</h2>
+        <div class="article-meta">
+          <span id="art1-meta1">📅 Official Loot Analytics</span>
+          <span id="art1-meta2">⏱️ 5 min read</span>
+          <span id="art1-meta3">💎 Drop Rates Breakdown</span>
+        </div>
+        
+        <div class="article-body" id="art1-body">
+          <p>
+            In League of Legends, <strong>Hextech Crafting</strong> is the primary reward engine that allows summoners to earn champion shards, skin shards, and rare loot by scoring high grades in matches. However, the exact probability of receiving an Ultimate, Mythic, or Legendary skin shard from a standard Hextech chest is governed by specific mathematical drop tables.
+          </p>
+
+          <h3>Official Hextech Chest Probability Distribution</h3>
+          <p>
+            Our simulator implements the exact official drop rates published by Riot Games, ensuring a 100% authentic probability simulation:
+          </p>
+
+          <table class="stat-table">
+            <thead>
+              <tr>
+                <th>Loot Category</th>
+                <th>Drop Probability</th>
+                <th>Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Standard Skin Shards (750 - 975 RP)</td>
+                <td>50.0%</td>
+                <td>Classic and standard tier champion skin shards</td>
+              </tr>
+              <tr>
+                <td>Epic Skin Shards (1350 RP)</td>
+                <td>25.0%</td>
+                <td>High quality skins featuring custom VFX & SFX</td>
+              </tr>
+              <tr>
+                <td>Legendary Skin Shards (1820 RP)</td>
+                <td>15.0%</td>
+                <td>Complete model transformation with new voiceovers</td>
+              </tr>
+              <tr>
+                <td>Mythic & Prestige Skins</td>
+                <td>0.04% - 0.5%</td>
+                <td>Ultra-rare collectible skins obtainable with Gemstones</td>
+              </tr>
+              <tr>
+                <td>Champion Shard / Orange Essence / Bonus</td>
+                <td>9.5%</td>
+                <td>Materials required to upgrade shards into permanent loot</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <div class="highlight-box">
+            <strong>💡 Pro Crafting Tip:</strong> If you collect 3 unwanted skin shards in your inventory, you can use the <em>"Reroll into Permanent Skin"</em> feature on the Crafting screen to forge a guaranteed random unowned permanent skin.
+          </div>
+
+          <h3>Why Use a Chest Simulator?</h3>
+          <p>
+            In the live game, chests are locked behind weekly quotas and key fragment drops. <strong>ChestSimulator.com</strong> gives players unlimited, risk-free access to test opening dozens or hundreds of Hextech chests to observe empirical drop rates and discover how many attempts it takes to unlock rare Mythic and Legendary cosmetics.
+          </p>
+        </div>
+      </article>
+
+      <!-- Article 2: Master Yi & Baron Nashor Combat Guide -->
+      <article class="article-card">
+        <span class="article-tag" id="art2-tag">Game Mechanics & DPS Guide</span>
+        <h2 class="article-title" id="art2-title">Master Yi vs. Baron Nashor Combat Guide</h2>
+        <div class="article-meta">
+          <span id="art2-meta1">📅 Combat & Clicker Guide</span>
+          <span id="art2-meta2">⏱️ 4 min read</span>
+          <span id="art2-meta3">⚔️ Summoner's Rift Battle</span>
+        </div>
+        
+        <div class="article-body" id="art2-body">
+          <p>
+            Baron Nashor is the most formidable epic neutral monster on Summoner's Rift, granting Hand of Baron combat buffs to all living teammates. In our simulator, the Wuju Bladesman <strong>Master Yi</strong> steps into the Baron pit for a single-handed test of endurance and damage per second (DPS).
+          </p>
+
+          <h3>Alpha Strike (Q Ability) & Critical Damage Multipliers</h3>
+          <p>
+            Every click delivers rapid strikes against Baron Nashor's massive health pool. As you attack, randomized <strong>Critical Strike Hits</strong> trigger damage multipliers, drastically accelerating the rate at which you defeat the monster.
+          </p>
+
+          <div class="highlight-box">
+            <strong>⚔️ Baron Slaying Rewards:</strong>
+            <ul style="margin-top: 0.5rem; margin-left: 1.25rem;">
+              <li>High Experience Points (XP) to level up your summoner rank</li>
+              <li>Hextech Keys and Key Fragments for instant chest opening</li>
+              <li>Ranked Banner Upgrades (progressing from Iron to Challenger)</li>
+            </ul>
+          </div>
+
+          <h3>Progression & Tier Evolution</h3>
+          <p>
+            Defeating Baron Nashor repeatedly rewards substantial XP, elevating your summoner level through authentic League of Legends ranked tiers (Iron, Bronze, Silver, Gold, Platinum, Emerald, Diamond, Master, Grandmaster, and Challenger). Each milestone unlocks new prestige aesthetic frames and equips you with keys to expand your skin collection!
+          </p>
+        </div>
+      </article>
+
+      <!-- Play CTA Banner -->
+      <div class="play-cta-banner">
+        <h2 style="font-family: 'Cinzel', serif; font-size: 1.5rem; color: #f0e6d2; margin-bottom: 0.5rem;" id="cta-title">
+          ⚔️ Experience the Hextech Simulator Now!
+        </h2>
+        <p style="color: #d8c29d; font-size: 0.95rem; max-width: 600px; margin: 0 auto 1.25rem auto;" id="cta-desc">
+          Click to attack Baron Nashor, earn Hextech keys, crack open chests, and build your dream League of Legends skin collection!
+        </p>
+        <a href="index.html" class="play-btn-large" id="cta-btn">
+          <span>⚔️ PLAY NOW</span>
+        </a>
+      </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+      <div class="footer-links">
+        <a href="index.html" class="footer-link" id="f-home">Home</a>
+        <span style="color: #785a28;">·</span>
+        <a href="blog.html" class="footer-link" id="f-blog">Blog & Guides</a>
+        <span style="color: #785a28;">·</span>
+        <a href="about.html" class="footer-link" id="f-about">About Us</a>
+      </div>
+      <p class="disclaimer">
+        chestsimulator.com was created under Riot Games's "Legal Jibber Jabber" policy using assets owned by Riot Games. Riot Games does not endorse or sponsor this project.
+      </p>
+      <p class="copyright" id="f-copy">
+        © 2026 ChestSimulator.com, All rights reserved.
+      </p>
+    </footer>
+
+    <!-- Bilingual / Hamburger Script -->
+    <script>
+      const blogData = {
+        en: {
+          navHome: 'Home',
+          navBlog: 'Blog & Guides',
+          navAbout: 'About Us',
+          navPlay: '⚔️ PLAY NOW',
+          langNext: 'TR',
+          badgeGuides: 'Guides & Strategy',
+          mainTitle: 'LoL Hextech Blog & Guides',
+          mainSubtitle: "In-depth guides on League of Legends Hextech crafting drop rates, Baron Nashor DPS clicker strategies, and skin loot probability analytics.",
+          
+          art1Tag: 'Crafting & Probabilities',
+          art1Title: 'Hextech Crafting & Skin Drop Rates',
+          art1Meta1: '📅 Official Loot Analytics',
+          art1Meta2: '⏱️ 5 min read',
+          art1Meta3: '💎 Drop Rates Breakdown',
+          art1Body: `
+            <p>In League of Legends, <strong>Hextech Crafting</strong> is the primary reward engine that allows summoners to earn champion shards, skin shards, and rare loot by scoring high grades in matches. However, the exact probability of receiving an Ultimate, Mythic, or Legendary skin shard from a standard Hextech chest is governed by specific mathematical drop tables.</p>
+            <h3>Official Hextech Chest Probability Distribution</h3>
+            <p>Our simulator implements the exact official drop rates published by Riot Games, ensuring a 100% authentic probability simulation:</p>
+            <table class="stat-table">
+              <thead>
+                <tr>
+                  <th>Loot Category</th>
+                  <th>Drop Probability</th>
+                  <th>Description</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td>Standard Skin Shards (750 - 975 RP)</td><td>50.0%</td><td>Classic and standard tier champion skin shards</td></tr>
+                <tr><td>Epic Skin Shards (1350 RP)</td><td>25.0%</td><td>High quality skins featuring custom VFX & SFX</td></tr>
+                <tr><td>Legendary Skin Shards (1820 RP)</td><td>15.0%</td><td>Complete model transformation with new voiceovers</td></tr>
+                <tr><td>Mythic & Prestige Skins</td><td>0.04% - 0.5%</td><td>Ultra-rare collectible skins obtainable with Gemstones</td></tr>
+                <tr><td>Champion Shard / Orange Essence / Bonus</td><td>9.5%</td><td>Materials required to upgrade shards into permanent loot</td></tr>
+              </tbody>
+            </table>
+            <div class="highlight-box">
+              <strong>💡 Pro Crafting Tip:</strong> If you collect 3 unwanted skin shards in your inventory, you can use the <em>"Reroll into Permanent Skin"</em> feature on the Crafting screen to forge a guaranteed random unowned permanent skin.
+            </div>
+            <h3>Why Use a Chest Simulator?</h3>
+            <p>In the live game, chests are locked behind weekly quotas and key fragment drops. <strong>ChestSimulator.com</strong> gives players unlimited, risk-free access to test opening dozens or hundreds of Hextech chests to observe empirical drop rates and discover how many attempts it takes to unlock rare Mythic and Legendary cosmetics.</p>
+          `,
+
+          art2Tag: 'Game Mechanics & DPS Guide',
+          art2Title: 'Master Yi vs. Baron Nashor Combat Guide',
+          art2Meta1: '📅 Combat & Clicker Guide',
+          art2Meta2: '⏱️ 4 min read',
+          art2Meta3: "⚔️ Summoner's Rift Battle",
+          art2Body: `
+            <p>Baron Nashor is the most formidable epic neutral monster on Summoner's Rift, granting Hand of Baron combat buffs to all living teammates. In our simulator, the Wuju Bladesman <strong>Master Yi</strong> steps into the Baron pit for a single-handed test of endurance and damage per second (DPS).</p>
+            <h3>Alpha Strike (Q Ability) & Critical Damage Multipliers</h3>
+            <p>Every click delivers rapid strikes against Baron Nashor's massive health pool. As you attack, randomized <strong>Critical Strike Hits</strong> trigger damage multipliers, drastically accelerating the rate at which you defeat the monster.</p>
+            <div class="highlight-box">
+              <strong>⚔️ Baron Slaying Rewards:</strong>
+              <ul style="margin-top: 0.5rem; margin-left: 1.25rem;">
+                <li>High Experience Points (XP) to level up your summoner rank</li>
+                <li>Hextech Keys and Key Fragments for instant chest opening</li>
+                <li>Ranked Banner Upgrades (progressing from Iron to Challenger)</li>
+              </ul>
+            </div>
+            <h3>Progression & Tier Evolution</h3>
+            <p>Defeating Baron Nashor repeatedly rewards substantial XP, elevating your summoner level through authentic League of Legends ranked tiers (Iron, Bronze, Silver, Gold, Platinum, Emerald, Diamond, Master, Grandmaster, and Challenger). Each milestone unlocks new prestige aesthetic frames and equips you with keys to expand your skin collection!</p>
+          `,
+
+          ctaTitle: '⚔️ Experience the Hextech Simulator Now!',
+          ctaDesc: 'Click to attack Baron Nashor, earn Hextech keys, crack open chests, and build your dream League of Legends skin collection!',
+          ctaBtn: '⚔️ PLAY NOW',
+          fCopy: '© 2026 ChestSimulator.com, All rights reserved.'
+        },
+
+        tr: {
+          navHome: 'Ana Sayfa',
+          navBlog: 'Blog & Rehber',
+          navAbout: 'Hakkımızda',
+          navPlay: '⚔️ OYNA',
+          langNext: 'EN',
+          badgeGuides: 'Rehberler & Analizler',
+          mainTitle: 'LoL Hextech Blog & Rehber',
+          mainSubtitle: 'League of Legends zanaatkarlık mekanikleri, sandık düşme oranları ve Baron Nashor simülasyon stratejileri hakkında derinlemesine makaleler.',
+          
+          art1Tag: 'Zanaatkarlık & İhtimaller',
+          art1Title: 'Hextech Zanaatkarlığı ve Kostüm İhtimalleri',
+          art1Meta1: '📅 Kapsamlı Rehber',
+          art1Meta2: '⏱️ 5 dk okuma',
+          art1Meta3: '💎 İhtimal Analizi',
+          art1Body: `
+            <p>League of Legends'ta Hextech Zanaatkarlığı, oyuncuların maç sonu performanslarına göre sandık ve anahtar parçacıkları kazanarak şampiyon, kostüm ve ganimet eşyaları elde etmelerini sağlayan en popüler ödül sistemidir. Ancak bir Hextech Sandığı açıldığında hangi kategoriden bir eşyanın düşeceği matematiksel olasılıklara dayanır.</p>
+            <h3>Sandık İçerik Dağılımı ve Olasılık Oranları</h3>
+            <p>Riot Games'in şeffaflık politikası uyarınca belirlenen resmi ganimet düşme oranları simülatörümüzde de birebir uygulanmaktadır:</p>
+            <table class="stat-table">
+              <thead>
+                <tr>
+                  <th>Ganimet Türü</th>
+                  <th>Düşme Olasılığı</th>
+                  <th>Açıklama</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td>Kostüm Kristali (Standart & 975 RP)</td><td>%50.0</td><td>Temel ve klasik kostüm parçacıkları</td></tr>
+                <tr><td>Destansı Kostüm Kristali (1350 RP)</td><td>%25.0</td><td>Popüler ve efektli kostüm modelleri</td></tr>
+                <tr><td>Efsanevi Kostüm Kristali (1820 RP)</td><td>%15.0</td><td>Özel seslendirme ve animasyonlara sahip modeller</td></tr>
+                <tr><td>İhtişamlı / Prestij Kostüm</td><td>%0.04 - %0.5</td><td>Nadir bulunan koleksiyonluk prestij serisi</td></tr>
+                <tr><td>Şampiyon Kristali / Turuncu Öz</td><td>%9.5</td><td>Geliştirme ve zanaat materyalleri</td></tr>
+              </tbody>
+            </table>
+            <div class="highlight-box">
+              <strong>💡 İpucu:</strong> Elinizdeki 3 adet değersiz kostüm kristalini Zanaatkarlık (Crafting) ekranında <em>"Yeniden İşle" (Reroll)</em> yaparak rastgele kalıcı bir kostüme dönüştürebilirsiniz.
+            </div>
+            <h3>Neden Bir Simülatör Kullanmalısınız?</h3>
+            <p>Gerçek oyunda Hextech sandıkları sınırlı haftalık kota ve kilitli anahtarlarla açılabilir. <strong>ChestSimulator.com</strong> sayesinde oyuncular onlarca hatta yüzlerce sandık açarak ortalama kaç denemede Efsanevi ya da Prestij kostüm yakalayabileceklerini hiçbir harcama yapmadan güvenle gözlemleyebilirler.</p>
+          `,
+
+          art2Tag: 'Oyun Mekaniği & Strateji',
+          art2Title: 'Master Yi ve Baron Nashor Mücadelesi',
+          art2Meta1: '📅 Tıklama & DPS Rehberi',
+          art2Meta2: '⏱️ 4 dk okuma',
+          art2Meta3: '⚔️ Vadi Savaşı',
+          art2Body: `
+            <p>Sihirdar Vadisi'nin en korkutucu destansı tarafsız canavarı olan Baron Nashor, takımına muazzam saldırı gücü ve minyon güçlendirmesi kazandırır. Simülatörümüzde Wuju Üstadı <strong>Master Yi</strong>, Alpha Strike yeteneği ile Baron Nashor'a karşı tek başına amansız bir mücadeleye girişmektedir.</p>
+            <h3>Alpha Strike (Q Yeteneği) ve Kritik Hasar Dinamikleri</h3>
+            <p>Her tıklama, Master Yi'nin kılıç darbeleriyle Baron Nashor'un devasa can havuzuna doğrudan hasar verir. Belirli vuruşlarda tetiklenen <strong>Kritik Hasar (Critical Strike)</strong> çarpanı, saniyedeki hasarınızı (DPS) katlayarak canavarın daha hızlı alt edilmesini sağlar.</p>
+            <div class="highlight-box">
+              <strong>⚔️ Baron Öldürme Ödülleri:</strong>
+              <ul style="margin-top: 0.5rem; margin-left: 1.25rem;">
+                <li>Yüksek Deneyim Puanı (XP) ve Seviye Atlama</li>
+                <li>Hextech Anahtarı ve Anahtar Parçacıkları</li>
+                <li>Seviye Çerçevesi Yükseltmesi (Demir'den Şampiyonluk Aşamasına)</li>
+              </ul>
+            </div>
+            <h3>Seviye Atlama ve İlerleme Sistemi</h3>
+            <p>Baron'u her alt ettiğinizde kazandığınız tecrübe puanları seviyenizi yükseltir. Seviyeniz arttıkça profil çerçeveniz Zaun, Piltover, Noxus ve Targon temalı orijinal League of Legends çerçevelerine evrilir. Aynı zamanda biriken anahtarlarınızla sandıkları açarak koleksiyonunuza yepyeni kostümler katabilirsiniz!</p>
+          `,
+
+          ctaTitle: '⚔️ Hextech Simülatörünü Hemen Dene!',
+          ctaDesc: "Baron Nashor'a tıkla, anahtarları topla, Hextech sandıklarını aç ve en nadir Prestij kostümleri koleksiyonuna ekle!",
+          ctaBtn: '⚔️ ŞİMDİ OYNA',
+          fCopy: '© 2026 ChestSimulator.com, Tüm hakları saklıdır.'
+        }
+      };
+
+      let currentLang = localStorage.getItem('lol_game_lang') || 'en';
+
+      function applyLanguage(lang) {
+        currentLang = lang;
+        localStorage.setItem('lol_game_lang', lang);
+        document.documentElement.lang = lang;
+        const d = blogData[lang] || blogData.en;
+
+        // Header desktop
+        document.getElementById('nav-home').textContent = d.navHome;
+        document.getElementById('nav-blog').textContent = d.navBlog;
+        document.getElementById('nav-about').textContent = d.navAbout;
+        document.getElementById('nav-play').textContent = d.navPlay;
+        document.getElementById('lang-label').textContent = d.langNext;
+        document.getElementById('mobile-lang-label').textContent = d.langNext;
+
+        // Mobile drawer
+        document.getElementById('m-nav-play').textContent = d.navPlay;
+        document.getElementById('m-nav-home').textContent = '🏠 ' + d.navHome;
+        document.getElementById('m-nav-blog').textContent = '📖 ' + d.navBlog;
+        document.getElementById('m-nav-about').textContent = 'ℹ️ ' + d.navAbout;
+
+        // Main Header
+        document.getElementById('badge-guides').textContent = d.badgeGuides;
+        document.getElementById('main-title').textContent = d.mainTitle;
+        document.getElementById('main-subtitle').textContent = d.mainSubtitle;
+
+        // Article 1
+        document.getElementById('art1-tag').textContent = d.art1Tag;
+        document.getElementById('art1-title').textContent = d.art1Title;
+        document.getElementById('art1-meta1').textContent = d.art1Meta1;
+        document.getElementById('art1-meta2').textContent = d.art1Meta2;
+        document.getElementById('art1-meta3').textContent = d.art1Meta3;
+        document.getElementById('art1-body').innerHTML = d.art1Body;
+
+        // Article 2
+        document.getElementById('art2-tag').textContent = d.art2Tag;
+        document.getElementById('art2-title').textContent = d.art2Title;
+        document.getElementById('art2-meta1').textContent = d.art2Meta1;
+        document.getElementById('art2-meta2').textContent = d.art2Meta2;
+        document.getElementById('art2-meta3').textContent = d.art2Meta3;
+        document.getElementById('art2-body').innerHTML = d.art2Body;
+
+        // CTA
+        document.getElementById('cta-title').textContent = d.ctaTitle;
+        document.getElementById('cta-desc').textContent = d.ctaDesc;
+        document.getElementById('cta-btn').innerHTML = '<span>' + d.ctaBtn + '</span>';
+
+        // Footer
+        document.getElementById('f-home').textContent = d.navHome;
+        document.getElementById('f-blog').textContent = d.navBlog;
+        document.getElementById('f-about').textContent = d.navAbout;
+        document.getElementById('f-copy').textContent = d.fCopy;
+      }
+
+      function toggleLanguage() {
+        const nextLang = currentLang === 'en' ? 'tr' : 'en';
+        applyLanguage(nextLang);
+      }
+
+      function toggleBlogMenu() {
+        const drawer = document.getElementById('blog-mobile-menu');
+        const burgerIcon = document.getElementById('blog-hamburger-icon');
+        const closeIcon = document.getElementById('blog-close-icon');
+        
+        if (drawer.classList.contains('open')) {
+          drawer.classList.remove('open');
+          burgerIcon.style.display = 'block';
+          closeIcon.style.display = 'none';
+        } else {
+          drawer.classList.add('open');
+          burgerIcon.style.display = 'none';
+          closeIcon.style.display = 'block';
+        }
+      }
+
+      // Initialize language
+      applyLanguage(currentLang);
+    </script>
+  </body>
+</html>

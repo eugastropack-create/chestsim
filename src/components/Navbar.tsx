@@ -274,7 +274,7 @@ export const Navbar: React.FC<NavbarProps> = ({
         <button
           onClick={() => onOpenInventory('CRAFTING')}
           className="flex items-center gap-1.5 px-2 py-1.5 bg-black/60 border border-[#ff8400]/40 rounded-xs hover:border-[#ff8400] transition-all cursor-pointer shrink-0 active:scale-95"
-          title="Turuncu Öz (Zanaatkarlıkta Kullan)"
+          title={t('nav.oe_tooltip', state.language)}
         >
           <OrangeEssenceIcon className="w-4 h-4 drop-shadow-[0_0_4px_#ff8400]" />
           <span className="text-[11px] font-bold font-mono text-[#f0e6d2]">
@@ -286,7 +286,7 @@ export const Navbar: React.FC<NavbarProps> = ({
         <button
           onClick={onOpenPrestigeShop}
           className="flex items-center gap-1.5 px-2 py-1.5 bg-black/60 border border-[#c084fc]/40 rounded-xs hover:border-[#c084fc] transition-all cursor-pointer shrink-0 active:scale-95"
-          title="Mor Cevher (İhtişamlı Mağazada Kullan)"
+          title={t('nav.me_tooltip', state.language)}
         >
           <MythicEssenceIcon className="w-4 h-4 drop-shadow-[0_0_4px_#c084fc]" />
           <span className="text-[11px] font-bold font-mono text-[#e879f9]">

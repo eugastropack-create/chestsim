@@ -53,9 +53,152 @@
     <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800;900&family=Press+Start+2P&family=Rajdhani:wght@500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5440958179084157" crossorigin="anonymous"></script>
+
+    <!-- CSS Rule to Completely Hide Sponsored / Advertisement AdSense Boxes -->
+    <style>
+      .adsbygoogle,
+      .adsense-box,
+      [data-ad-slot],
+      .ad-container,
+      .sponsored-box,
+      .google-adsense-banner,
+      .sponsored-ad-unit {
+        display: none !important;
+      }
+    </style>
   </head>
   <body class="bg-[#030914] text-[#f0e6d2] selection:bg-[#c8aa6e]/30 selection:text-[#f0e6d2] overflow-x-hidden font-['Plus_Jakarta_Sans',sans-serif]">
+    <!-- Semantic Header for Navigation with Desktop Bar & Mobile Hamburger Menu -->
+    <header class="w-full bg-[#010a13] border-b border-[#1e2328] py-2 px-3 sm:px-6 sticky top-0 z-50">
+      <div class="max-w-7xl mx-auto flex items-center justify-between">
+        <a href="index.html" class="flex items-center gap-2 group">
+          <img src="/favicon.svg" alt="LoL Hextech Logo" class="w-5 h-5 group-hover:scale-110 transition-transform" />
+          <span class="text-[#f0e6d2] group-hover:text-[#00c8c8] font-['Cinzel',serif] font-extrabold tracking-wider text-xs sm:text-sm transition-colors">
+            ChestSimulator.com
+          </span>
+        </a>
+
+        <!-- Desktop Navigation Links -->
+        <nav class="hidden md:flex items-center gap-1.5 text-xs font-bold">
+          <a
+            href="index.html"
+            id="idx-nav-home"
+            class="px-3 py-1.5 rounded-sm transition-all text-[#00c8c8] bg-[#00c8c8]/10 border border-[#00c8c8]/40 shadow-[0_0_10px_rgba(0,200,200,0.15)]"
+          >
+            Home
+          </a>
+          <a
+            href="blog.html"
+            id="idx-nav-blog"
+            class="px-3 py-1.5 rounded-sm transition-all text-[#a09b8c] hover:text-[#f0e6d2] hover:bg-[#1e2328] border border-transparent hover:border-[#c8aa6e]/30"
+          >
+            Blog & Guides
+          </a>
+          <a
+            href="about.html"
+            id="idx-nav-about"
+            class="px-3 py-1.5 rounded-sm transition-all text-[#a09b8c] hover:text-[#f0e6d2] hover:bg-[#1e2328] border border-transparent hover:border-[#c8aa6e]/30"
+          >
+            About Us
+          </a>
+        </nav>
+
+        <!-- Mobile Hamburger Button -->
+        <button
+          id="mobile-nav-toggle"
+          type="button"
+          aria-label="Menu"
+          class="md:hidden flex flex-col justify-center items-center w-8 h-8 rounded-sm bg-[#031526] border border-[#1e2328] hover:border-[#00c8c8] text-[#f0e6d2] transition-colors cursor-pointer"
+          onclick="toggleMobileMenu()"
+        >
+          <svg id="hamburger-icon" class="w-4 h-4 text-[#c8aa6e]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+          <svg id="close-icon" class="w-4 h-4 text-[#00c8c8] hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        </button>
+      </div>
+
+      <!-- Mobile Dropdown Menu -->
+      <div id="mobile-menu" class="hidden md:hidden pt-3 pb-2 border-t border-[#1e2328] mt-2 space-y-1">
+        <a
+          href="index.html"
+          id="idx-m-nav-home"
+          class="block px-3 py-2 text-xs font-bold rounded-sm text-[#00c8c8] bg-[#00c8c8]/10 border border-[#00c8c8]/30"
+        >
+          🏠 Home
+        </a>
+        <a
+          href="blog.html"
+          id="idx-m-nav-blog"
+          class="block px-3 py-2 text-xs font-bold rounded-sm text-[#a09b8c] hover:text-[#f0e6d2] hover:bg-[#1e2328]"
+        >
+          📖 Blog & Guides
+        </a>
+        <a
+          href="about.html"
+          id="idx-m-nav-about"
+          class="block px-3 py-2 text-xs font-bold rounded-sm text-[#a09b8c] hover:text-[#f0e6d2] hover:bg-[#1e2328]"
+        >
+          ℹ️ About Us
+        </a>
+      </div>
+    </header>
+
+    <script>
+      function syncNavLang(overrideLang) {
+        const lang = overrideLang || localStorage.getItem('lol_game_lang') || 'en';
+        const isTr = lang === 'tr';
+        const hHome = document.getElementById('idx-nav-home');
+        const hBlog = document.getElementById('idx-nav-blog');
+        const hAbout = document.getElementById('idx-nav-about');
+        const mHome = document.getElementById('idx-m-nav-home');
+        const mBlog = document.getElementById('idx-m-nav-blog');
+        const mAbout = document.getElementById('idx-m-nav-about');
+        const seoTitle = document.getElementById('idx-seo-title');
+        const seoDesc = document.getElementById('idx-seo-desc');
+
+        if (hHome) hHome.textContent = isTr ? 'Ana Sayfa' : 'Home';
+        if (hBlog) hBlog.textContent = isTr ? 'Blog & Rehber' : 'Blog & Guides';
+        if (hAbout) hAbout.textContent = isTr ? 'Hakkımızda' : 'About Us';
+        if (mHome) mHome.textContent = isTr ? '🏠 Ana Sayfa' : '🏠 Home';
+        if (mBlog) mBlog.textContent = isTr ? '📖 Blog & Rehber' : '📖 Blog & Guides';
+        if (mAbout) mAbout.textContent = isTr ? 'ℹ️ Hakkımızda' : 'ℹ️ About Us';
+
+        if (seoTitle) {
+          seoTitle.textContent = isTr ? 'LoL Hextech Clicker Simülasyonu Hakkında' : 'About LoL Hextech Clicker Simulator';
+        }
+        if (seoDesc) {
+          seoDesc.textContent = isTr
+            ? "LoL Hextech Clicker, League of Legends oyuncuları için tasarlanmış bağımsız bir simülatördür. Vadi'nin en güçlü canavarı Baron Nashor'a karşı Master Yi'nin Alpha Strike yeteneğini kullanarak hasar verin, XP kazanın ve anahtar toplayın. Topladığınız anahtarlarla Hextech Sandıkları açarak kostüm düşme oranlarını test edebilirsiniz. Bu tamamen risksiz, eğlence amaçlı bir simülasyondur ve Riot Games ile resmi bir bağı yoktur."
+            : "LoL Hextech Clicker is an independent simulator designed for League of Legends enthusiasts. Battle against Baron Nashor using Master Yi's Alpha Strike ability to deal DPS, earn XP, and collect keys. Use your keys to open Hextech Chests and test authentic skin drop rates. This is a 100% free, risk-free simulation with no official affiliation with Riot Games.";
+        }
+      }
+      syncNavLang();
+      window.addEventListener('storage', function() { syncNavLang(); });
+      window.addEventListener('lol_lang_changed', function(e) { syncNavLang(e.detail); });
+    </script>
+
+    <script>
+      function toggleMobileMenu() {
+        const menu = document.getElementById('mobile-menu');
+        const burger = document.getElementById('hamburger-icon');
+        const close = document.getElementById('close-icon');
+        if (menu.classList.contains('hidden')) {
+          menu.classList.remove('hidden');
+          burger.classList.add('hidden');
+          close.classList.remove('hidden');
+        } else {
+          menu.classList.add('hidden');
+          burger.classList.remove('hidden');
+          close.classList.add('hidden');
+        }
+      }
+    </script>
+
     <div id="root"></div>
+
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>

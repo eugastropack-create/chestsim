@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { X, Shield, FileText, Info, Megaphone, Check } from 'lucide-react';
 import { useGame } from '../context/GameContext';
+import { t } from '../i18n/translations';
 
 type ModalType = 'privacy' | 'terms' | 'about' | 'advertise' | null;
 
@@ -11,11 +12,34 @@ export const Footer: React.FC = () => {
 
   const isLightBlue = state.themeTone === 'light_blue';
 
+  const isTr = state.language === 'tr';
+
   const modalContent = {
     privacy: {
-      title: 'Privacy Policy',
+      title: isTr ? 'Gizlilik Politikası' : 'Privacy Policy',
       icon: Shield,
-      content: (
+      content: isTr ? (
+        <div className="space-y-3 text-xs leading-relaxed text-[#c8aa6e]/90">
+          <p>
+            <strong>Son Güncelleme:</strong> 2026
+          </p>
+          <p>
+            <strong>chestsimulator.com</strong> olarak gizliliğinize büyük önem veriyoruz. Bu web sitesi, League of Legends varlıklarına dayalı ücretsiz bir hayran simülasyonu ve tıklama oyunudur.
+          </p>
+          <div className="space-y-1.5 bg-[#010a13] p-3 border border-[#1e2328] rounded-xs text-[#f0e6d2]">
+            <p className="font-semibold text-[#00c8c8]">1. Veri Toplama & Yerel Depolama</p>
+            <p className="text-[11px] text-[#a09b8c]">
+              Kişisel kimlik bilgilerinizi toplamıyor veya üçüncü şahıslara satmıyoruz. Oyun ilerlemesi, açılan kostümler, sandıklar, altınlar ve ayarlar tarayıcınızın yerel depolama alanında (LocalStorage) saklanır.
+            </p>
+          </div>
+          <div className="space-y-1.5 bg-[#010a13] p-3 border border-[#1e2328] rounded-xs text-[#f0e6d2]">
+            <p className="font-semibold text-[#00c8c8]">2. Üçüncü Taraf Hizmetleri ve Görseller</p>
+            <p className="text-[11px] text-[#a09b8c]">
+              Şampiyon görselleri, kostümler ve eşya ikonları doğrudan Riot Games resmi Data Dragon CDN altyapısından çekilir. Gerçek Riot Games hesabınıza ait hiçbir bilgi istenmez veya saklanmaz.
+            </p>
+          </div>
+        </div>
+      ) : (
         <div className="space-y-3 text-xs leading-relaxed text-[#c8aa6e]/90">
           <p>
             <strong>Last Updated:</strong> 2026
@@ -39,9 +63,27 @@ export const Footer: React.FC = () => {
       ),
     },
     terms: {
-      title: 'Terms of Use',
+      title: isTr ? 'Kullanım Koşulları' : 'Terms of Use',
       icon: FileText,
-      content: (
+      content: isTr ? (
+        <div className="space-y-3 text-xs leading-relaxed text-[#c8aa6e]/90">
+          <p>
+            <strong>chestsimulator.com</strong>&apos;a hoş geldiniz. Bu siteyi kullanarak aşağıdaki şartları kabul etmiş sayılırsınız:
+          </p>
+          <div className="space-y-1.5 bg-[#010a13] p-3 border border-[#1e2328] rounded-xs text-[#f0e6d2]">
+            <p className="font-semibold text-[#00c8c8]">1. Yalnızca Simülasyon & Eğlence Amaçlıdır</p>
+            <p className="text-[11px] text-[#a09b8c]">
+              Bu simülatörde açılan tüm eşyalar, para birimleri (Altın, Prestij Puanı, Mor Cevher), kostümler ve ganimet sandıkları tamamen simülasyondur. Gerçek dünyada parasal karşılıkları yoktur ve resmi Riot Games veya LoL hesaplarına aktarılamaz.
+            </p>
+          </div>
+          <div className="space-y-1.5 bg-[#010a13] p-3 border border-[#1e2328] rounded-xs text-[#f0e6d2]">
+            <p className="font-semibold text-[#00c8c8]">2. Fikri Mülkiyet</p>
+            <p className="text-[11px] text-[#a09b8c]">
+              League of Legends ve ilgili tüm mülkler ve ticari markalar Riot Games, Inc.&apos;e aittir. Bu proje, Riot Games&apos;in &quot;Legal Jibber Jabber&quot; politikasına uygundur.
+            </p>
+          </div>
+        </div>
+      ) : (
         <div className="space-y-3 text-xs leading-relaxed text-[#c8aa6e]/90">
           <p>
             Welcome to <strong>chestsimulator.com</strong>. By using this website, you acknowledge and agree to the following terms:
@@ -62,16 +104,30 @@ export const Footer: React.FC = () => {
       ),
     },
     about: {
-      title: 'About chestsimulator.com',
+      title: isTr ? 'chestsimulator.com Hakkında' : 'About chestsimulator.com',
       icon: Info,
-      content: (
+      content: isTr ? (
         <div className="space-y-3 text-xs leading-relaxed text-[#c8aa6e]/90">
           <p>
-            <strong>chestsimulator.com</strong> is a dedicated fan-made League of Legends interactive simulator and clicker experience.
+            <strong>ChestSimulator.com</strong>, League of Legends evrenine ilgi duyan oyuncular için geliştirilmiş ücretsiz bir araçtır.
           </p>
           <div className="bg-[#010a13] p-3 border border-[#1e2328] rounded-xs text-[#f0e6d2] space-y-2">
             <p className="text-[11px] text-[#a09b8c]">
-              Designed for enthusiasts of Summoner&apos;s Rift, crafting, and champion progression. Featuring authentic Data Dragon asset integration, dynamic audio synthesis, and rich collectible prestige skins.
+              Amacımız, oyuncuların Hextech zanaatkarlık sistemindeki sandık açma oranlarını hiçbir harcama yapmadan deneyimlemelerini sağlamaktır. Projemiz tamamen fan yapımı olup, tüm hakları Riot Games&apos;e aittir.
+            </p>
+            <div className="flex items-center gap-2 text-[10px] text-[#00c8c8] font-bold uppercase tracking-wider pt-1">
+              <Check className="w-3.5 h-3.5" /> League of Legends Topluluğu İçin Geliştirildi
+            </div>
+          </div>
+        </div>
+      ) : (
+        <div className="space-y-3 text-xs leading-relaxed text-[#c8aa6e]/90">
+          <p>
+            <strong>ChestSimulator.com</strong> is a free interactive utility designed for League of Legends enthusiasts.
+          </p>
+          <div className="bg-[#010a13] p-3 border border-[#1e2328] rounded-xs text-[#f0e6d2] space-y-2">
+            <p className="text-[11px] text-[#a09b8c]">
+              Our mission is to allow players to experience Hextech crafting chest opening drop rates risk-free without spending real money. All assets are owned by Riot Games.
             </p>
             <div className="flex items-center gap-2 text-[10px] text-[#00c8c8] font-bold uppercase tracking-wider pt-1">
               <Check className="w-3.5 h-3.5" /> Built for the League of Legends Community
@@ -81,9 +137,24 @@ export const Footer: React.FC = () => {
       ),
     },
     advertise: {
-      title: 'Advertise with chestsimulator.com',
+      title: isTr ? 'Reklam & İletişim' : 'Advertise with chestsimulator.com',
       icon: Megaphone,
-      content: (
+      content: isTr ? (
+        <div className="space-y-3 text-xs leading-relaxed text-[#c8aa6e]/90">
+          <p>
+            <strong>chestsimulator.com</strong> ile iş birliği yapmak veya projenizi tanıtmak mı istiyorsunuz?
+          </p>
+          <div className="bg-[#010a13] p-3 border border-[#1e2328] rounded-xs text-[#f0e6d2] space-y-2">
+            <p className="text-[11px] text-[#a09b8c]">
+              Aktif League of Legends ve oyun topluluğuna ulaşın. Kullanıcı deneyimini bozmayan özel sponsorluk ve reklam alanları sunuyoruz.
+            </p>
+            <div className="p-2 bg-[#031526] border border-[#005a82]/40 rounded-xs text-[11px] text-[#f0e6d2] flex flex-col gap-1">
+              <span className="text-[10px] uppercase tracking-wider text-[#c8aa6e] font-bold">İletişim & İş Birlikleri:</span>
+              <span className="text-[#00c8c8] font-mono select-all">contact@chestsimulator.com</span>
+            </div>
+          </div>
+        </div>
+      ) : (
         <div className="space-y-3 text-xs leading-relaxed text-[#c8aa6e]/90">
           <p>
             Interested in collaborating or promoting your gaming content, tournament, or community with <strong>chestsimulator.com</strong>?
@@ -114,14 +185,38 @@ export const Footer: React.FC = () => {
         <div className="max-w-5xl mx-auto flex flex-col items-center justify-center text-center space-y-3.5">
           
           {/* Navigation Links */}
-          <nav className="flex flex-wrap items-center justify-center gap-x-2 gap-y-1 text-xs font-semibold tracking-wide text-[#c8aa6e]">
+          <nav className="flex flex-wrap items-center justify-center gap-x-3 gap-y-1 text-xs font-semibold tracking-wide text-[#c8aa6e]">
+            <a
+              href="index.html"
+              className="hover:text-[#00c8c8] transition-colors"
+            >
+              {t('footer.home', state.language)}
+            </a>
+            <span className="text-[#785a28] select-none font-bold">·</span>
+
+            <a
+              href="blog.html"
+              className="hover:text-[#00c8c8] transition-colors"
+            >
+              {t('footer.blog', state.language)}
+            </a>
+            <span className="text-[#785a28] select-none font-bold">·</span>
+
+            <a
+              href="about.html"
+              className="hover:text-[#00c8c8] transition-colors"
+            >
+              {t('footer.about', state.language)}
+            </a>
+            <span className="text-[#785a28] select-none font-bold">·</span>
+
             <button
               type="button"
               id="footer-link-privacy"
               onClick={() => setActiveModal('privacy')}
               className="hover:text-[#f0e6d2] transition-colors cursor-pointer"
             >
-              Privacy Policy
+              {t('footer.privacy', state.language)}
             </button>
             <span className="text-[#785a28] select-none font-bold">·</span>
             
@@ -131,38 +226,18 @@ export const Footer: React.FC = () => {
               onClick={() => setActiveModal('terms')}
               className="hover:text-[#f0e6d2] transition-colors cursor-pointer"
             >
-              Terms of Use
-            </button>
-            <span className="text-[#785a28] select-none font-bold">·</span>
-
-            <button
-              type="button"
-              id="footer-link-about"
-              onClick={() => setActiveModal('about')}
-              className="hover:text-[#f0e6d2] transition-colors cursor-pointer"
-            >
-              About
-            </button>
-            <span className="text-[#785a28] select-none font-bold">·</span>
-
-            <button
-              type="button"
-              id="footer-link-advertise"
-              onClick={() => setActiveModal('advertise')}
-              className="hover:text-[#f0e6d2] transition-colors cursor-pointer"
-            >
-              Advertise with chestsimulator.com
+              {t('footer.terms', state.language)}
             </button>
           </nav>
 
           {/* Legal Jibber Jabber Disclaimer */}
           <p className="text-[11px] sm:text-xs text-[#a09b8c] max-w-2xl leading-relaxed font-normal">
-            chestsimulator.com was created under Riot Games&apos;s &quot;Legal Jibber Jabber&quot; policy using assets owned by Riot Games. Riot Games does not endorse or sponsor this project.
+            {t('footer.disclaimer', state.language)}
           </p>
 
           {/* Copyright */}
           <p className="text-[11px] text-[#785a28] font-medium tracking-wide">
-            © 2026 chestsimulator.com, All rights reserved.
+            {t('footer.copyright', state.language)}
           </p>
         </div>
       </footer>

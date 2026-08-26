@@ -6,6 +6,7 @@ import { BaronCenterArena } from './components/BaronCenterArena';
 import { RightHextechPanel } from './components/RightHextechPanel';
 import { ToastContainer } from './components/ToastContainer';
 import { Footer } from './components/Footer';
+import { t } from './i18n/translations';
 
 // Code-split heavy modals with React.lazy so mobile devices load the game arena instantly
 const ChestOpenModal = lazy(() => import('./components/ChestOpenModal').then(m => ({ default: m.ChestOpenModal })));
@@ -59,6 +60,24 @@ export function GameApp() {
 
         {/* Right Panel: Hextech Chest Crafting & Live Loot */}
         <RightHextechPanel onOpenCrafting={() => handleOpenInventory('CRAFTING')} />
+      </div>
+
+      {/* SEO & Game Overview Info Section (Below Game Screen) */}
+      <div className="w-full max-w-7xl mx-auto px-3 sm:px-4 py-3 mb-4">
+        <div className={`p-4 sm:p-5 border rounded-sm transition-colors ${
+          isLightBlue
+            ? 'bg-[#031526]/80 border-[#00c8c8]/30 shadow-[0_0_20px_rgba(0,200,200,0.08)]'
+            : 'bg-[#0a1428]/80 border-[#1e2328]'
+        }`}>
+          <div className="flex items-center gap-2 mb-2">
+            <span className="text-[#00c8c8] font-bold text-xs uppercase tracking-wider font-['Cinzel',serif]">
+              {t('seo.title', state.language)}
+            </span>
+          </div>
+          <p className="text-xs sm:text-sm text-[#d8c29d] leading-relaxed">
+            {t('seo.desc', state.language)}
+          </p>
+        </div>
       </div>
 
       {/* 4. Modals & Overlays (Code-split with Suspense) */}

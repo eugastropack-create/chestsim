@@ -1,0 +1,566 @@
+<!doctype html>
+<html lang="en" class="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
+    <title>About Us - LoL Hextech Simulator | ChestSimulator.com</title>
+    <meta name="description" content="About ChestSimulator.com. Free League of Legends Hextech crafting simulator, Baron Nashor clicker, loot drop rates, and fair play policy." />
+    <meta name="keywords" content="about us, chestsimulator, lol hextech simulator, league of legends chest simulator" />
+    <meta name="author" content="ChestSimulator.com" />
+    <meta name="robots" content="index, follow" />
+
+    <!-- Favicon Links -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/png" sizes="192x192" href="/favicon.png" />
+    <link rel="apple-touch-icon" href="/favicon.svg" />
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        background-color: #010a13;
+        color: #f0e6d2;
+        font-family: 'Plus Jakarta Sans', sans-serif;
+        line-height: 1.6;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+      }
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+      /* Hide AdSense boxes */
+      .adsbygoogle, .adsense-box, [data-ad-slot], .ad-container, .sponsored-box, .google-adsense-banner, .sponsored-ad-unit {
+        display: none !important;
+      }
+
+      /* Header */
+      header {
+        position: sticky;
+        top: 0;
+        z-index: 50;
+        background: #010a13;
+        border-bottom: 1px solid #1e2328;
+      }
+      .gold-bar {
+        width: 100%;
+        height: 2px;
+        background: linear-gradient(90deg, #c8aa6e, #f0e6d2, #c8aa6e);
+      }
+      .nav-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 1.25rem;
+        height: 62px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+      .logo-area {
+        display: flex;
+        align-items: center;
+        gap: 0.65rem;
+      }
+      .logo-icon {
+        width: 28px;
+        height: 28px;
+        transition: transform 0.2s ease;
+      }
+      .logo-area:hover .logo-icon {
+        transform: scale(1.1);
+      }
+      .logo-title {
+        font-family: 'Cinzel', serif;
+        font-weight: 800;
+        font-size: 1.05rem;
+        color: #f0e6d2;
+        letter-spacing: 0.05em;
+      }
+      .logo-subtitle {
+        color: #00c8c8;
+        font-size: 0.65rem;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        display: block;
+      }
+      .nav-links {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+      }
+      .nav-item {
+        font-size: 0.8rem;
+        font-weight: 700;
+        color: #a09b8c;
+        transition: all 0.2s ease;
+        padding: 0.4rem 0.75rem;
+        border-radius: 2px;
+        border: 1px solid transparent;
+      }
+      .nav-item:hover {
+        color: #f0e6d2;
+        background: rgba(200, 170, 110, 0.1);
+        border-color: rgba(200, 170, 110, 0.3);
+      }
+      .nav-item.active {
+        color: #00c8c8;
+        background: rgba(0, 200, 200, 0.1);
+        border-color: rgba(0, 200, 200, 0.4);
+      }
+      .nav-item.cta {
+        color: #010a13;
+        background: linear-gradient(135deg, #c89b3c, #f0e6d2);
+        border-color: #c8aa6e;
+        font-weight: 800;
+        padding: 0.4rem 1rem;
+        box-shadow: 0 0 10px rgba(200, 170, 110, 0.3);
+      }
+      .nav-item.cta:hover {
+        filter: brightness(1.15);
+        box-shadow: 0 0 15px rgba(200, 170, 110, 0.6);
+        transform: translateY(-1px);
+      }
+
+      /* Language Toggle Button */
+      .lang-btn {
+        background: #031526;
+        border: 1px solid #1e2328;
+        color: #c8aa6e;
+        padding: 0.35rem 0.65rem;
+        font-size: 0.75rem;
+        font-weight: 700;
+        border-radius: 2px;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        gap: 0.35rem;
+        transition: all 0.2s ease;
+      }
+      .lang-btn:hover {
+        border-color: #00c8c8;
+        color: #00c8c8;
+      }
+
+      /* Hamburger button */
+      .hamburger-btn {
+        display: none;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 36px;
+        height: 36px;
+        background: #031526;
+        border: 1px solid #1e2328;
+        border-radius: 2px;
+        color: #c8aa6e;
+        cursor: pointer;
+        transition: all 0.2s ease;
+      }
+      .hamburger-btn:hover {
+        border-color: #00c8c8;
+        color: #00c8c8;
+      }
+      .mobile-menu-drawer {
+        display: none;
+        background: #010a13;
+        border-top: 1px solid #1e2328;
+        padding: 1rem 1.25rem 1.25rem 1.25rem;
+      }
+      .mobile-menu-drawer.open {
+        display: block;
+      }
+
+      @media (max-width: 768px) {
+        .nav-links { display: none; }
+        .hamburger-btn { display: flex; }
+      }
+
+      /* Main Content */
+      main {
+        flex: 1;
+        max-width: 960px;
+        margin: 0 auto;
+        padding: 2.5rem 1.25rem;
+        width: 100%;
+      }
+      .hero-card {
+        background: #0a1428;
+        border: 1px solid #c8aa6e;
+        box-shadow: 0 0 30px rgba(0, 0, 0, 0.8), inset 0 0 20px rgba(200, 170, 110, 0.05);
+        padding: 2.5rem;
+        border-radius: 4px;
+        margin-bottom: 2rem;
+        position: relative;
+      }
+      .badge {
+        display: inline-block;
+        background: rgba(0, 200, 200, 0.15);
+        color: #00c8c8;
+        border: 1px solid rgba(0, 200, 200, 0.4);
+        padding: 0.25rem 0.75rem;
+        font-size: 0.75rem;
+        font-weight: 800;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        margin-bottom: 1rem;
+        border-radius: 2px;
+      }
+      h1 {
+        font-family: 'Cinzel', serif;
+        font-size: 2.2rem;
+        font-weight: 800;
+        color: #f0e6d2;
+        margin-bottom: 1.25rem;
+        line-height: 1.2;
+        text-shadow: 0 2px 10px rgba(0, 0, 0, 0.8);
+      }
+      .lead-text {
+        font-size: 1.1rem;
+        color: #d8c29d;
+        line-height: 1.8;
+        margin-bottom: 1.5rem;
+        font-weight: 500;
+      }
+      .content-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 1.5rem;
+        margin-top: 2rem;
+      }
+      .info-box {
+        background: #031526;
+        border: 1px solid #1e2328;
+        padding: 1.5rem;
+        border-radius: 2px;
+        transition: border-color 0.2s;
+      }
+      .info-box:hover {
+        border-color: #00c8c8;
+      }
+      .info-box h2 {
+        font-family: 'Cinzel', serif;
+        font-size: 1.2rem;
+        color: #c8aa6e;
+        margin-bottom: 0.75rem;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+      }
+      .info-box p {
+        color: #a09b8c;
+        font-size: 0.9rem;
+        line-height: 1.6;
+      }
+
+      /* Footer */
+      footer {
+        background: #010a13;
+        border-top: 1px solid #1e2328;
+        padding: 2rem 1.25rem;
+        text-align: center;
+        margin-top: auto;
+      }
+      .footer-links {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 1rem;
+        margin-bottom: 1rem;
+      }
+      .footer-link {
+        color: #c8aa6e;
+        font-size: 0.8rem;
+        font-weight: 600;
+        transition: color 0.2s;
+      }
+      .footer-link:hover {
+        color: #f0e6d2;
+      }
+      .disclaimer {
+        color: #785a28;
+        font-size: 0.75rem;
+        max-width: 680px;
+        margin: 0 auto 0.5rem auto;
+        line-height: 1.5;
+      }
+      .copyright {
+        color: #5c5b57;
+        font-size: 0.75rem;
+      }
+
+      @media (max-width: 640px) {
+        h1 { font-size: 1.7rem; }
+        .hero-card { padding: 1.5rem; }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Header -->
+    <header>
+      <div class="gold-bar"></div>
+      <div class="nav-container">
+        <a href="index.html" class="logo-area">
+          <img src="/favicon.svg" alt="LoL Hextech Logo" class="logo-icon" />
+          <div>
+            <span class="logo-title">ChestSimulator</span>
+            <span class="logo-subtitle">LoL Hextech Simulator</span>
+          </div>
+        </a>
+
+        <!-- Desktop Navigation Links -->
+        <nav class="nav-links">
+          <a href="index.html" class="nav-item" id="nav-home">Home</a>
+          <a href="blog.html" class="nav-item" id="nav-blog">Blog & Guides</a>
+          <a href="about.html" class="nav-item active" id="nav-about">About Us</a>
+          <a href="index.html" class="nav-item cta" id="nav-play">⚔️ PLAY NOW</a>
+          <!-- Language Toggle Button -->
+          <button type="button" class="lang-btn" onclick="toggleLanguage()" id="lang-btn">
+            🌐 <span id="lang-label">TR</span>
+          </button>
+        </nav>
+
+        <!-- Mobile Controls (Lang + Hamburger) -->
+        <div style="display: flex; align-items: center; gap: 0.5rem;" class="md:hidden">
+          <button type="button" class="lang-btn" onclick="toggleLanguage()" id="mobile-lang-btn" style="padding: 0.35rem 0.5rem;">
+            🌐 <span id="mobile-lang-label">TR</span>
+          </button>
+
+          <button
+            type="button"
+            id="about-hamburger-btn"
+            class="hamburger-btn"
+            aria-label="Menu"
+            onclick="toggleAboutMenu()"
+          >
+            <svg id="about-hamburger-icon" style="width: 20px; height: 20px;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+            <svg id="about-close-icon" style="width: 20px; height: 20px; display: none;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          </button>
+        </div>
+      </div>
+
+      <!-- Mobile Dropdown Menu -->
+      <div id="about-mobile-menu" class="mobile-menu-drawer">
+        <div style="display: flex; flex-direction: column; gap: 0.6rem;">
+          <a href="index.html" class="nav-item cta" id="m-nav-play" style="text-align: center; padding: 0.65rem 1rem; font-size: 0.9rem;">
+            ⚔️ PLAY NOW
+          </a>
+          <a href="index.html" class="nav-item" id="m-nav-home" style="display: flex; align-items: center; gap: 0.5rem;">
+            🏠 Home
+          </a>
+          <a href="blog.html" class="nav-item" id="m-nav-blog" style="display: flex; align-items: center; gap: 0.5rem;">
+            📖 Blog & Guides
+          </a>
+          <a href="about.html" class="nav-item active" id="m-nav-about" style="display: flex; align-items: center; gap: 0.5rem;">
+            ℹ️ About Us
+          </a>
+        </div>
+      </div>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+      <div class="hero-card">
+        <span class="badge" id="abt-badge">About Us & Vision</span>
+        <h1 id="abt-title">About ChestSimulator.com</h1>
+        <p class="lead-text" id="abt-lead">
+          ChestSimulator.com is a free, fan-made interactive utility designed for League of Legends enthusiasts. Our mission is to allow players to experience Hextech Crafting drop rates, chest opening simulations, and Baron Nashor clicker combat completely risk-free without spending real money. All character and skin assets are owned by Riot Games.
+        </p>
+
+        <div class="content-grid">
+          <div class="info-box">
+            <h2 id="b1-h">🎮 100% Free & Risk-Free</h2>
+            <p id="b1-p">
+              Summoners can open Hextech chests, test real skin shard probability distributions, and explore crafting mechanics without spending any Riot Points (RP) or real currency.
+            </p>
+          </div>
+
+          <div class="info-box">
+            <h2 id="b2-h">⚔️ Baron Nashor & Master Yi</h2>
+            <p id="b2-p">
+              Battle the legendary Baron Nashor using Master Yi's Alpha Strike ability. Deal high DPS, trigger critical strikes, level up your summoner rank, and collect Hextech keys.
+            </p>
+          </div>
+
+          <div class="info-box">
+            <h2 id="b3-h">💎 Official Data Dragon Assets</h2>
+            <p id="b3-p">
+              All skin splash artworks, champion portraits, tier banners, and item icons are dynamically fetched from Riot Games' official high-resolution Data Dragon CDN.
+            </p>
+          </div>
+
+          <div class="info-box">
+            <h2 id="b4-h">🔒 Privacy & Local Storage</h2>
+            <p id="b4-p">
+              Your inventory, unlocked skins, and clicker progression are stored securely in your browser's LocalStorage. No personal data is tracked, collected, or sold.
+            </p>
+          </div>
+        </div>
+
+        <div style="margin-top: 2.5rem; padding: 1.5rem; background: #010a13; border: 1px solid #1e2328; border-radius: 2px;">
+          <h2 style="font-family: 'Cinzel', serif; color: #f0e6d2; font-size: 1.15rem; margin-bottom: 0.75rem;" id="legal-h">
+            📜 Legal Disclaimer & Fair Use Policy
+          </h2>
+          <p style="font-size: 0.85rem; color: #a09b8c; line-height: 1.7;" id="legal-p">
+            ChestSimulator.com is created under Riot Games' "Legal Jibber Jabber" policy using assets owned by Riot Games. Riot Games does not endorse or sponsor this project. League of Legends and Riot Games are trademarks or registered trademarks of Riot Games, Inc.
+          </p>
+        </div>
+
+        <div style="margin-top: 2rem; text-align: center;">
+          <a href="index.html" class="nav-item cta" id="abt-cta-btn" style="display: inline-block; padding: 0.8rem 2rem; font-size: 0.95rem; text-transform: uppercase; font-family: 'Cinzel', serif; letter-spacing: 0.05em;">
+            ⚔️ PLAY NOW
+          </a>
+        </div>
+      </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+      <div class="footer-links">
+        <a href="index.html" class="footer-link" id="f-home">Home</a>
+        <span style="color: #785a28;">·</span>
+        <a href="blog.html" class="footer-link" id="f-blog">Blog & Guides</a>
+        <span style="color: #785a28;">·</span>
+        <a href="about.html" class="footer-link" id="f-about">About Us</a>
+      </div>
+      <p class="disclaimer">
+        chestsimulator.com was created under Riot Games's "Legal Jibber Jabber" policy using assets owned by Riot Games. Riot Games does not endorse or sponsor this project.
+      </p>
+      <p class="copyright" id="f-copy">
+        © 2026 ChestSimulator.com, All rights reserved.
+      </p>
+    </footer>
+
+    <!-- Bilingual / Hamburger Script -->
+    <script>
+      const aboutData = {
+        en: {
+          navHome: 'Home',
+          navBlog: 'Blog & Guides',
+          navAbout: 'About Us',
+          navPlay: '⚔️ PLAY NOW',
+          langNext: 'TR',
+          abtBadge: 'About Us & Vision',
+          abtTitle: 'About ChestSimulator.com',
+          abtLead: 'ChestSimulator.com is a free, fan-made interactive utility designed for League of Legends enthusiasts. Our mission is to allow players to experience Hextech Crafting drop rates, chest opening simulations, and Baron Nashor clicker combat completely risk-free without spending real money. All character and skin assets are owned by Riot Games.',
+          b1h: '🎮 100% Free & Risk-Free',
+          b1p: 'Summoners can open Hextech chests, test real skin shard probability distributions, and explore crafting mechanics without spending any Riot Points (RP) or real currency.',
+          b2h: '⚔️ Baron Nashor & Master Yi',
+          b2p: "Battle the legendary Baron Nashor using Master Yi's Alpha Strike ability. Deal high DPS, trigger critical strikes, level up your summoner rank, and collect Hextech keys.",
+          b3h: '💎 Official Data Dragon Assets',
+          b3p: "All skin splash artworks, champion portraits, tier banners, and item icons are dynamically fetched from Riot Games' official high-resolution Data Dragon CDN.",
+          b4h: '🔒 Privacy & Local Storage',
+          b4p: "Your inventory, unlocked skins, and clicker progression are stored securely in your browser's LocalStorage. No personal data is tracked, collected, or sold.",
+          legalH: '📜 Legal Disclaimer & Fair Use Policy',
+          legalP: "ChestSimulator.com is created under Riot Games' \"Legal Jibber Jabber\" policy using assets owned by Riot Games. Riot Games does not endorse or sponsor this project. League of Legends and Riot Games are trademarks or registered trademarks of Riot Games, Inc.",
+          abtCta: '⚔️ PLAY NOW',
+          fCopy: '© 2026 ChestSimulator.com, All rights reserved.'
+        },
+
+        tr: {
+          navHome: 'Ana Sayfa',
+          navBlog: 'Blog & Rehber',
+          navAbout: 'Hakkımızda',
+          navPlay: '⚔️ OYNA',
+          langNext: 'EN',
+          abtBadge: 'Hakkımızda & Vizyon',
+          abtTitle: 'ChestSimulator.com Hakkında',
+          abtLead: "ChestSimulator.com, League of Legends evrenine ilgi duyan oyuncular için geliştirilmiş ücretsiz bir araçtır. Amacımız, oyuncuların Hextech zanaatkarlık sistemindeki sandık açma oranlarını hiçbir harcama yapmadan deneyimlemelerini sağlamaktır. Projemiz tamamen fan yapımı olup, tüm hakları Riot Games'e aittir.",
+          b1h: '🎮 Tamamen Ücretsiz & Risksiz',
+          b1p: 'Oyuncular gerçek para veya Riot Puanı (RP) harcamadan Hextech sandıklarını açabilir, kostüm düşme oranlarını gözlemleyebilir ve simülasyon deneyiminin tadını çıkarabilirler.',
+          b2h: '⚔️ Baron Nashor & Master Yi',
+          b2p: "Sihirdar Vadisi'nin efsanevi canavarı Baron Nashor'a tıklayarak hasar verebilir, Master Yi'nin Alpha Strike yeteneğiyle XP ve anahtar parçacıkları toplayabilirsiniz.",
+          b3h: '💎 Otantik Data Dragon Varlıkları',
+          b3p: "Oyun içerisinde yer alan tüm kostüm görselleri, şampiyon splash art'ları ve yetenek ikonları doğrudan Riot Games resmi Data Dragon CDN altyapısı üzerinden çekilmektedir.",
+          b4h: '🔒 Gizlilik & Yerel Depolama',
+          b4p: 'Kullanıcıların oyun ilerlemesi, açılan sandıklar ve kazanılan kostümler yalnızca tarayıcılarının yerel hafızasında (LocalStorage) saklanır. Hiçbir kişisel veri toplanmaz veya satılmaz.',
+          legalH: '📜 Yasal Uyarı & Riot Games Politikası',
+          legalP: "ChestSimulator.com, Riot Games'in \"Legal Jibber Jabber\" politikası çerçevesinde hayata geçirilmiş bağımsız ve kâr amacı gütmeyen bir hayran projesidir. Riot Games bu projeyi onaylamaz, desteklemez ya da finanse etmez. League of Legends ve Riot Games, Riot Games, Inc.'nin tescilli ticari markalarıdır.",
+          abtCta: '⚔️ HEMEN OYNAMAYA BAŞLA',
+          fCopy: '© 2026 ChestSimulator.com, Tüm hakları saklıdır.'
+        }
+      };
+
+      let currentLang = localStorage.getItem('lol_game_lang') || 'en';
+
+      function applyLanguage(lang) {
+        currentLang = lang;
+        localStorage.setItem('lol_game_lang', lang);
+        document.documentElement.lang = lang;
+        const d = aboutData[lang] || aboutData.en;
+
+        // Nav desktop
+        document.getElementById('nav-home').textContent = d.navHome;
+        document.getElementById('nav-blog').textContent = d.navBlog;
+        document.getElementById('nav-about').textContent = d.navAbout;
+        document.getElementById('nav-play').textContent = d.navPlay;
+        document.getElementById('lang-label').textContent = d.langNext;
+        document.getElementById('mobile-lang-label').textContent = d.langNext;
+
+        // Nav mobile
+        document.getElementById('m-nav-play').textContent = d.navPlay;
+        document.getElementById('m-nav-home').textContent = '🏠 ' + d.navHome;
+        document.getElementById('m-nav-blog').textContent = '📖 ' + d.navBlog;
+        document.getElementById('m-nav-about').textContent = 'ℹ️ ' + d.navAbout;
+
+        // Content
+        document.getElementById('abt-badge').textContent = d.abtBadge;
+        document.getElementById('abt-title').textContent = d.abtTitle;
+        document.getElementById('abt-lead').textContent = d.abtLead;
+        document.getElementById('b1-h').textContent = d.b1h;
+        document.getElementById('b1-p').textContent = d.b1p;
+        document.getElementById('b2-h').textContent = d.b2h;
+        document.getElementById('b2-p').textContent = d.b2p;
+        document.getElementById('b3-h').textContent = d.b3h;
+        document.getElementById('b3-p').textContent = d.b3p;
+        document.getElementById('b4-h').textContent = d.b4h;
+        document.getElementById('b4-p').textContent = d.b4p;
+        document.getElementById('legal-h').textContent = d.legalH;
+        document.getElementById('legal-p').textContent = d.legalP;
+        document.getElementById('abt-cta-btn').textContent = d.abtCta;
+
+        // Footer
+        document.getElementById('f-home').textContent = d.navHome;
+        document.getElementById('f-blog').textContent = d.navBlog;
+        document.getElementById('f-about').textContent = d.navAbout;
+        document.getElementById('f-copy').textContent = d.fCopy;
+      }
+
+      function toggleLanguage() {
+        const nextLang = currentLang === 'en' ? 'tr' : 'en';
+        applyLanguage(nextLang);
+      }
+
+      function toggleAboutMenu() {
+        const drawer = document.getElementById('about-mobile-menu');
+        const burgerIcon = document.getElementById('about-hamburger-icon');
+        const closeIcon = document.getElementById('about-close-icon');
+        
+        if (drawer.classList.contains('open')) {
+          drawer.classList.remove('open');
+          burgerIcon.style.display = 'block';
+          closeIcon.style.display = 'none';
+        } else {
+          drawer.classList.add('open');
+          burgerIcon.style.display = 'none';
+          closeIcon.style.display = 'block';
+        }
+      }
+
+      // Initialize
+      applyLanguage(currentLang);
+    </script>
+  </body>
+</html>

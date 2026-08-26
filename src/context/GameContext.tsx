@@ -884,12 +884,26 @@ export const GameProvider: React.FC<{ children: React.ReactNode }> = ({ children
   const toggleLanguage = useCallback(() => {
     setState(prev => {
       const nextLang = prev.language === 'tr' ? 'en' : 'tr';
+      try {
+        localStorage.setItem('lol_game_lang', nextLang);
+        window.dispatchEvent(new CustomEvent('lol_lang_changed', { detail: nextLang }));
+      } catch (e) {
+        console.error(e);
+      }
       return { ...prev, language: nextLang };
     });
   }, []);
 
   const setLanguage = useCallback((lang: 'tr' | 'en') => {
-    setState(prev => ({ ...prev, language: lang }));
+    setState(prev => {
+      try {
+        localStorage.setItem('lol_game_lang', lang);
+        window.dispatchEvent(new CustomEvent('lol_lang_changed', { detail: lang }));
+      } catch (e) {
+        console.error(e);
+      }
+      return { ...prev, language: lang };
+    });
   }, []);
 
   const setVolume = useCallback((vol: number) => {
