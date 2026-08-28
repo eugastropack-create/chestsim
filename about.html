@@ -178,6 +178,11 @@
         border-color: #00c8c8;
         color: #00c8c8;
       }
+      .mobile-controls {
+        display: none;
+        align-items: center;
+        gap: 0.5rem;
+      }
       .mobile-menu-drawer {
         display: none;
         background: #010a13;
@@ -190,6 +195,7 @@
 
       @media (max-width: 768px) {
         .nav-links { display: none; }
+        .mobile-controls { display: flex; }
         .hamburger-btn { display: flex; }
       }
 
@@ -338,7 +344,7 @@
         </nav>
 
         <!-- Mobile Controls (Lang + Hamburger) -->
-        <div style="display: flex; align-items: center; gap: 0.5rem;" class="md:hidden">
+        <div class="mobile-controls">
           <button type="button" class="lang-btn" onclick="toggleLanguage()" id="mobile-lang-btn" style="padding: 0.35rem 0.5rem;">
             🌐 <span id="mobile-lang-label">TR</span>
           </button>
