@@ -1,0 +1,650 @@
+<!doctype html>
+<html lang="en" class="dark">
+  <head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-J523ZKWNTY"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-J523ZKWNTY');
+    </script>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
+    <title>Privacy Policy - LoL Hextech Simulator | ChestSimulator.com</title>
+    <meta name="description" content="Privacy Policy for ChestSimulator.com. Learn how we handle cookies, Google AdSense advertising, local storage, analytics, GDPR, and CCPA data privacy." />
+    <meta name="keywords" content="privacy policy, chestsimulator privacy, google adsense cookie policy, gdpr, ccpa, lol hextech simulator privacy" />
+    <meta name="author" content="ChestSimulator.com" />
+    <meta name="robots" content="index, follow" />
+
+    <!-- Favicon Links -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/png" sizes="192x192" href="/favicon.png" />
+    <link rel="apple-touch-icon" href="/favicon.svg" />
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5440958179084157" crossorigin="anonymous"></script>
+
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        background-color: #010a13;
+        color: #f0e6d2;
+        font-family: 'Plus Jakarta Sans', sans-serif;
+        line-height: 1.6;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+      }
+      a {
+        color: #00c8c8;
+        text-decoration: none;
+        transition: color 0.2s ease;
+      }
+      a:hover {
+        color: #f0e6d2;
+        text-decoration: underline;
+      }
+
+      /* Header */
+      header {
+        position: sticky;
+        top: 0;
+        z-index: 50;
+        background: #010a13;
+        border-bottom: 1px solid #1e2328;
+      }
+      .gold-bar {
+        width: 100%;
+        height: 2px;
+        background: linear-gradient(90deg, #c8aa6e, #f0e6d2, #c8aa6e);
+      }
+      .nav-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 1.25rem;
+        height: 62px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+      .logo-area {
+        display: flex;
+        align-items: center;
+        gap: 0.65rem;
+        text-decoration: none;
+      }
+      .logo-icon {
+        width: 28px;
+        height: 28px;
+        transition: transform 0.2s ease;
+      }
+      .logo-area:hover .logo-icon {
+        transform: scale(1.1);
+      }
+      .logo-title {
+        font-family: 'Cinzel', serif;
+        font-weight: 800;
+        font-size: 1.05rem;
+        color: #f0e6d2;
+        letter-spacing: 0.05em;
+      }
+      .logo-subtitle {
+        color: #00c8c8;
+        font-size: 0.65rem;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        display: block;
+      }
+      .nav-links {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+      }
+      .nav-item {
+        font-size: 0.8rem;
+        font-weight: 700;
+        color: #a09b8c;
+        transition: all 0.2s ease;
+        padding: 0.4rem 0.75rem;
+        border-radius: 2px;
+        border: 1px solid transparent;
+        text-decoration: none;
+      }
+      .nav-item:hover {
+        color: #f0e6d2;
+        background: rgba(200, 170, 110, 0.1);
+        border-color: rgba(200, 170, 110, 0.3);
+        text-decoration: none;
+      }
+      .nav-item.active {
+        color: #00c8c8;
+        background: rgba(0, 200, 200, 0.1);
+        border-color: rgba(0, 200, 200, 0.4);
+      }
+      .nav-item.cta {
+        color: #010a13;
+        background: linear-gradient(135deg, #c89b3c, #f0e6d2);
+        border-color: #c8aa6e;
+        font-weight: 800;
+        padding: 0.4rem 1rem;
+        box-shadow: 0 0 10px rgba(200, 170, 110, 0.3);
+      }
+      .nav-item.cta:hover {
+        filter: brightness(1.15);
+        box-shadow: 0 0 15px rgba(200, 170, 110, 0.6);
+        transform: translateY(-1px);
+        text-decoration: none;
+      }
+
+      /* Language Toggle Button */
+      .lang-btn {
+        background: #031526;
+        border: 1px solid #1e2328;
+        color: #c8aa6e;
+        padding: 0.35rem 0.65rem;
+        font-size: 0.75rem;
+        font-weight: 700;
+        border-radius: 2px;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        gap: 0.35rem;
+        transition: all 0.2s ease;
+      }
+      .lang-btn:hover {
+        border-color: #00c8c8;
+        color: #00c8c8;
+      }
+
+      .mobile-controls {
+        display: none;
+        align-items: center;
+        gap: 0.5rem;
+      }
+      .hamburger-btn {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 36px;
+        height: 36px;
+        background: #031526;
+        border: 1px solid #1e2328;
+        border-radius: 2px;
+        color: #c8aa6e;
+        cursor: pointer;
+        transition: all 0.2s ease;
+      }
+      .hamburger-btn:hover {
+        border-color: #00c8c8;
+        color: #00c8c8;
+      }
+      .mobile-menu-drawer {
+        display: none;
+        background: #010a13;
+        border-top: 1px solid #1e2328;
+        padding: 1rem 1.25rem 1.25rem 1.25rem;
+      }
+      .mobile-menu-drawer.open {
+        display: block;
+      }
+
+      @media (max-width: 768px) {
+        .nav-links { display: none; }
+        .mobile-controls { display: flex; }
+      }
+
+      /* Main Content */
+      main {
+        flex: 1;
+        max-width: 900px;
+        margin: 0 auto;
+        padding: 2.5rem 1.25rem;
+        width: 100%;
+      }
+      .policy-card {
+        background: #0a1428;
+        border: 1px solid #c8aa6e;
+        box-shadow: 0 0 30px rgba(0, 0, 0, 0.8), inset 0 0 20px rgba(200, 170, 110, 0.05);
+        padding: 2.5rem;
+        border-radius: 4px;
+        margin-bottom: 2rem;
+      }
+      .badge {
+        display: inline-block;
+        background: rgba(0, 200, 200, 0.15);
+        color: #00c8c8;
+        border: 1px solid rgba(0, 200, 200, 0.4);
+        padding: 0.25rem 0.75rem;
+        font-size: 0.75rem;
+        font-weight: 800;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        margin-bottom: 1rem;
+        border-radius: 2px;
+      }
+      h1 {
+        font-family: 'Cinzel', serif;
+        font-size: 2.2rem;
+        font-weight: 800;
+        color: #f0e6d2;
+        margin-bottom: 0.5rem;
+        line-height: 1.2;
+      }
+      .updated-date {
+        color: #785a28;
+        font-size: 0.85rem;
+        font-weight: 600;
+        margin-bottom: 2rem;
+        display: block;
+      }
+      .section-block {
+        margin-bottom: 2rem;
+        background: #031526;
+        border: 1px solid #1e2328;
+        padding: 1.5rem;
+        border-radius: 2px;
+      }
+      h2 {
+        font-family: 'Cinzel', serif;
+        font-size: 1.25rem;
+        color: #c8aa6e;
+        margin-bottom: 0.85rem;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+      }
+      p {
+        color: #d8c29d;
+        font-size: 0.92rem;
+        line-height: 1.7;
+        margin-bottom: 1rem;
+      }
+      p:last-child {
+        margin-bottom: 0;
+      }
+      ul {
+        margin: 0.5rem 0 1rem 1.5rem;
+        color: #a09b8c;
+        font-size: 0.9rem;
+        line-height: 1.7;
+      }
+      li {
+        margin-bottom: 0.4rem;
+      }
+      .highlight-box {
+        background: rgba(0, 200, 200, 0.08);
+        border: 1px solid rgba(0, 200, 200, 0.3);
+        padding: 1rem 1.25rem;
+        border-radius: 2px;
+        margin: 1rem 0;
+      }
+
+      /* Footer */
+      footer {
+        background: #010a13;
+        border-top: 1px solid #1e2328;
+        padding: 2rem 1.25rem;
+        text-align: center;
+        margin-top: auto;
+      }
+      .footer-links {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 1rem;
+        margin-bottom: 1rem;
+      }
+      .footer-link {
+        color: #c8aa6e;
+        font-size: 0.8rem;
+        font-weight: 600;
+        text-decoration: none;
+      }
+      .footer-link:hover {
+        color: #f0e6d2;
+      }
+      .disclaimer {
+        color: #785a28;
+        font-size: 0.75rem;
+        max-width: 680px;
+        margin: 0 auto 0.5rem auto;
+        line-height: 1.5;
+      }
+      .copyright {
+        color: #5c5b57;
+        font-size: 0.75rem;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Header -->
+    <header>
+      <div class="gold-bar"></div>
+      <div class="nav-container">
+        <a href="index.html" class="logo-area">
+          <img src="/favicon.svg" alt="LoL Hextech Logo" class="logo-icon" />
+          <div>
+            <span class="logo-title">ChestSimulator</span>
+            <span class="logo-subtitle">LoL Hextech Simulator</span>
+          </div>
+        </a>
+
+        <!-- Desktop Navigation Links -->
+        <nav class="nav-links">
+          <a href="index.html" class="nav-item" id="nav-home">Home</a>
+          <a href="blog.html" class="nav-item" id="nav-blog">Blog & Guides</a>
+          <a href="about.html" class="nav-item" id="nav-about">About Us</a>
+          <a href="contact.html" class="nav-item" id="nav-contact">Contact</a>
+          <a href="index.html" class="nav-item cta" id="nav-play">⚔️ PLAY NOW</a>
+          <!-- Language Toggle Button -->
+          <button type="button" class="lang-btn" onclick="toggleLanguage()" id="lang-btn">
+            🌐 <span id="lang-label">TR</span>
+          </button>
+        </nav>
+
+        <!-- Mobile Controls (Lang + Hamburger) -->
+        <div class="mobile-controls">
+          <button type="button" class="lang-btn" onclick="toggleLanguage()" id="mobile-lang-btn" style="padding: 0.35rem 0.5rem;">
+            🌐 <span id="mobile-lang-label">TR</span>
+          </button>
+
+          <button
+            type="button"
+            id="privacy-hamburger-btn"
+            class="hamburger-btn"
+            aria-label="Menu"
+            onclick="toggleMobileMenu()"
+          >
+            <svg id="privacy-hamburger-icon" style="width: 20px; height: 20px;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+            <svg id="privacy-close-icon" style="width: 20px; height: 20px; display: none;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          </button>
+        </div>
+      </div>
+
+      <!-- Mobile Dropdown Menu -->
+      <div id="privacy-mobile-menu" class="mobile-menu-drawer">
+        <div style="display: flex; flex-direction: column; gap: 0.6rem;">
+          <a href="index.html" class="nav-item cta" id="m-nav-play" style="text-align: center; padding: 0.65rem 1rem; font-size: 0.9rem;">
+            ⚔️ PLAY NOW
+          </a>
+          <a href="index.html" class="nav-item" id="m-nav-home" style="display: flex; align-items: center; gap: 0.5rem;">
+            🏠 Home
+          </a>
+          <a href="blog.html" class="nav-item" id="m-nav-blog" style="display: flex; align-items: center; gap: 0.5rem;">
+            📖 Blog & Guides
+          </a>
+          <a href="about.html" class="nav-item" id="m-nav-about" style="display: flex; align-items: center; gap: 0.5rem;">
+            ℹ️ About Us
+          </a>
+          <a href="contact.html" class="nav-item" id="m-nav-contact" style="display: flex; align-items: center; gap: 0.5rem;">
+            ✉️ Contact
+          </a>
+        </div>
+      </div>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+      <div class="policy-card">
+        <span class="badge" id="p-badge">Transparency & Security</span>
+        <h1 id="p-title">Privacy Policy</h1>
+        <span class="updated-date" id="p-date">Last Updated: August 2026</span>
+
+        <p id="p-intro">
+          At <strong>ChestSimulator.com</strong>, accessible from https://chestsimulator.com (and associated hosting domains), one of our main priorities is the privacy of our visitors. This Privacy Policy document outlines the types of information that is collected and recorded by ChestSimulator.com and how we use it.
+        </p>
+
+        <div class="section-block">
+          <h2 id="s1-h">1. Google AdSense & Third-Party Advertising</h2>
+          <p id="s1-p1">
+            Google is one of the third-party vendors on our site. It uses cookies, known as DART cookies, to serve ads to our site visitors based upon their visit to ChestSimulator.com and other sites on the internet.
+          </p>
+          <div class="highlight-box">
+            <p id="s1-p2" style="color: #00c8c8; font-size: 0.88rem; margin: 0;">
+              Visitors may choose to decline the use of DART cookies by visiting the Google Ad and Content Network Privacy Policy at the following URL: <a href="https://policies.google.com/technologies/ads" target="_blank" rel="noopener noreferrer">https://policies.google.com/technologies/ads</a>.
+            </p>
+          </div>
+          <p id="s1-p3">
+            Third-party ad servers or ad networks use technologies like cookies, JavaScript, or Web Beacons that are used in their respective advertisements and links that appear on ChestSimulator.com. They automatically receive your IP address when this occurs. These technologies are used to measure the effectiveness of their advertising campaigns and/or to personalize the advertising content that you see.
+          </p>
+        </div>
+
+        <div class="section-block">
+          <h2 id="s2-h">2. LocalStorage & Browser Game Data</h2>
+          <p id="s2-p1">
+            ChestSimulator.com is an interactive web-based simulator. All game progression data—including unlocked champion skins, Orange Essence, Mythic Essence, Master Yi clicker levels, keys, and inventory items—is stored exclusively on your device within your web browser's <strong>HTML5 LocalStorage</strong>.
+          </p>
+          <p id="s2-p2">
+            We do not transmit your game inventory, clicker progress, or simulator statistics to any external server or database. You have full control over this data, and you can reset or clear it at any time by clearing your browser cache and local storage.
+          </p>
+        </div>
+
+        <div class="section-block">
+          <h2 id="s3-h">3. Google Analytics & Log Files</h2>
+          <p id="s3-p1">
+            ChestSimulator.com follows a standard procedure of using log files and Google Analytics (Measurement ID: G-J523ZKWNTY). The information collected by Google Analytics includes internet protocol (IP) addresses, browser type, Internet Service Provider (ISP), date and time stamp, referring/exit pages, and possibly the number of clicks.
+          </p>
+          <p id="s3-p2">
+            These are not linked to any information that is personally identifiable. The purpose of the information is for analyzing trends, administering the site, tracking users' movement on the website, and gathering demographic information to improve user experience.
+          </p>
+        </div>
+
+        <div class="section-block">
+          <h2 id="s4-h">4. CCPA Privacy Rights (Do Not Sell My Personal Information)</h2>
+          <p id="s4-p1">
+            Under the California Consumer Privacy Act (CCPA), among other rights, California consumers have the right to:
+          </p>
+          <ul>
+            <li id="s4-li1">Request that a business disclose the categories and specific pieces of personal data that a business has collected about consumers.</li>
+            <li id="s4-li2">Request that a business delete any personal data about the consumer that a business has collected.</li>
+            <li id="s4-li3">Request that a business that sells a consumer's personal data, not sell the consumer's personal data (We DO NOT sell personal information).</li>
+          </ul>
+          <p id="s4-p2">
+            If you make a request, we have one month to respond to you. If you would like to exercise any of these rights, please contact us at <strong>contact@chestsimulator.com</strong>.
+          </p>
+        </div>
+
+        <div class="section-block">
+          <h2 id="s5-h">5. GDPR Data Protection Rights</h2>
+          <p id="s5-p1">
+            We want to make sure you are fully aware of all of your data protection rights. Every user is entitled to the following:
+          </p>
+          <ul>
+            <li id="s5-li1"><strong>The right to access</strong> – You have the right to request copies of your personal data.</li>
+            <li id="s5-li2"><strong>The right to rectification</strong> – You have the right to request that we correct any information you believe is inaccurate.</li>
+            <li id="s5-li3"><strong>The right to erasure</strong> – You have the right to request that we erase your personal data under certain conditions.</li>
+            <li id="s5-li4"><strong>The right to restrict processing</strong> – You have the right to request that we restrict the processing of your personal data.</li>
+          </ul>
+        </div>
+
+        <div class="section-block">
+          <h2 id="s6-h">6. Children's Information Protection</h2>
+          <p id="s6-p">
+            Another part of our priority is adding protection for children while using the internet. We encourage parents and guardians to observe, participate in, and/or monitor and guide their online activity. ChestSimulator.com does not knowingly collect any Personal Identifiable Information from children under the age of 13.
+          </p>
+        </div>
+
+        <div class="section-block">
+          <h2 id="s7-h">7. Contact Information</h2>
+          <p id="s7-p">
+            If you have additional questions or require more information about our Privacy Policy, do not hesitate to contact our compliance team via email at: <a href="mailto:contact@chestsimulator.com">contact@chestsimulator.com</a>.
+          </p>
+        </div>
+      </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+      <div class="footer-links">
+        <a href="index.html" class="footer-link" id="f-home">Home</a>
+        <span style="color: #785a28;">·</span>
+        <a href="blog.html" class="footer-link" id="f-blog">Blog & Guides</a>
+        <span style="color: #785a28;">·</span>
+        <a href="about.html" class="footer-link" id="f-about">About Us</a>
+        <span style="color: #785a28;">·</span>
+        <a href="privacy.html" class="footer-link" id="f-privacy" style="color: #00c8c8;">Privacy Policy</a>
+        <span style="color: #785a28;">·</span>
+        <a href="terms.html" class="footer-link" id="f-terms">Terms of Use</a>
+        <span style="color: #785a28;">·</span>
+        <a href="cookie-policy.html" class="footer-link" id="f-cookie">Cookie Policy</a>
+        <span style="color: #785a28;">·</span>
+        <a href="contact.html" class="footer-link" id="f-contact">Contact</a>
+      </div>
+      <p class="disclaimer">
+        chestsimulator.com was created under Riot Games's "Legal Jibber Jabber" policy using assets owned by Riot Games. Riot Games does not endorse or sponsor this project.
+      </p>
+      <p class="copyright" id="f-copy">
+        © 2026 ChestSimulator.com, All rights reserved.
+      </p>
+    </footer>
+
+    <script>
+      const privacyData = {
+        en: {
+          navHome: 'Home',
+          navBlog: 'Blog & Guides',
+          navAbout: 'About Us',
+          navContact: 'Contact',
+          navPlay: '⚔️ PLAY NOW',
+          langNext: 'TR',
+          pBadge: 'Transparency & Security',
+          pTitle: 'Privacy Policy',
+          pDate: 'Last Updated: August 2026',
+          pIntro: 'At ChestSimulator.com, accessible from https://chestsimulator.com, one of our main priorities is the privacy of our visitors. This Privacy Policy document outlines the types of information that is collected and recorded by ChestSimulator.com and how we use it.',
+          s1h: '1. Google AdSense & Third-Party Advertising',
+          s1p1: 'Google is one of the third-party vendors on our site. It uses cookies, known as DART cookies, to serve ads to our site visitors based upon their visit to ChestSimulator.com and other sites on the internet.',
+          s1p2: 'Visitors may choose to decline the use of DART cookies by visiting the Google Ad and Content Network Privacy Policy at: https://policies.google.com/technologies/ads',
+          s1p3: 'Third-party ad servers or ad networks use technologies like cookies, JavaScript, or Web Beacons that are used in their respective advertisements. They automatically receive your IP address when this occurs.',
+          s2h: '2. LocalStorage & Browser Game Data',
+          s2p1: 'ChestSimulator.com is an interactive web-based simulator. All game progression data—including unlocked skins, Orange Essence, Mythic Essence, clicker levels, and inventory—is stored exclusively within your web browser\'s HTML5 LocalStorage.',
+          s2p2: 'We do not transmit your game inventory or simulator statistics to any external server. You can reset or clear it at any time by clearing your browser cache.',
+          s3h: '3. Google Analytics & Log Files',
+          s3p1: 'ChestSimulator.com follows a standard procedure of using log files and Google Analytics (G-J523ZKWNTY) to understand visitor trends and improve web performance.',
+          s3p2: 'These analytics are not linked to any personally identifiable information.',
+          s4h: '4. CCPA Privacy Rights (Do Not Sell My Personal Information)',
+          s5h: '5. GDPR Data Protection Rights',
+          s6h: '6. Children\'s Information Protection',
+          s6p: 'ChestSimulator.com does not knowingly collect any Personal Identifiable Information from children under the age of 13.',
+          s7h: '7. Contact Information',
+          s7p: 'If you have additional questions or require more information about our Privacy Policy, contact our team at: contact@chestsimulator.com.',
+          fCopy: '© 2026 ChestSimulator.com, All rights reserved.'
+        },
+        tr: {
+          navHome: 'Ana Sayfa',
+          navBlog: 'Blog & Rehber',
+          navAbout: 'Hakkımızda',
+          navContact: 'İletişim',
+          navPlay: '⚔️ OYNA',
+          langNext: 'EN',
+          pBadge: 'Şeffaflık & Güvenlik',
+          pTitle: 'Gizlilik Politikası',
+          pDate: 'Son Güncelleme: Ağustos 2026',
+          pIntro: 'ChestSimulator.com olarak ziyaretçilerimizin gizliliğine en yüksek önemi veriyoruz. Bu Gizlilik Politikası belgesi, ChestSimulator.com tarafından hangi verilerin toplandığını ve nasıl işlendiğini açıklamaktadır.',
+          s1h: '1. Google AdSense & Üçüncü Taraf Reklamcılık',
+          s1p1: 'Google, sitemizde reklam sunan üçüncü taraf sağlayıcılardan biridir. Sitemizi ve internetteki diğer siteleri ziyaretlerinize dayanarak reklam sunmak için DART çerezlerini kullanır.',
+          s1p2: 'Kullanıcılar, Google Reklam ve İçerik Ağı Gizlilik Politikasını ziyaret ederek DART çerezlerinin kullanımını devre dışı bırakabilirler: https://policies.google.com/technologies/ads',
+          s1p3: 'Üçüncü taraf reklam sunucuları, sitemizde görünen reklamlarında çerezler, JavaScript veya Web İşaretçileri gibi teknolojiler kullanır ve bu süreçte IP adresinizi otomatik olarak alabilirler.',
+          s2h: '2. Yerel Depolama (LocalStorage) & Oyun Verileri',
+          s2p1: 'ChestSimulator.com tamamen web tarayıcısı üzerinde çalışan interaktif bir simülatördür. Kazanılan tüm şampiyon kostümleri, Turuncu Öz, Mor Cevher ve tıklayıcı seviyeleri yalnızca tarayıcınızın HTML5 LocalStorage alanında saklanır.',
+          s2p2: 'Envanteriniz ve oyun istatistikleriniz hiçbir harici sunucuya aktarılmaz. Tarayıcı önbelleğinizi temizleyerek bu verileri dilediğiniz an silebilirsiniz.',
+          s3h: '3. Google Analytics & Günlük Kayıtları',
+          s3p1: 'ChestSimulator.com standart web analitiği ve Google Analytics (G-J523ZKWNTY) kullanarak ziyaretçi eğilimlerini ve performans verilerini anonim olarak inceler.',
+          s3p2: 'Bu veriler hiçbir şekilde kişisel kimlik bilgilerinizle eşleştirilmez.',
+          s4h: '4. CCPA Gizlilik Hakları',
+          s5h: '5. GDPR Veri Koruma Hakları',
+          s6h: '6. Çocukların Gizliliğinin Korunması',
+          s6p: 'ChestSimulator.com, 13 yaşın altındaki çocuklardan bilerek hiçbir kişisel kimlik bilgisi toplamaz.',
+          s7h: '7. İletişim Bilgileri',
+          s7p: 'Gizlilik Politikamız hakkında sorularınız veya talepleriniz için bize e-posta yoluyla ulaşabilirsiniz: contact@chestsimulator.com.',
+          fCopy: '© 2026 ChestSimulator.com, Tüm hakları saklıdır.'
+        }
+      };
+
+      let currentLang = localStorage.getItem('lol_game_lang') || 'en';
+
+      function applyLanguage(lang) {
+        currentLang = lang;
+        localStorage.setItem('lol_game_lang', lang);
+        document.documentElement.lang = lang;
+        const d = privacyData[lang] || privacyData.en;
+
+        document.getElementById('nav-home').textContent = d.navHome;
+        document.getElementById('nav-blog').textContent = d.navBlog;
+        document.getElementById('nav-about').textContent = d.navAbout;
+        document.getElementById('nav-contact').textContent = d.navContact;
+        document.getElementById('nav-play').textContent = d.navPlay;
+        document.getElementById('lang-label').textContent = d.langNext;
+        document.getElementById('mobile-lang-label').textContent = d.langNext;
+
+        document.getElementById('m-nav-play').textContent = d.navPlay;
+        document.getElementById('m-nav-home').textContent = '🏠 ' + d.navHome;
+        document.getElementById('m-nav-blog').textContent = '📖 ' + d.navBlog;
+        document.getElementById('m-nav-about').textContent = 'ℹ️ ' + d.navAbout;
+        document.getElementById('m-nav-contact').textContent = '✉️ ' + d.navContact;
+
+        document.getElementById('p-badge').textContent = d.pBadge;
+        document.getElementById('p-title').textContent = d.pTitle;
+        document.getElementById('p-date').textContent = d.pDate;
+        document.getElementById('p-intro').textContent = d.pIntro;
+        document.getElementById('s1-h').textContent = d.s1h;
+        document.getElementById('s1-p1').textContent = d.s1p1;
+        document.getElementById('s1-p3').textContent = d.s1p3;
+        document.getElementById('s2-h').textContent = d.s2h;
+        document.getElementById('s2-p1').textContent = d.s2p1;
+        document.getElementById('s2-p2').textContent = d.s2p2;
+        document.getElementById('s3-h').textContent = d.s3h;
+        document.getElementById('s3-p1').textContent = d.s3p1;
+        document.getElementById('s3-p2').textContent = d.s3p2;
+        document.getElementById('s4-h').textContent = d.s4h;
+        document.getElementById('s5-h').textContent = d.s5h;
+        document.getElementById('s6-h').textContent = d.s6h;
+        document.getElementById('s6-p').textContent = d.s6p;
+        document.getElementById('s7-h').textContent = d.s7h;
+        document.getElementById('s7-p').textContent = d.s7p;
+
+        document.getElementById('f-home').textContent = d.navHome;
+        document.getElementById('f-blog').textContent = d.navBlog;
+        document.getElementById('f-about').textContent = d.navAbout;
+        document.getElementById('f-contact').textContent = d.navContact;
+        document.getElementById('f-copy').textContent = d.fCopy;
+      }
+
+      function toggleLanguage() {
+        const nextLang = currentLang === 'en' ? 'tr' : 'en';
+        applyLanguage(nextLang);
+      }
+
+      function toggleMobileMenu() {
+        const drawer = document.getElementById('privacy-mobile-menu');
+        const burgerIcon = document.getElementById('privacy-hamburger-icon');
+        const closeIcon = document.getElementById('privacy-close-icon');
+        
+        if (drawer.classList.contains('open')) {
+          drawer.classList.remove('open');
+          burgerIcon.style.display = 'block';
+          closeIcon.style.display = 'none';
+        } else {
+          drawer.classList.add('open');
+          burgerIcon.style.display = 'none';
+          closeIcon.style.display = 'block';
+        }
+      }
+
+      applyLanguage(currentLang);
+    </script>
+  </body>
+</html>

@@ -185,7 +185,7 @@ export const Footer: React.FC = () => {
         <div className="max-w-5xl mx-auto flex flex-col items-center justify-center text-center space-y-3.5">
           
           {/* Navigation Links */}
-          <nav className="flex flex-wrap items-center justify-center gap-x-3 gap-y-1 text-xs font-semibold tracking-wide text-[#c8aa6e]">
+          <nav className="flex flex-wrap items-center justify-center gap-x-3 gap-y-1.5 text-xs font-semibold tracking-wide text-[#c8aa6e]">
             <a
               href="index.html"
               className="hover:text-[#00c8c8] transition-colors"
@@ -210,24 +210,40 @@ export const Footer: React.FC = () => {
             </a>
             <span className="text-[#785a28] select-none font-bold">·</span>
 
-            <button
-              type="button"
+            <a
+              href="privacy.html"
               id="footer-link-privacy"
-              onClick={() => setActiveModal('privacy')}
-              className="hover:text-[#f0e6d2] transition-colors cursor-pointer"
+              className="hover:text-[#00c8c8] transition-colors"
             >
               {t('footer.privacy', state.language)}
-            </button>
+            </a>
             <span className="text-[#785a28] select-none font-bold">·</span>
             
-            <button
-              type="button"
+            <a
+              href="terms.html"
               id="footer-link-terms"
-              onClick={() => setActiveModal('terms')}
-              className="hover:text-[#f0e6d2] transition-colors cursor-pointer"
+              className="hover:text-[#00c8c8] transition-colors"
             >
               {t('footer.terms', state.language)}
-            </button>
+            </a>
+            <span className="text-[#785a28] select-none font-bold">·</span>
+
+            <a
+              href="cookie-policy.html"
+              id="footer-link-cookie"
+              className="hover:text-[#00c8c8] transition-colors"
+            >
+              {t('footer.cookie', state.language)}
+            </a>
+            <span className="text-[#785a28] select-none font-bold">·</span>
+
+            <a
+              href="contact.html"
+              id="footer-link-contact"
+              className="hover:text-[#00c8c8] transition-colors"
+            >
+              {t('footer.contact', state.language)}
+            </a>
           </nav>
 
           {/* Legal Jibber Jabber Disclaimer */}

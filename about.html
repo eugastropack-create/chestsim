@@ -336,6 +336,7 @@
           <a href="index.html" class="nav-item" id="nav-home">Home</a>
           <a href="blog.html" class="nav-item" id="nav-blog">Blog & Guides</a>
           <a href="about.html" class="nav-item active" id="nav-about">About Us</a>
+          <a href="contact.html" class="nav-item" id="nav-contact">Contact</a>
           <a href="index.html" class="nav-item cta" id="nav-play">⚔️ PLAY NOW</a>
           <!-- Language Toggle Button -->
           <button type="button" class="lang-btn" onclick="toggleLanguage()" id="lang-btn">
@@ -380,6 +381,9 @@
           </a>
           <a href="about.html" class="nav-item active" id="m-nav-about" style="display: flex; align-items: center; gap: 0.5rem;">
             ℹ️ About Us
+          </a>
+          <a href="contact.html" class="nav-item" id="m-nav-contact" style="display: flex; align-items: center; gap: 0.5rem;">
+            ✉️ Contact
           </a>
         </div>
       </div>
@@ -448,7 +452,15 @@
         <span style="color: #785a28;">·</span>
         <a href="blog.html" class="footer-link" id="f-blog">Blog & Guides</a>
         <span style="color: #785a28;">·</span>
-        <a href="about.html" class="footer-link" id="f-about">About Us</a>
+        <a href="about.html" class="footer-link" id="f-about" style="color: #00c8c8;">About Us</a>
+        <span style="color: #785a28;">·</span>
+        <a href="privacy.html" class="footer-link" id="f-privacy">Privacy Policy</a>
+        <span style="color: #785a28;">·</span>
+        <a href="terms.html" class="footer-link" id="f-terms">Terms of Use</a>
+        <span style="color: #785a28;">·</span>
+        <a href="cookie-policy.html" class="footer-link" id="f-cookie">Cookie Policy</a>
+        <span style="color: #785a28;">·</span>
+        <a href="contact.html" class="footer-link" id="f-contact">Contact</a>
       </div>
       <p class="disclaimer">
         chestsimulator.com was created under Riot Games's "Legal Jibber Jabber" policy using assets owned by Riot Games. Riot Games does not endorse or sponsor this project.
@@ -465,6 +477,7 @@
           navHome: 'Home',
           navBlog: 'Blog & Guides',
           navAbout: 'About Us',
+          navContact: 'Contact',
           navPlay: '⚔️ PLAY NOW',
           langNext: 'TR',
           abtBadge: 'About Us & Vision',
@@ -488,6 +501,7 @@
           navHome: 'Ana Sayfa',
           navBlog: 'Blog & Rehber',
           navAbout: 'Hakkımızda',
+          navContact: 'İletişim',
           navPlay: '⚔️ OYNA',
           langNext: 'EN',
           abtBadge: 'Hakkımızda & Vizyon',
@@ -520,6 +534,7 @@
         document.getElementById('nav-home').textContent = d.navHome;
         document.getElementById('nav-blog').textContent = d.navBlog;
         document.getElementById('nav-about').textContent = d.navAbout;
+        document.getElementById('nav-contact').textContent = d.navContact;
         document.getElementById('nav-play').textContent = d.navPlay;
         document.getElementById('lang-label').textContent = d.langNext;
         document.getElementById('mobile-lang-label').textContent = d.langNext;
@@ -529,6 +544,7 @@
         document.getElementById('m-nav-home').textContent = '🏠 ' + d.navHome;
         document.getElementById('m-nav-blog').textContent = '📖 ' + d.navBlog;
         document.getElementById('m-nav-about').textContent = 'ℹ️ ' + d.navAbout;
+        document.getElementById('m-nav-contact').textContent = '✉️ ' + d.navContact;
 
         // Content
         document.getElementById('abt-badge').textContent = d.abtBadge;
@@ -550,6 +566,7 @@
         document.getElementById('f-home').textContent = d.navHome;
         document.getElementById('f-blog').textContent = d.navBlog;
         document.getElementById('f-about').textContent = d.navAbout;
+        document.getElementById('f-contact').textContent = d.navContact;
         document.getElementById('f-copy').textContent = d.fCopy;
       }
 

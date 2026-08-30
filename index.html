@@ -62,19 +62,6 @@
     <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800;900&family=Press+Start+2P&family=Rajdhani:wght@500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5440958179084157" crossorigin="anonymous"></script>
-
-    <!-- CSS Rule to Completely Hide Sponsored / Advertisement AdSense Boxes -->
-    <style>
-      .adsbygoogle,
-      .adsense-box,
-      [data-ad-slot],
-      .ad-container,
-      .sponsored-box,
-      .google-adsense-banner,
-      .sponsored-ad-unit {
-        display: none !important;
-      }
-    </style>
   </head>
   <body class="bg-[#030914] text-[#f0e6d2] selection:bg-[#c8aa6e]/30 selection:text-[#f0e6d2] overflow-x-hidden font-['Plus_Jakarta_Sans',sans-serif]">
     <!-- Semantic Header for Navigation with Desktop Bar & Mobile Hamburger Menu -->
@@ -109,6 +96,13 @@
             class="px-3 py-1.5 rounded-sm transition-all text-[#a09b8c] hover:text-[#f0e6d2] hover:bg-[#1e2328] border border-transparent hover:border-[#c8aa6e]/30"
           >
             About Us
+          </a>
+          <a
+            href="contact.html"
+            id="idx-nav-contact"
+            class="px-3 py-1.5 rounded-sm transition-all text-[#a09b8c] hover:text-[#f0e6d2] hover:bg-[#1e2328] border border-transparent hover:border-[#c8aa6e]/30"
+          >
+            Contact
           </a>
         </nav>
 
@@ -152,6 +146,13 @@
         >
           ℹ️ About Us
         </a>
+        <a
+          href="contact.html"
+          id="idx-m-nav-contact"
+          class="block px-3 py-2 text-xs font-bold rounded-sm text-[#a09b8c] hover:text-[#f0e6d2] hover:bg-[#1e2328]"
+        >
+          ✉️ Contact
+        </a>
       </div>
     </header>
 
@@ -162,18 +163,22 @@
         const hHome = document.getElementById('idx-nav-home');
         const hBlog = document.getElementById('idx-nav-blog');
         const hAbout = document.getElementById('idx-nav-about');
+        const hContact = document.getElementById('idx-nav-contact');
         const mHome = document.getElementById('idx-m-nav-home');
         const mBlog = document.getElementById('idx-m-nav-blog');
         const mAbout = document.getElementById('idx-m-nav-about');
+        const mContact = document.getElementById('idx-m-nav-contact');
         const seoTitle = document.getElementById('idx-seo-title');
         const seoDesc = document.getElementById('idx-seo-desc');
 
         if (hHome) hHome.textContent = isTr ? 'Ana Sayfa' : 'Home';
         if (hBlog) hBlog.textContent = isTr ? 'Blog & Rehber' : 'Blog & Guides';
         if (hAbout) hAbout.textContent = isTr ? 'Hakkımızda' : 'About Us';
+        if (hContact) hContact.textContent = isTr ? 'İletişim' : 'Contact';
         if (mHome) mHome.textContent = isTr ? '🏠 Ana Sayfa' : '🏠 Home';
         if (mBlog) mBlog.textContent = isTr ? '📖 Blog & Rehber' : '📖 Blog & Guides';
         if (mAbout) mAbout.textContent = isTr ? 'ℹ️ Hakkımızda' : 'ℹ️ About Us';
+        if (mContact) mContact.textContent = isTr ? '✉️ İletişim' : '✉️ Contact';
 
         if (seoTitle) {
           seoTitle.textContent = isTr ? 'LoL Hextech Clicker Simülasyonu Hakkında' : 'About LoL Hextech Clicker Simulator';

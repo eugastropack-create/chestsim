@@ -13,8 +13,8 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
     <title>Blog & Guides - LoL Hextech Simulator | ChestSimulator.com</title>
-    <meta name="description" content="League of Legends Hextech Crafting drop rates, chest opening odds, Baron Nashor clicker strategy, and Prestige skin guides." />
-    <meta name="keywords" content="lol blog, hextech crafting, lol chest drop rates, baron nashor clicker guide, master yi clicker, prestige skins odds" />
+    <meta name="description" content="Comprehensive League of Legends Hextech Crafting drop rates, chest opening odds, Baron Nashor DPS clicker strategies, and Prestige skin crafting guides." />
+    <meta name="keywords" content="lol blog, hextech crafting, lol chest drop rates, baron nashor clicker guide, master yi clicker, prestige skins odds, orange essence math" />
     <meta name="author" content="ChestSimulator.com" />
     <meta name="robots" content="index, follow" />
 
@@ -27,7 +27,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
-    
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5440958179084157" crossorigin="anonymous"></script>
+
     <style>
       * {
         margin: 0;
@@ -46,10 +47,6 @@
       a {
         color: inherit;
         text-decoration: none;
-      }
-      /* Hide AdSense boxes */
-      .adsbygoogle, .adsense-box, [data-ad-slot], .ad-container, .sponsored-box, .google-adsense-banner, .sponsored-ad-unit {
-        display: none !important;
       }
 
       /* Header */
@@ -158,26 +155,6 @@
         border-color: #00c8c8;
         color: #00c8c8;
       }
-
-      /* Hamburger button */
-      .hamburger-btn {
-        display: none;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        width: 36px;
-        height: 36px;
-        background: #031526;
-        border: 1px solid #1e2328;
-        border-radius: 2px;
-        color: #c8aa6e;
-        cursor: pointer;
-        transition: all 0.2s ease;
-      }
-      .hamburger-btn:hover {
-        border-color: #00c8c8;
-        color: #00c8c8;
-      }
       .mobile-controls {
         display: none;
         align-items: center;
@@ -197,6 +174,25 @@
         .nav-links { display: none; }
         .mobile-controls { display: flex; }
         .hamburger-btn { display: flex; }
+      }
+
+      .hamburger-btn {
+        display: none;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 36px;
+        height: 36px;
+        background: #031526;
+        border: 1px solid #1e2328;
+        border-radius: 2px;
+        color: #c8aa6e;
+        cursor: pointer;
+        transition: all 0.2s ease;
+      }
+      .hamburger-btn:hover {
+        border-color: #00c8c8;
+        color: #00c8c8;
       }
 
       /* Main Content */
@@ -383,6 +379,7 @@
         font-size: 0.8rem;
         font-weight: 600;
         transition: color 0.2s;
+        text-decoration: none;
       }
       .footer-link:hover {
         color: #f0e6d2;
@@ -420,13 +417,13 @@
           </div>
         </a>
 
-        <!-- Desktop Navigation Links (English / Turkish) -->
+        <!-- Desktop Navigation Links -->
         <nav class="nav-links">
           <a href="index.html" class="nav-item" id="nav-home">Home</a>
           <a href="blog.html" class="nav-item active" id="nav-blog">Blog & Guides</a>
           <a href="about.html" class="nav-item" id="nav-about">About Us</a>
+          <a href="contact.html" class="nav-item" id="nav-contact">Contact</a>
           <a href="index.html" class="nav-item cta" id="nav-play">⚔️ PLAY NOW</a>
-          <!-- Language Toggle Button -->
           <button type="button" class="lang-btn" onclick="toggleLanguage()" id="lang-btn">
             🌐 <span id="lang-label">TR</span>
           </button>
@@ -470,11 +467,14 @@
           <a href="about.html" class="nav-item" id="m-nav-about" style="display: flex; align-items: center; gap: 0.5rem;">
             ℹ️ About Us
           </a>
+          <a href="contact.html" class="nav-item" id="m-nav-contact" style="display: flex; align-items: center; gap: 0.5rem;">
+            ✉️ Contact
+          </a>
         </div>
       </div>
     </header>
 
-    <!-- Main Content Container (Dynamic EN / TR) -->
+    <!-- Main Content Container -->
     <main id="blog-content">
       <!-- Header Section -->
       <div class="header-section">
@@ -485,24 +485,24 @@
         </p>
       </div>
 
-      <!-- Article 1: Hextech Crafting & Skin Drop Rates -->
+      <!-- Article 1: Hextech Crafting Drop Rates -->
       <article class="article-card">
         <span class="article-tag" id="art1-tag">Crafting & Probabilities</span>
-        <h2 class="article-title" id="art1-title">Hextech Crafting & Skin Drop Rates</h2>
+        <h2 class="article-title" id="art1-title">Hextech Crafting & Skin Drop Rates Breakdown</h2>
         <div class="article-meta">
           <span id="art1-meta1">📅 Official Loot Analytics</span>
-          <span id="art1-meta2">⏱️ 5 min read</span>
+          <span id="art1-meta2">⏱️ 6 min read</span>
           <span id="art1-meta3">💎 Drop Rates Breakdown</span>
         </div>
         
         <div class="article-body" id="art1-body">
           <p>
-            In League of Legends, <strong>Hextech Crafting</strong> is the primary reward engine that allows summoners to earn champion shards, skin shards, and rare loot by scoring high grades in matches. However, the exact probability of receiving an Ultimate, Mythic, or Legendary skin shard from a standard Hextech chest is governed by specific mathematical drop tables.
+            In League of Legends, <strong>Hextech Crafting</strong> is the primary reward engine that allows summoners to earn champion shards, skin shards, and rare loot. However, the exact probability of receiving an Ultimate, Mythic, or Legendary skin shard from a standard Hextech chest is governed by specific mathematical drop tables.
           </p>
 
           <h3>Official Hextech Chest Probability Distribution</h3>
           <p>
-            Our simulator implements the exact official drop rates published by Riot Games, ensuring a 100% authentic probability simulation:
+            Our simulator implements the exact official drop rates published by Riot Games, ensuring an authentic probability simulation:
           </p>
 
           <table class="stat-table">
@@ -548,12 +548,12 @@
 
           <h3>Why Use a Chest Simulator?</h3>
           <p>
-            In the live game, chests are locked behind weekly quotas and key fragment drops. <strong>ChestSimulator.com</strong> gives players unlimited, risk-free access to test opening dozens or hundreds of Hextech chests to observe empirical drop rates and discover how many attempts it takes to unlock rare Mythic and Legendary cosmetics.
+            In the live game, chests are locked behind weekly quotas and key fragment drops. <strong>ChestSimulator.com</strong> gives players unlimited, risk-free access to test opening dozens or hundreds of Hextech chests to observe empirical drop rates and discover how many attempts it takes to unlock rare cosmetics.
           </p>
         </div>
       </article>
 
-      <!-- Article 2: Master Yi & Baron Nashor Combat Guide -->
+      <!-- Article 2: Master Yi vs. Baron Nashor Combat Guide -->
       <article class="article-card">
         <span class="article-tag" id="art2-tag">Game Mechanics & DPS Guide</span>
         <h2 class="article-title" id="art2-title">Master Yi vs. Baron Nashor Combat Guide</h2>
@@ -581,11 +581,123 @@
               <li>Ranked Banner Upgrades (progressing from Iron to Challenger)</li>
             </ul>
           </div>
+        </div>
+      </article>
 
-          <h3>Progression & Tier Evolution</h3>
+      <!-- Article 3: Mythic Essence & Prestige 2.0 Guide -->
+      <article class="article-card">
+        <span class="article-tag" id="art3-tag">Mythic Essence & Shop</span>
+        <h2 class="article-title" id="art3-title">Mythic Essence (ME) & Prestige 2.0 Skin Shop Guide</h2>
+        <div class="article-meta">
+          <span id="art3-meta1">📅 Economy Guide</span>
+          <span id="art3-meta2">⏱️ 5 min read</span>
+          <span id="art3-meta3">💎 Mythic Mastery</span>
+        </div>
+        
+        <div class="article-body" id="art3-body">
           <p>
-            Defeating Baron Nashor repeatedly rewards substantial XP, elevating your summoner level through authentic League of Legends ranked tiers (Iron, Bronze, Silver, Gold, Platinum, Emerald, Diamond, Master, Grandmaster, and Challenger). Each milestone unlocks new prestige aesthetic frames and equips you with keys to expand your skin collection!
+            In modern League of Legends, Gemstones and Prestige Points were combined into a unified premium currency: <strong>Mythic Essence (ME)</strong>. Mythic Essence is used in the rotating Mythic Shop to unlock vaulted Prestige skins, Hextech exclusives, and Ashen Knight thematic cosmetics.
           </p>
+
+          <h3>How to Efficiently Accumulate Mythic Essence</h3>
+          <p>
+            Standard Hextech Chests offer a low baseline chance (3.6%) of dropping 10 Mythic Essence. In contrast, Masterwork Chest milestone reward tracks offer guaranteed 5 to 10 ME chunks after opening 5, 10, 15, and 20 chests.
+          </p>
+
+          <table class="stat-table">
+            <thead>
+              <tr>
+                <th>Item Type</th>
+                <th>Mythic Essence Cost</th>
+                <th>Rotation Frequency</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Vaulted Prestige (Year 1)</td>
+                <td>125 ME</td>
+                <td>Every 2 Patches</td>
+              </tr>
+              <tr>
+                <td>Vaulted Prestige (Year 2+)</td>
+                <td>150 - 200 ME</td>
+                <td>Every 2 Patches</td>
+              </tr>
+              <tr>
+                <td>Mythic Thematic (e.g., Ashen Knight)</td>
+                <td>100 ME</td>
+                <td>Seasonal</td>
+              </tr>
+              <tr>
+                <td>Hextech Exclusive Classic</td>
+                <td>100 ME</td>
+                <td>Permanent Pool</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </article>
+
+      <!-- Article 4: Orange Essence Strategy: Disenchant vs. Reroll -->
+      <article class="article-card">
+        <span class="article-tag" id="art4-tag">Optimization & Math</span>
+        <h2 class="article-title" id="art4-title">Orange Essence Economy: Disenchant vs. Re-roll 3 Skin Shards</h2>
+        <div class="article-meta">
+          <span id="art4-meta1">📅 Strategy Guide</span>
+          <span id="art4-meta2">⏱️ 5 min read</span>
+          <span id="art4-meta3">📊 Mathematical Analysis</span>
+        </div>
+        
+        <div class="article-body" id="art4-body">
+          <p>
+            A common dilemma for League of Legends summoners is whether to <strong>disenchant</strong> low-tier skin shards for Orange Essence (OE) or <strong>reroll 3 skin shards</strong> into a random unowned permanent skin.
+          </p>
+
+          <h3>The Math: When to Disenchant vs. When to Reroll</h3>
+          <p>
+            Disenchanting gives exactly 20% of the skin's RP value in Orange Essence (e.g., 520 RP skin = 104 OE, 1350 RP skin = 270 OE). To upgrade an Epic 1350 RP skin shard to a permanent, you need 1050 OE.
+          </p>
+
+          <div class="highlight-box">
+            <strong>🎯 Golden Rule of Crafting:</strong>
+            <ul style="margin-top: 0.5rem; margin-left: 1.25rem;">
+              <li><strong>Reroll:</strong> Always reroll 520 RP and 750 RP skin shards! Their disenchant value is too low (~100 OE), whereas rerolling gives you an equal chance at 1350 RP or 1820 RP permanent skins.</li>
+              <li><strong>Disenchant:</strong> Disenchant unwanted 1820 RP (Legendary) and 1350 RP (Epic) duplicate shards to bank Orange Essence for the skins you genuinely play.</li>
+            </ul>
+          </div>
+        </div>
+      </article>
+
+      <!-- Article 5: Ranking System & League Tiers -->
+      <article class="article-card">
+        <span class="article-tag" id="art5-tag">Ranked Progression</span>
+        <h2 class="article-title" id="art5-title">League of Legends Ranked Tiers & Milestone Rewards Explained</h2>
+        <div class="article-meta">
+          <span id="art5-meta1">📅 Progression Guide</span>
+          <span id="art5-meta2">⏱️ 4 min read</span>
+          <span id="art5-meta3">🏆 Ranked Tiers</span>
+        </div>
+        
+        <div class="article-body" id="art5-body">
+          <p>
+            From Iron to Challenger, climbing the competitive ladder in League of Legends requires consistency and skill. In our simulator, your summoner rank progresses dynamically based on total Baron Nashor damage output, chest openings, and rare skin collection achievements.
+          </p>
+
+          <table class="stat-table">
+            <thead>
+              <tr>
+                <th>Tier</th>
+                <th>Division Levels</th>
+                <th>Rank Border Aesthetic</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>Iron - Silver</td><td>IV to I</td><td>Weathered Metal & Bronze Accents</td></tr>
+              <tr><td>Gold - Platinum</td><td>IV to I</td><td>Polished Gold & Emerald Glow</td></tr>
+              <tr><td>Diamond - Master</td><td>IV to I / 0+ LP</td><td>Celestial Blue & Cosmic Violet</td></tr>
+              <tr><td>Grandmaster - Challenger</td><td>Apex Tiers</td><td>Blazing Radiant Gold & Winged Crests</td></tr>
+            </tbody>
+          </table>
         </div>
       </article>
 
@@ -608,9 +720,17 @@
       <div class="footer-links">
         <a href="index.html" class="footer-link" id="f-home">Home</a>
         <span style="color: #785a28;">·</span>
-        <a href="blog.html" class="footer-link" id="f-blog">Blog & Guides</a>
+        <a href="blog.html" class="footer-link" id="f-blog" style="color: #00c8c8;">Blog & Guides</a>
         <span style="color: #785a28;">·</span>
         <a href="about.html" class="footer-link" id="f-about">About Us</a>
+        <span style="color: #785a28;">·</span>
+        <a href="privacy.html" class="footer-link" id="f-privacy">Privacy Policy</a>
+        <span style="color: #785a28;">·</span>
+        <a href="terms.html" class="footer-link" id="f-terms">Terms of Use</a>
+        <span style="color: #785a28;">·</span>
+        <a href="cookie-policy.html" class="footer-link" id="f-cookie">Cookie Policy</a>
+        <span style="color: #785a28;">·</span>
+        <a href="contact.html" class="footer-link" id="f-contact">Contact</a>
       </div>
       <p class="disclaimer">
         chestsimulator.com was created under Riot Games's "Legal Jibber Jabber" policy using assets owned by Riot Games. Riot Games does not endorse or sponsor this project.
@@ -627,6 +747,7 @@
           navHome: 'Home',
           navBlog: 'Blog & Guides',
           navAbout: 'About Us',
+          navContact: 'Contact',
           navPlay: '⚔️ PLAY NOW',
           langNext: 'TR',
           badgeGuides: 'Guides & Strategy',
@@ -634,9 +755,9 @@
           mainSubtitle: "In-depth guides on League of Legends Hextech crafting drop rates, Baron Nashor DPS clicker strategies, and skin loot probability analytics.",
           
           art1Tag: 'Crafting & Probabilities',
-          art1Title: 'Hextech Crafting & Skin Drop Rates',
+          art1Title: 'Hextech Crafting & Skin Drop Rates Breakdown',
           art1Meta1: '📅 Official Loot Analytics',
-          art1Meta2: '⏱️ 5 min read',
+          art1Meta2: '⏱️ 6 min read',
           art1Meta3: '💎 Drop Rates Breakdown',
           art1Body: `
             <p>In League of Legends, <strong>Hextech Crafting</strong> is the primary reward engine that allows summoners to earn champion shards, skin shards, and rare loot by scoring high grades in matches. However, the exact probability of receiving an Ultimate, Mythic, or Legendary skin shard from a standard Hextech chest is governed by specific mathematical drop tables.</p>
@@ -682,8 +803,62 @@
                 <li>Ranked Banner Upgrades (progressing from Iron to Challenger)</li>
               </ul>
             </div>
-            <h3>Progression & Tier Evolution</h3>
-            <p>Defeating Baron Nashor repeatedly rewards substantial XP, elevating your summoner level through authentic League of Legends ranked tiers (Iron, Bronze, Silver, Gold, Platinum, Emerald, Diamond, Master, Grandmaster, and Challenger). Each milestone unlocks new prestige aesthetic frames and equips you with keys to expand your skin collection!</p>
+          `,
+
+          art3Tag: 'Mythic Essence & Shop',
+          art3Title: 'Mythic Essence (ME) & Prestige 2.0 Skin Shop Guide',
+          art3Meta1: '📅 Economy Guide',
+          art3Meta2: '⏱️ 5 min read',
+          art3Meta3: '💎 Mythic Mastery',
+          art3Body: `
+            <p>In modern League of Legends, Gemstones and Prestige Points were combined into a unified premium currency: <strong>Mythic Essence (ME)</strong>. Mythic Essence is used in the rotating Mythic Shop to unlock vaulted Prestige skins, Hextech exclusives, and Ashen Knight thematic cosmetics.</p>
+            <h3>How to Efficiently Accumulate Mythic Essence</h3>
+            <p>Standard Hextech Chests offer a low baseline chance (3.6%) of dropping 10 Mythic Essence. In contrast, Masterwork Chest milestone reward tracks offer guaranteed 5 to 10 ME chunks after opening 5, 10, 15, and 20 chests.</p>
+            <table class="stat-table">
+              <thead><tr><th>Item Type</th><th>Mythic Essence Cost</th><th>Rotation Frequency</th></tr></thead>
+              <tbody>
+                <tr><td>Vaulted Prestige (Year 1)</td><td>125 ME</td><td>Every 2 Patches</td></tr>
+                <tr><td>Vaulted Prestige (Year 2+)</td><td>150 - 200 ME</td><td>Every 2 Patches</td></tr>
+                <tr><td>Mythic Thematic (e.g., Ashen Knight)</td><td>100 ME</td><td>Seasonal</td></tr>
+                <tr><td>Hextech Exclusive Classic</td><td>100 ME</td><td>Permanent Pool</td></tr>
+              </tbody>
+            </table>
+          `,
+
+          art4Tag: 'Optimization & Math',
+          art4Title: 'Orange Essence Economy: Disenchant vs. Re-roll 3 Skin Shards',
+          art4Meta1: '📅 Strategy Guide',
+          art4Meta2: '⏱️ 5 min read',
+          art4Meta3: '📊 Mathematical Analysis',
+          art4Body: `
+            <p>A common dilemma for League of Legends summoners is whether to <strong>disenchant</strong> low-tier skin shards for Orange Essence (OE) or <strong>reroll 3 skin shards</strong> into a random unowned permanent skin.</p>
+            <h3>The Math: When to Disenchant vs. When to Reroll</h3>
+            <p>Disenchanting gives exactly 20% of the skin's RP value in Orange Essence (e.g., 520 RP skin = 104 OE, 1350 RP skin = 270 OE). To upgrade an Epic 1350 RP skin shard to a permanent, you need 1050 OE.</p>
+            <div class="highlight-box">
+              <strong>🎯 Golden Rule of Crafting:</strong>
+              <ul style="margin-top: 0.5rem; margin-left: 1.25rem;">
+                <li><strong>Reroll:</strong> Always reroll 520 RP and 750 RP skin shards! Their disenchant value is too low (~100 OE), whereas rerolling gives you an equal chance at 1350 RP or 1820 RP permanent skins.</li>
+                <li><strong>Disenchant:</strong> Disenchant unwanted 1820 RP (Legendary) and 1350 RP (Epic) duplicate shards to bank Orange Essence for the skins you genuinely play.</li>
+              </ul>
+            </div>
+          `,
+
+          art5Tag: 'Ranked Progression',
+          art5Title: 'League of Legends Ranked Tiers & Milestone Rewards Explained',
+          art5Meta1: '📅 Progression Guide',
+          art5Meta2: '⏱️ 4 min read',
+          art5Meta3: '🏆 Ranked Tiers',
+          art5Body: `
+            <p>From Iron to Challenger, climbing the competitive ladder in League of Legends requires consistency and skill. In our simulator, your summoner rank progresses dynamically based on total Baron Nashor damage output, chest openings, and rare skin collection achievements.</p>
+            <table class="stat-table">
+              <thead><tr><th>Tier</th><th>Division Levels</th><th>Rank Border Aesthetic</th></tr></thead>
+              <tbody>
+                <tr><td>Iron - Silver</td><td>IV to I</td><td>Weathered Metal & Bronze Accents</td></tr>
+                <tr><td>Gold - Platinum</td><td>IV to I</td><td>Polished Gold & Emerald Glow</td></tr>
+                <tr><td>Diamond - Master</td><td>IV to I / 0+ LP</td><td>Celestial Blue & Cosmic Violet</td></tr>
+                <tr><td>Grandmaster - Challenger</td><td>Apex Tiers</td><td>Blazing Radiant Gold & Winged Crests</td></tr>
+              </tbody>
+            </table>
           `,
 
           ctaTitle: '⚔️ Experience the Hextech Simulator Now!',
@@ -696,6 +871,7 @@
           navHome: 'Ana Sayfa',
           navBlog: 'Blog & Rehber',
           navAbout: 'Hakkımızda',
+          navContact: 'İletişim',
           navPlay: '⚔️ OYNA',
           langNext: 'EN',
           badgeGuides: 'Rehberler & Analizler',
@@ -703,9 +879,9 @@
           mainSubtitle: 'League of Legends zanaatkarlık mekanikleri, sandık düşme oranları ve Baron Nashor simülasyon stratejileri hakkında derinlemesine makaleler.',
           
           art1Tag: 'Zanaatkarlık & İhtimaller',
-          art1Title: 'Hextech Zanaatkarlığı ve Kostüm İhtimalleri',
+          art1Title: 'Hextech Zanaatkarlığı ve Kostüm İhtimalleri Dağılımı',
           art1Meta1: '📅 Kapsamlı Rehber',
-          art1Meta2: '⏱️ 5 dk okuma',
+          art1Meta2: '⏱️ 6 dk okuma',
           art1Meta3: '💎 İhtimal Analizi',
           art1Body: `
             <p>League of Legends'ta Hextech Zanaatkarlığı, oyuncuların maç sonu performanslarına göre sandık ve anahtar parçacıkları kazanarak şampiyon, kostüm ve ganimet eşyaları elde etmelerini sağlayan en popüler ödül sistemidir. Ancak bir Hextech Sandığı açıldığında hangi kategoriden bir eşyanın düşeceği matematiksel olasılıklara dayanır.</p>
@@ -748,16 +924,70 @@
               <ul style="margin-top: 0.5rem; margin-left: 1.25rem;">
                 <li>Yüksek Deneyim Puanı (XP) ve Seviye Atlama</li>
                 <li>Hextech Anahtarı ve Anahtar Parçacıkları</li>
-                <li>Seviye Çerçevesi Yükseltmesi (Demir'den Şampiyonluk Aşamasına)</li>
+                <li>Dereceli Çerçeve Yükseltmeleri (Demir'den Şampiyonluk Aşamasına)</li>
               </ul>
             </div>
-            <h3>Seviye Atlama ve İlerleme Sistemi</h3>
-            <p>Baron'u her alt ettiğinizde kazandığınız tecrübe puanları seviyenizi yükseltir. Seviyeniz arttıkça profil çerçeveniz Zaun, Piltover, Noxus ve Targon temalı orijinal League of Legends çerçevelerine evrilir. Aynı zamanda biriken anahtarlarınızla sandıkları açarak koleksiyonunuza yepyeni kostümler katabilirsiniz!</p>
           `,
 
-          ctaTitle: '⚔️ Hextech Simülatörünü Hemen Dene!',
-          ctaDesc: "Baron Nashor'a tıkla, anahtarları topla, Hextech sandıklarını aç ve en nadir Prestij kostümleri koleksiyonuna ekle!",
-          ctaBtn: '⚔️ ŞİMDİ OYNA',
+          art3Tag: 'İhtişamlı Öz & Mağaza',
+          art3Title: 'İhtişamlı Öz (ME) & Prestij 2.0 Mağazası Rehberi',
+          art3Meta1: '📅 Ekonomi Rehberi',
+          art3Meta2: '⏱️ 5 dk okuma',
+          art3Meta3: '💎 İhtişamlı Rehber',
+          art3Body: `
+            <p>League of Legends'ta Cevherler ve Prestij Puanları birleştirilerek tek bir evrensel para birimi olan <strong>İhtişamlı Öz (Mythic Essence)</strong> sistemine geçilmiştir. İhtişamlı Öz, dönemsel olarak yenilenen İhtişamlı Mağaza'dan geçmiş Prestij kostümlerini ve Kül Şövalyesi serisini almak için kullanılır.</p>
+            <h3>İhtişamlı Öz En Hızlı Nasıl Toplanır?</h3>
+            <p>Standart Hextech sandıklarından %3.6 ihtimalle 10 İhtişamlı Öz çıkabilir. Ustalık Sandığı açma aşamalarında ise 5., 10., 15. ve 20. sandıklarda garantili İhtişamlı Öz ödülleri verilir.</p>
+            <table class="stat-table">
+              <thead><tr><th>Eşya Türü</th><th>İhtişamlı Öz Bedeli</th><th>Yenilenme Süresi</th></tr></thead>
+              <tbody>
+                <tr><td>Eski Prestij Kostüm (1. Yıl)</td><td>125 ME</td><td>Her 2 Yamada Bir</td></tr>
+                <tr><td>Eski Prestij Kostüm (2.+ Yıl)</td><td>150 - 200 ME</td><td>Her 2 Yamada Bir</td></tr>
+                <tr><td>İhtişamlı Tematik (Kül Şövalyesi vb.)</td><td>100 ME</td><td>Sezonluk</td></tr>
+                <tr><td>Klasik Hextech Kostümü</td><td>100 ME</td><td>Kalıcı Havuz</td></tr>
+              </tbody>
+            </table>
+          `,
+
+          art4Tag: 'Optimizasyon & Matematik',
+          art4Title: 'Turuncu Öz Stratejisi: Ayrıştırmak mı Yoksa 3 Kostüm Yeniden İşlemek mi?',
+          art4Meta1: '📅 Strateji Rehberi',
+          art4Meta2: '⏱️ 5 dk okuma',
+          art4Meta3: '📊 Matematiksel Analiz',
+          art4Body: `
+            <p>LoL oyuncularının en sık karşılaştığı ikilem: Düşük değerli kostüm kristallerini Turuncu Öz (OE) için <strong>ayrıştırmak mı</strong> yoksa 3 kristali <strong>yeniden işleyerek (reroll)</strong> kalıcı rastgele bir kostüm açmak mı daha avantajlı?</p>
+            <h3>Matematiksel Karşılaştırma</h3>
+            <p>Bir kostüm kristalini ayrıştırdığınızda RP bedelinin %20'si kadar Turuncu Öz kazanırsınız (520 RP = 104 Öz, 1350 RP = 270 Öz). 1350 RP bir kostümü kalıcı yapmak için 1050 Turuncu Öz gerekir.</p>
+            <div class="highlight-box">
+              <strong>🎯 Altın Kural:</strong>
+              <ul style="margin-top: 0.5rem; margin-left: 1.25rem;">
+                <li><strong>Yeniden İşleyin:</strong> 520 RP ve 750 RP'lik kristalleri ASLA ayrıştırmayın, 3 tanesini birleştirip yeniden işleyin! Çünkü bunların ayrıştırma değeri çok düşüktür (~100 Öz). Yeniden işleme yaptığınızda Destansı veya Efsanevi kalıcı kostüm çıkma şansı eşittir.</li>
+                <li><strong>Ayrıştırın:</strong> İstemediğiniz 1350 RP ve 1820 RP kopyaları ayrıştırarak çok sevdiğiniz şampiyonların kostümlerini açmak için Turuncu Öz biriktirin.</li>
+              </ul>
+            </div>
+          `,
+
+          art5Tag: 'Dereceli İlerlemesi',
+          art5Title: 'League of Legends Dereceli Aşamaları ve Seviye Ödülleri',
+          art5Meta1: '📅 İlerleme Rehberi',
+          art5Meta2: '⏱️ 4 dk okuma',
+          art5Meta3: '🏆 Dereceli Aşamaları',
+          art5Body: `
+            <p>Demir aşamasından Şampiyonluk basamağına kadar LoL lig sistemi azim ve beceri gerektirir. Simülatörümüzde seviyeniz ve dereceli çerçeveniz Baron Nashor'a verdiğiniz toplam hasara, açtığınız sandık sayısına ve nadir kostüm koleksiyonunuza göre otomatik olarak yükselir.</p>
+            <table class="stat-table">
+              <thead><tr><th>Aşama</th><th>Küme Seviyeleri</th><th>Çerçeve Tasarımı</th></tr></thead>
+              <tbody>
+                <tr><td>Demir - Gümüş</td><td>IV - I</td><td>Eskitilmiş Metal & Bronz Detaylar</td></tr>
+                <tr><td>Altın - Platin</td><td>IV - I</td><td>Parlak Altın & Zümrüt Işıltısı</td></tr>
+                <tr><td>Elmas - Ustalık</td><td>IV - I / 0+ LP</td><td>Kozmik Mavi & Mor Kristal Çerçeve</td></tr>
+                <tr><td>Üstatlık - Şampiyonluk</td><td>Zirve Aşamaları</td><td>Göz Alıcı Işıltılı Kanatlı Taç</td></tr>
+              </tbody>
+            </table>
+          `,
+
+          ctaTitle: '⚔️ Hextech Simülatörünü Hemen Deneyin!',
+          ctaDesc: 'Baron Nashor\'a saldırın, Hextech anahtarları kazanın, sandıkları açın ve hayalinizdeki League of Legends kostüm koleksiyonunu oluşturun!',
+          ctaBtn: '⚔️ HEMEN OYNA',
           fCopy: '© 2026 ChestSimulator.com, Tüm hakları saklıdır.'
         }
       };
@@ -770,26 +1000,24 @@
         document.documentElement.lang = lang;
         const d = blogData[lang] || blogData.en;
 
-        // Header desktop
         document.getElementById('nav-home').textContent = d.navHome;
         document.getElementById('nav-blog').textContent = d.navBlog;
         document.getElementById('nav-about').textContent = d.navAbout;
+        document.getElementById('nav-contact').textContent = d.navContact;
         document.getElementById('nav-play').textContent = d.navPlay;
         document.getElementById('lang-label').textContent = d.langNext;
         document.getElementById('mobile-lang-label').textContent = d.langNext;
 
-        // Mobile drawer
         document.getElementById('m-nav-play').textContent = d.navPlay;
         document.getElementById('m-nav-home').textContent = '🏠 ' + d.navHome;
         document.getElementById('m-nav-blog').textContent = '📖 ' + d.navBlog;
         document.getElementById('m-nav-about').textContent = 'ℹ️ ' + d.navAbout;
+        document.getElementById('m-nav-contact').textContent = '✉️ ' + d.navContact;
 
-        // Main Header
         document.getElementById('badge-guides').textContent = d.badgeGuides;
         document.getElementById('main-title').textContent = d.mainTitle;
         document.getElementById('main-subtitle').textContent = d.mainSubtitle;
 
-        // Article 1
         document.getElementById('art1-tag').textContent = d.art1Tag;
         document.getElementById('art1-title').textContent = d.art1Title;
         document.getElementById('art1-meta1').textContent = d.art1Meta1;
@@ -797,7 +1025,6 @@
         document.getElementById('art1-meta3').textContent = d.art1Meta3;
         document.getElementById('art1-body').innerHTML = d.art1Body;
 
-        // Article 2
         document.getElementById('art2-tag').textContent = d.art2Tag;
         document.getElementById('art2-title').textContent = d.art2Title;
         document.getElementById('art2-meta1').textContent = d.art2Meta1;
@@ -805,15 +1032,35 @@
         document.getElementById('art2-meta3').textContent = d.art2Meta3;
         document.getElementById('art2-body').innerHTML = d.art2Body;
 
-        // CTA
+        document.getElementById('art3-tag').textContent = d.art3Tag;
+        document.getElementById('art3-title').textContent = d.art3Title;
+        document.getElementById('art3-meta1').textContent = d.art3Meta1;
+        document.getElementById('art3-meta2').textContent = d.art3Meta2;
+        document.getElementById('art3-meta3').textContent = d.art3Meta3;
+        document.getElementById('art3-body').innerHTML = d.art3Body;
+
+        document.getElementById('art4-tag').textContent = d.art4Tag;
+        document.getElementById('art4-title').textContent = d.art4Title;
+        document.getElementById('art4-meta1').textContent = d.art4Meta1;
+        document.getElementById('art4-meta2').textContent = d.art4Meta2;
+        document.getElementById('art4-meta3').textContent = d.art4Meta3;
+        document.getElementById('art4-body').innerHTML = d.art4Body;
+
+        document.getElementById('art5-tag').textContent = d.art5Tag;
+        document.getElementById('art5-title').textContent = d.art5Title;
+        document.getElementById('art5-meta1').textContent = d.art5Meta1;
+        document.getElementById('art5-meta2').textContent = d.art5Meta2;
+        document.getElementById('art5-meta3').textContent = d.art5Meta3;
+        document.getElementById('art5-body').innerHTML = d.art5Body;
+
         document.getElementById('cta-title').textContent = d.ctaTitle;
         document.getElementById('cta-desc').textContent = d.ctaDesc;
-        document.getElementById('cta-btn').innerHTML = '<span>' + d.ctaBtn + '</span>';
+        document.getElementById('cta-btn').innerHTML = `<span>${d.ctaBtn}</span>`;
 
-        // Footer
         document.getElementById('f-home').textContent = d.navHome;
         document.getElementById('f-blog').textContent = d.navBlog;
         document.getElementById('f-about').textContent = d.navAbout;
+        document.getElementById('f-contact').textContent = d.navContact;
         document.getElementById('f-copy').textContent = d.fCopy;
       }
 
@@ -838,7 +1085,6 @@
         }
       }
 
-      // Initialize language
       applyLanguage(currentLang);
     </script>
   </body>
